@@ -1,0 +1,32 @@
+@media (max-width: 1920px) {
+    
+    .streaming-img{
+        max-width: 200px ;
+    }
+}
+
+@media (max-width: 1267px) {
+    
+    .streaming-img{
+        max-width: 180px ;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .streaming-img{
+        max-width: 150px ;
+    }
+}
+
+@media (max-width: 767px) {
+  
+    
+    .streaming-img{
+        max-width: calc(50% - 5px) ;
+    }
+}
+
+
+
+

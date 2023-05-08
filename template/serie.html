@@ -14,11 +14,12 @@
 <body class="container">
   <!--Header-->
   <header class="">
-    <ul class="d-flex align-items-center justify-content-lg-start ">
-      <li class="p-1 "><a href="/template/index.html"><img src="images/logo-header.png" alt="Logo da página Netfilx"> </a></li>
-      <li class="p-1"><a href="/template/streamings.html"> Streamings </a></li>
-      <li class="p-1"><a href="/template/series.html"> Séries </a></li>
-    </ul>    
+    <ul class="d-flex flex-wrap align-items-center justify-content-lg-start ">
+      <li class=""><a href="/template/index.html"><img src="images/logo-header.png" alt="Logo da página Netfilx"> </a> </li>
+      <li class="p-1 "><a href="/template/index.html"> Inicio </a></li>
+      <li class="p-1"><a href="/template/list-series.html"> Séries </a></li>
+      <li class="p-1"><a href="/template/login.html"> Login</a></li>
+    </ul>
   </header>
   <!-- End Header -->
 
@@ -26,19 +27,19 @@
   <!-- Main Content -->
   <main class="">
 
-    <img class="img-fluid w-100 mb-3" src="images/series/serie.jpg" alt="Imagem do cartaz da serie">
+    <img class="mb-3  w-100" height="200px" src="images/series/serie.jpg" alt="Imagem do cartaz da serie">
 
-    <div class="d-flex justify-content-between mb-5">
-      <h2 class="">Vikings</h2>
+    <div class="mb-5  row">
+      <h2 class="col-4 col-lg-8">Vikings</h2>
 
-      <div class="d-flex text-center">
-        <div class="d-flex flex-column">
+      <div class="col-8 col-lg-4 text-center row">
+        <div class="col-6 ">
           <span><i class="bi bi-1-square"></i></span>
-          <p>Recomendam</p>
+          <p class="">Recomendam</p>
         </div>
-        <div class="d-flex flex-column ">
+        <div class=" col-6 ">
           <span><i class="bi bi-3-square"></i></span>
-          <p>Assistiram</p>
+          <p class="">Assistiram</p>
         </div>
       </div>
     </div>
@@ -47,34 +48,25 @@
 
     <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat sem at ligula venenatis finibus. Maecenas dignissim ut eros quis placerat. Mauris nec lorem enim. Sed scelerisque, nibh vel maximus efficitur, leo dui feugiat lacus, vitae lacinia velit mauris ut massa. Cras vestibulum vitae felis eget venenatis. Maecenas scelerisque purus non molestie congue. Nam augue ligula, sollicitudin sed sem nec, auctor tempus ligula. In gravida dictum est eget ullamcorper. Integer dapibus tortor vitae</p>    
 
-  <div class="d-flex">
-      <!-- <div class="">
-         <h3 class="mb-3">Disponível em:</h3>
-        <div class="d-flex flex-wrap justify-content-between">
-          <img class=" " src="images/streamings/netflix.png" alt="">
-          <img class=" " src="images/streamings/netflix.png" alt="">
-          <img class=" " src="images/streamings/netflix.png" alt="">
-        </div>
-      </div> -->
-
-      <div class="">
+  <div class="row ">
+      <div class="col-6 col-lg-8">
         <h3 class="mb-3">Disponível em:</h3>
        <div class="">
-         <img class=" " src="images/streamings/netflix.png" alt="">
-         <img class=" " src="images/streamings/netflix.png" alt="">
-         <img class=" " src="images/streamings/netflix.png" alt="">
+         <img class="streaming-img col-6 col-lg-auto " src="images/streamings/netflix.png" alt="">
+         <img class="streaming-img col-6 col-lg-auto" src="images/streamings/netflix.png" alt="">
+         <img class="streaming-img col-6 col-lg-auto" src="images/streamings/netflix.png" alt="">
        </div>
-     </div>
+      </div>
       
         
-      <div class="d-flex  justify-content-center text-center ">
-        <div class="">
+      <div class="col-6 col-lg-4 row align-self-lg-end">
+        <div class="col-6">
           <span class="">2030</span>
-          <p>Recomendam</p>
+          <p class="">Recomendam</p>
         </div>
-        <div class="">
-          <span>8951</span>
-          <p>Assistiram</p>
+        <div class="col-6">
+          <span class="">8951</span>
+          <p class="">Assistiram</p>
         </div>
       </div>
   </div>

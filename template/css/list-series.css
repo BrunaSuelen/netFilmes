@@ -1,0 +1,39 @@
+@media (max-width: 1920px) {
+   
+    .series-img{
+        max-width: 13%;
+    }
+}
+
+@media (max-width: 1267px) {
+    
+    .series-img{
+        max-width: 16.5% ;
+    }
+}
+
+@media (max-width: 1024px) {
+    
+    .series-img{
+        max-width: 19.5% ;
+    }
+}
+
+
+@media (max-width: 767px) {
+      
+    .series-img{
+        max-width: 24.5% ;
+    }
+}
+
+
+@media (max-width: 568px) {
+  
+    
+    .series-img{ 
+        max-width: 33% ;
+    }
+}
+
+

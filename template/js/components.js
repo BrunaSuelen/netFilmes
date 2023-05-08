@@ -1,50 +1,41 @@
 
-function createSection(cards=[], h2TextContent='', hrefLinkAllCards='#'){
+
+function createSection( h2TextContent='', h2ClassName=''){
     const section = document.createElement('section');
     const h2 = document.createElement('h2');
-    const div = createListCards(cards, hrefLinkAllCards);
     
     section.appendChild(h2);
-    section.appendChild(div)
 
     section.className='';
 
+    h2.className = h2ClassName;
     h2.textContent = h2TextContent; 
     
     return section;
 }
 
-function createListCards(cards, hrefLinkAllCards){
+function createListCards( buttonRedirect=null, divListCardsClassName='', ulClassName=''){
     const divListCards = document.createElement('div');
 
     const ul = document.createElement('ul');
-    const buttonRedirect = createButtonRedirect(hrefLinkAllCards,'button-redirect', 'bi bi-chevron-right')
-
 
     divListCards.appendChild(ul);
-    divListCards.appendChild(buttonRedirect)
-
-    divListCards.className="d-flex  align-items-center"
-
-
-    ul.className="d-flex flex-row bd-highlight";
-     
-
-    const quantityCards = getNumberCardsByWidthScreen();
-
-    const cardsToDisplay = cards.slice(0, quantityCards);
     
-    cardsToDisplay.forEach((card, index) => {
-        const listItem = createCard(card.link, card.imgSrc);
-        ul.appendChild(listItem)
-    });
+    if(buttonRedirect){
+        divListCards.appendChild(buttonRedirect)
+    }
 
+    divListCards.className= divListCardsClassName
+
+
+    ul.className= ulClassName;
+     
     return divListCards
 }
 
 
 
-function createCard(hrefLinkCard='#', imgSrc='' ){ 
+function createCard(hrefLinkCard='#', imgSrc='', liClassName='' ){ 
 
     const li = document.createElement('li')
     const img = document.createElement('img');
@@ -53,7 +44,7 @@ function createCard(hrefLinkCard='#', imgSrc='' ){
     li.appendChild(linkCard);
     linkCard.appendChild(img)
 
-    li.className= "p-2 bd-highlight";
+    li.className= liClassName;
 
     linkCard.href = hrefLinkCard
 
@@ -73,7 +64,7 @@ function createButtonRedirect(buttonSrcRedirect='#', buttonClassName='', iconCla
     const icon = document.createElement('i');
 
     icon.className = iconClassName
-    icon.style.fontSize = '1rem';
+    // icon.style.fontSize = '1rem';
     
     buttonRedirect.appendChild(icon);
 

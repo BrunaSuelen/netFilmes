@@ -54,7 +54,7 @@ const json = {
         },
         {
             title : "Minha Lista",
-            linkAllCards: '/template/series.html',
+            linkAllCards: '/template/list-series.html',
             cards : [
                 {
                     link: '/template/serie.html',
@@ -111,7 +111,7 @@ const json = {
         },
         {
             title : "Minha Lista",
-            linkAllCards: '/template/series.html',
+            linkAllCards: '/template/list-series.html',
             cards : [
                 {
                     link: '/template/serie.html',
@@ -167,7 +167,7 @@ const json = {
         },
         {
             title : "Minha Lista",
-            linkAllCards: '/template/series.html',
+            linkAllCards: '/template/list-series.html',
             cards : [
                 {
                     link: '/template/serie.html',
