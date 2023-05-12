@@ -1,13 +1,26 @@
-# Link
+# Links
 
 - Gerador de logo baseado na Neflix:  https://fontmeme.com/netflix-font/
 - Wireframe do projeto: https://miro.com/app/board/uXjVMNvRsHI=/
-- Figma, template de alta fidelidade: 
+- Figma, template de alta fidelidade: https://www.figma.com/file/nD58Y0A3nnKiJG9BwJDAdR/Untitled?type=design&node-id=0-1&t=imf9cV8yGshG11jm-0
 
-# Templates utilizados como inspiração 
-- https://www.adorocinema.com/series/serie-7330/streaming/ 
-- https://www.adorocinema.com/series-tv/
-- https://www.rottentomatoes.com/tv/peaky_blinders
-- https://www.adorocinema.com/series/serie-34167/
-- https://www.digitaltrends.com/movies/best-new-shows-to-stream-this-week/
-- https://collider.com/best-tv-shows-to-binge-watch/#you-2018-present
+# To do
+- [ ] Confirmar se todos os requisitos no roteiro estão sendo atendidos  
+- [ ] Validar a responsividade  
+- [ ] Selecionar uma fonte family para o site 
+- [ ] Aplicar animações no site 
+- [ ] Arrumar a navbar
+- [ ] Verificar se vai ter logout 
+  
+# Anotações 
+```
+ Nome do breakpoint por  larguras de telas 
+ $grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+```
