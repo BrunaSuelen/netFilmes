@@ -10,11 +10,11 @@
 - [ ] Selecionar uma fonte family para o site 
 - [ ] Aplicar animações no site 
 - [ ] Arrumar a navbar
+- [ ] Verificar se vai ter logout 
   
 # Anotações 
-- Verificar se vai ter logout da conta 
-
-- Nome do breakpoint por  larguras de telas 
+```
+ Nome do breakpoint por  larguras de telas 
  $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -23,3 +23,4 @@
   xl: 1200px,
   xxl: 1400px
 );
+```
