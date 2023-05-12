@@ -1,9 +1,10 @@
-const lista = document.querySelector('.lista');
-const item = document.querySelector('.item');
+const lista = document.querySelector('.list-cards');
+const item = document.querySelector('.cards');
 
+//Insere na ul x quantidade o conteúdo dos cards 
 for(let i=0; i<20;i++){
-  // Clona elemento html
+  // Clona elemento li e todos os elementos filhos
   const clone = item.cloneNode(true);
-  // Insere na lista o item clonado
+  // Insere na lista o li que clonado
   lista.appendChild(clone);
 }

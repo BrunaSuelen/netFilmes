@@ -5,15 +5,21 @@
 - Figma, template de alta fidelidade: https://www.figma.com/file/nD58Y0A3nnKiJG9BwJDAdR/Untitled?type=design&node-id=0-1&t=imf9cV8yGshG11jm-0
 
 # To do
-- Validar se será utilizado esse código
-- Validar a responsividade 
-- Implementar o css das fontes aliado com a responsividade 
- 
+- [ ] Confirmar se todos os requisitos no roteiro estão sendo atendidos  
+- [ ] Validar a responsividade  
+- [ ] Selecionar uma fonte family para o site 
+- [ ] Aplicar animações no site 
+- [ ] Arrumar a navbar
+  
+# Anotações 
+- Verificar se vai ter logout da conta 
 
-# Templates utilizados como inspiração 
-- https://www.adorocinema.com/series/serie-7330/streaming/ 
-- https://www.adorocinema.com/series-tv/
-- https://www.rottentomatoes.com/tv/peaky_blinders
-- https://www.adorocinema.com/series/serie-34167/
-- https://www.digitaltrends.com/movies/best-new-shows-to-stream-this-week/
-- https://collider.com/best-tv-shows-to-binge-watch/#you-2018-present
+- Nome do breakpoint por  larguras de telas 
+ $grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
