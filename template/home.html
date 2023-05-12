@@ -14,14 +14,32 @@
   <link href="css/global.css" rel="stylesheet">
 </head>
 
-<body class="container">
+<body class="container bg-body">
   <!--Header-->
-  <header class="mb-5" >
-    <ul class="nav align-items-center ">
-      <li class="nav-item"><a class="nav-link" href="home.html"><img class="" src="images/logo-header.png" alt="Logo da página Netfilx"> </a> </li>
-      <li class="nav-item"><a class="nav-link active" href="home.html"> Minhas Séries </a></li>
-      <li class="nav-item"><a class="nav-link" href="streamings.html"> Streamings </a></li>
-    </ul>
+  <header class="sticky-top bg-body mt-2 mb-5 ">
+    <nav class="navbar navbar-expand-md container-fluid">
+      <a class="navbar-brand" href="home.html">
+        <img src="images/logo-header.png" alt="Logo" >
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar" aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerNavbar">
+        <ul class="navbar-nav w-100">
+          <li class="nav-item h4">
+            <a class="nav-link " href="home.html">Minhas Séries</a>
+          </li>
+          <li class="nav-item h4 me-auto">
+            <a class="nav-link " href="streamings.html">Streamings</a>
+          </li>
+          <li class="nav-item h4 ">
+            <a class="nav-link" href="index.html"><i class="bi bi-box-arrow-right d-none d-md-inline mx-1"></i>Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
   </header>
   <!-- End Header -->
 
@@ -46,7 +64,7 @@
 
         <h3 class="h3 mb-2">Netflix</h3>
 
-        <p class="mb-2 text-secondary">Assistido</p>
+        <p class="mb-3 text-secondary">Assistido</p>
 
 
         <div class="d-flex justify-content-between ">
