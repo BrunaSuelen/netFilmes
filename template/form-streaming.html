@@ -17,21 +17,28 @@
 
   <body class="container">
     <!--Header-->
-    <header>
-      <ul class="nav align-items-center ">
-        <li class="nav-item"><a class="nav-link" href="/home.html">
-          <img src="images/logo-header.png" alt="Netfilmes">
-        </a></li>
-        <li class="nav-item"><a class="nav-link active" href="home.html">
-          Minhas Séries
-        </a></li>
-        <li class="nav-item"><a class="nav-link" href="streamings.html">
-          Streamings </a>
-        </li>
-      </ul>
-    </header>
-    <hr class="hr-menu mb-4"/>
-    <!-- End Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-md container-fluid">
+      <a class="nav-link" href="home.html"><img class="" src="images/logo-header.png" alt="Logo da página Netfilx"> </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar"
+        aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerNavbar">
+        <ul class="nav align-items-center w-100 ">
+          <li class="nav-item"><a class="nav-link active" href="home.html"> Minhas Séries </a></li>
+          <li class="nav-item"><a class="nav-link" href="streamings.html"> Streamings </a></li>
+          <li class="nav-item ms-md-auto"><a class="nav-link" href="index.html"><i
+                class="bi bi-box-arrow-right d-none d-md-inline mx-1 "></i>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <hr class="hr-menu mb-4" />
+  </header>
+  <!-- End Header -->
 
     <main class="w-100 m-auto card-content-page mt-4">
       <span class="btn-return">
