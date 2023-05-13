@@ -17,36 +17,16 @@ function prepareFormEdit() {
   document.getElementById('nameStreaming').value = streaming.title;
 }
 
+const form = document.querySelector('form');
 
-// Validar formulário
-function onBlurField() {
-  const inputValue = document.getElementById('nameStreaming')?.value;
-
-  if(!inputValue.trim()) {
-    document.getElementById(`error-nameStreaming`).innerHTML = 'Campo Obrigatório';
-  } else {
-    document.getElementById(`error-nameStreaming`).innerHTML = '';
-  }
-}
-
-function submitForm() {
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
   const name = document.getElementById('nameStreaming')?.value;
+  const inputFile = document.getElementById('imageStreaming')?.value;
 
-  if (!name)
-    return showMessage("Preencha o campo", true);
+  if (!name || !inputFile)
+    return showMessage("Preencha todos os campos", true);
 
   return showMessage("Cadastro realizado com sucesso!", false);
-}
+})
 
-function showMessage(message, error) {
-  let alert = document.getElementById('alert');
-  alert.className = error ? 'error' : 'success';
-  alert.innerHTML = message;
-  alert.hidden = false;
-
-  setTimeout(() => {
-    alert.innerHTML = "";
-    alert.className = "";
-    alert.hidden = true;
-  }, 4000);
-}

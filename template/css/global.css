@@ -46,17 +46,18 @@ header{
 
 .btn-return {
     display: flex;    
+    align-items: center;
     margin-bottom: 10px;
     cursor: pointer;
     width: fit-content;
 }
 
-.btn-return ion-icon {
+.btn-return i {
     font-size: 14px;
 }
 
 .btn-return:hover a,
-.btn-return:hover ion-icon {
+.btn-return:hover i {
     color: #b62735;
 }
 

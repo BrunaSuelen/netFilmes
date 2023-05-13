@@ -32,38 +32,18 @@ function getStreamigs() {
   });
 }
 
+const form = document.querySelector('form');
 
-// Validar formulário
-function onBlurField(campo) {
-  const inputValue = document.getElementById(campo)?.value;
-
-  if(!inputValue.trim()) {
-    document.getElementById(`error-${campo}`).innerHTML = 'Campo Obrigatório';
-  } else {
-    document.getElementById(`error-${campo}`).innerHTML = '';
-  }
-}
-
-function submitForm() {
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  
   const name = document.getElementById('nameSerie')?.value;
   const streaming = document.getElementById('streamingSerie')?.value;
   const categoria = document.getElementById('categoriaSerie')?.value;
+  const inputFile = document.getElementById('imageSerie')?.value;
 
-  if (!name || !streaming || !categoria)
+  if (!name || !streaming || !categoria || !inputFile)
     return showMessage("Preencha todos os campos", true);
 
   return showMessage("Cadastro realizado com sucesso!", false);
-}
-
-function showMessage(message, error) {
-  let alert = document.getElementById('alert');
-  alert.className = error ? 'error' : 'success';
-  alert.innerHTML = message;
-  alert.hidden = false;
-
-  setTimeout(() => {
-    alert.innerHTML = "";
-    alert.className = "";
-    alert.hidden = true;
-  }, 4000);
-}
+})
