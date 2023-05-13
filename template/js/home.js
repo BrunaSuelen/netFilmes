@@ -8,3 +8,11 @@ for(let i=0; i<20;i++){
   // Insere na lista o li que clonado
   lista.appendChild(clone);
 }
+
+function editarSerie() {
+  window.location.href = '/template/form-serie.html?editar=X';
+}
+
+function editarStreaming() {
+  window.location.href = '/template/form-streaming.html?editar=X';
+}
