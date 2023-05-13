@@ -12,3 +12,7 @@ for(let i=0; i<20;i++){
 function editarSerie() {
   window.location.href = '/template/form-serie.html?editar=X';
 }
+
+function editarStreaming() {
+  window.location.href = '/template/form-streaming.html?editar=X';
+}
