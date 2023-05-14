@@ -11,14 +11,14 @@ function onBlurField(campo) {
 
 
 function showMessage(message, error) {
-    let alert = document.getElementById('alert');
-    alert.className = error ? 'error' : 'success';
-    alert.innerHTML = message;
-    alert.hidden = false;
-  
-    setTimeout(() => {
-      alert.innerHTML = "";
-      alert.className = "";
-      alert.hidden = true;
-    }, 4000);
+  let alert = document.getElementById('alert');
+  alert.className = error ? 'error' : 'success';
+  alert.innerHTML = message;
+  alert.hidden = false;
+
+  setTimeout(() => {
+    alert.innerHTML = "";
+    alert.className = "";
+    alert.hidden = true;
+  }, 4000);
 }
