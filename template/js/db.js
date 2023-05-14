@@ -4,21 +4,24 @@ const db_serie = [
 		title: 'Vikings ',
 		imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',
-    categoria: 'desejo_assistir'
+    categoria: 'desejo_assistir',
+    description: 'A série acompanha a saga dos navegadores nórdicos que exploram - e conquistam - novos territórios nos tempos medievais.'
 	},
 	{
 		link: '/template/streaming.html',
 		title: 'Vikings ',
     imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',
-    categoria: 'desejo_assistir'
+    categoria: 'desejo_assistir',
+    description: 'A série acompanha a saga dos navegadores nórdicos que exploram - e conquistam - novos territórios nos tempos medievais.'
 	},
 	{
 		link: '/template/streaming.html',
 		title: 'Vikings ',
     imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',
-    categoria: 'desejo_assistir'
+    categoria: 'desejo_assistir',
+    description: 'A série acompanha a saga dos navegadores nórdicos que exploram - e conquistam - novos territórios nos tempos medievais.'
 	}
 ]
 

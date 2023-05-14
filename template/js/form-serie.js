@@ -18,6 +18,7 @@ function prepareFormEdit() {
   document.getElementById('nameSerie').value = serie.title;
   document.getElementById('categoriaSerie').value = serie.categoria;
   document.getElementById('streamingSerie').value = serie.streaming;
+  document.getElementById('comentarioSerie').value = serie.description;
 }
 
 function getStreamigs() {

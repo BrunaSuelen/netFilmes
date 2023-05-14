@@ -17,6 +17,11 @@ header{
 b {
     font-weight: 600;
     margin-bottom: 8px;
+}
+
+h6 {
+    font-weight: 600;
+    margin-bottom: 8px;
     display: block;
 }
 
@@ -82,6 +87,10 @@ b {
     margin-bottom: 0.2rem;
     font-size: 12px;
     font-weight: 600;
+}
+
+textarea.form-control {
+    min-height: 80px;
 }
 
 .card-content-page {
