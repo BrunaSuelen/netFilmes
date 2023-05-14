@@ -48,7 +48,7 @@ text-decoration-color: black;
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 575px) {
 
  body{
   background: #ffffff;
