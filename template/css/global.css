@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,100;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400&display=swap');
 
 :root {
     font-size: 12px;
@@ -14,8 +14,15 @@ header{
     background-color: #ffffff;
 }
 
+b {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
 .h2 {
     font-weight: 700;
+    font-size: calc(1.325rem + .5vw);
 }
 
 .nav-link {
@@ -31,8 +38,8 @@ header{
     border: 5px solid #b62735;
     color: #b62735;
     height: 5px;
-    width: calc(100% + 40px);
-    margin-left: -20px;
+    width: calc(100% + 70px);
+    margin-left: -30px;
     opacity: 1;
 }
 
@@ -139,6 +146,52 @@ header{
     color: #b62735;
 }
 
+.image-wrap {
+    overflow: hidden;
+    height: 220px;
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+}
+
+img.backdrop-image {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    filter: blur(10px) brightness(0.5);
+    transform: translate(2px, -16px) scale(1.2);
+}
+
+.image-wrap ~ img {
+    width: 100%;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+}
+
+.modal-body p {
+    font-weight: 300;
+}
+
+.btn-close {
+    position: absolute;
+    filter: invert(1);
+    top: -25px;
+    opacity: 1;
+    right: 0;
+}
+
+#categoriaSerie {
+    width: 120px;
+    font-size: 0.8rem;
+}
 
 
 @media screen and (min-width: 768px) {
@@ -159,6 +212,11 @@ header{
 @media screen and (max-width: 576px) {
     :root .container, :root .container-sm {
         border-radius: 0px;
+    }
+
+    .hr-menu { 
+        width: calc(100% + 40px);
+        margin-left: -20px;
     }
  }
 
