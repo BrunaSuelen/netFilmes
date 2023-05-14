@@ -10,6 +10,10 @@ html, body {
     height: 100vh;
 }
 
+header{
+    background-color: #ffffff;
+}
+
 .h2 {
     font-weight: 700;
 }
@@ -42,17 +46,18 @@ html, body {
 
 .btn-return {
     display: flex;    
+    align-items: center;
     margin-bottom: 10px;
     cursor: pointer;
     width: fit-content;
 }
 
-.btn-return ion-icon {
+.btn-return i {
     font-size: 14px;
 }
 
 .btn-return:hover a,
-.btn-return:hover ion-icon {
+.btn-return:hover i {
     color: #b62735;
 }
 
@@ -121,6 +126,7 @@ html, body {
     margin: 0;
     left: 5px;
     backdrop-filter: blur(5px);
+    z-index: 9999;
 }
 
 #alert.success {

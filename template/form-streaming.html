@@ -17,25 +17,32 @@
 
   <body class="container">
     <!--Header-->
-    <header>
-      <ul class="nav align-items-center ">
-        <li class="nav-item"><a class="nav-link" href="/home.html">
-          <img src="images/logo-header.png" alt="Netfilmes">
-        </a></li>
-        <li class="nav-item"><a class="nav-link active" href="home.html">
-          Minhas Séries
-        </a></li>
-        <li class="nav-item"><a class="nav-link" href="streamings.html">
-          Streamings </a>
-        </li>
-      </ul>
-    </header>
-    <hr class="hr-menu mb-4"/>
-    <!-- End Header -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-md container-fluid">
+      <a class="nav-link" href="home.html"><img class="" src="images/logo-header.png" alt="Logo da página NetFilmes"> </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavbar"
+        aria-controls="headerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="headerNavbar">
+        <ul class="nav align-items-center w-100 ">
+          <li class="nav-item"><a class="nav-link active" href="home.html"> Minhas Séries </a></li>
+          <li class="nav-item"><a class="nav-link" href="streamings.html"> Streamings </a></li>
+          <li class="nav-item ms-md-auto"><a class="nav-link" href="index.html"><i
+                class="bi bi-box-arrow-right d-none d-md-inline mx-1 "></i>Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <hr class="hr-menu mb-4" />
+  </header>
+  <!-- End Header -->
 
     <main class="w-100 m-auto card-content-page mt-4">
       <span class="btn-return">
-        <ion-icon name="arrow-back-outline"></ion-icon>
+        <i class="bi bi-arrow-left"></i>
         <a href="streamings.html">Voltar</a>
       </span>
       <div class="mb-4 d-flex justify-content-between ">
@@ -43,19 +50,19 @@
       </div>
 
       
-      <div>
+      <form class=""  method="post">
         <div class="mb-3">
           <label for="nameStreaming" class="form-label">Streaming</label>
-          <input type="name"  class="form-control" id="nameStreaming" onblur="onBlurField()">
+          <input type="name"  class="form-control" id="nameStreaming" onblur="onBlurField('nameStreaming')">
           <span class="error" id="error-nameStreaming"></span>
         </div>
 
         <div class="mb-3">
-          <label for="imageSerie" class="form-label">Imagem da capa</label>
-          <input class="form-control" type="file" id="imageSerie">
+          <label for="imageStreaming" class="form-label">Imagem da capa</label>
+          <input class="form-control" type="file" id="imageStreaming">
         </div>        
-        <button class="btn btn-primary mt-4" onclick="submitForm()">Salvar</button>
-      </div>
+        <button class="btn btn-primary mt-4">Salvar</button>
+      </form>
     </main>
 
 
@@ -64,9 +71,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="/template/js/db.js"></script>
+    <script src="./js/global.js"></script>
     <script src="./js/form-streaming.js"></script>
   </body>
 </html>
