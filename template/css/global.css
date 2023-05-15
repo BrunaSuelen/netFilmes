@@ -54,7 +54,7 @@ h6 {
     padding: 20px;
     min-height: 100vh;
     height: auto;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .btn-return {
