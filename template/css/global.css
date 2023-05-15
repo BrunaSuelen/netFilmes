@@ -328,6 +328,10 @@ img.backdrop-image {
     .card-content-page {
         padding: 1rem 1rem 4rem;
     }
+    
+    .hr-menu {
+        margin-left: -20px;
+    }
  }
 
   @media screen and (max-width: 350px) {
@@ -349,7 +353,7 @@ img.backdrop-image {
     .card-content-page {
         padding: 1rem 0 4rem;
     }
-    
+
     .btn-add {
         max-height: 25px;
         padding: 4px;
@@ -365,5 +369,13 @@ img.backdrop-image {
 
     .nav-link {
         width: 100px;
+    }
+    
+    .hr-menu {
+        margin-left: -10px;
+    }
+
+    .container {
+        padding: 0;
     }
  }
