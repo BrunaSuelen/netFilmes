@@ -83,18 +83,29 @@ h6 {
     color: black;
 }
 
-.form-label {
-    margin-bottom: 0.2rem;
-    font-size: 12px;
-    font-weight: 600;
+.btn-edit {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+    background-color: black;
+    color: white;
+    border-radius: 0 0 0 5px;
+    font-size: 10px;
 }
 
-textarea.form-control {
-    min-height: 80px;
+.btn-remover {
+    height: 20px;
+    width: 20px;
+    padding: 2px;
+    background-color: #b62735;
+    color: white;
+    border-radius: 0 0 5px 0;
+    font-size: 10px;
 }
 
-.card-content-page {
-    padding: 1rem 6rem 4rem;
+.btn-remover:hover,
+.btn-edit:hover {
+    border: 1px solid;
 }
 
 .btn-primary {
@@ -111,7 +122,34 @@ textarea.form-control {
   background: #b62735;
 }
 
+.btn-close {
+    position: absolute;
+    filter: invert(1);
+    top: -25px;
+    opacity: 1;
+    right: 0;
+}
+
+.btns-action {
+    margin-top: -12px;
+}
+
+.form-label {
+    margin-bottom: 0.2rem;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+textarea.form-control {
+    min-height: 80px;
+}
+
+.card-content-page {
+    padding: 1rem 6rem 4rem;
+}
+
 .card-item {
+    cursor: pointer;
     border: 1px solid #bebebe;
     border-radius: 5px;
     max-width: 160px;
@@ -120,8 +158,21 @@ textarea.form-control {
     padding: 0;
 }
 
+.card-item:hover {
+    transform: translateY(-4px);
+    transition: transform .2s ease-out;
+}
+
+.card-item .position-relative {
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
 .img-fluid {
     filter: blur(1px) contrast(0.5);
+    overflow: hidden;
+    transform: scale(1.1);
+    height: 150px;
 }
 
 .error {
@@ -189,17 +240,59 @@ img.backdrop-image {
     font-weight: 300;
 }
 
-.btn-close {
-    position: absolute;
-    filter: invert(1);
-    top: -25px;
-    opacity: 1;
-    right: 0;
-}
-
-#categoriaSerie {
+.categoriaSerie {
     width: 120px;
     font-size: 0.8rem;
+    margin-left: auto;
+    margin-right: 5px;
+    border: 1px solid;
+}
+
+.navbar-toggler {
+    border: 0;
+    color: black;
+    opacity: 1;
+    filter: drop-shadow(0px 0px 0px black);
+}
+
+.navbar-toggler:focus:not(:focus-visible) {
+    outline: transparent;
+    box-shadow: none;
+}
+
+.text-sm {
+    font-size: 10px;
+    color: #8c8c8c;
+}
+
+.dropdown-toggle {
+    background: white;
+    color: #3c3c3c;
+    padding: 2px 5px;
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.dropdown-toggle:hover {
+    background: #000000;
+}
+
+.btn:first-child:active {
+    background: #f1f1f1;
+    color: black;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-item:active {
+    cursor: pointer;
+    background: #000000;
+}
+
+.dropdown-toggle::after {
+    content: none;
 }
 
 

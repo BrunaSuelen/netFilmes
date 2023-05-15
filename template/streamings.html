@@ -46,7 +46,7 @@
         <div class="mb-4 d-flex justify-content-between">
             <h1 class="h2">Streamings</h1>
             <a href="form-streaming.html" class="btn btn-dark">
-                <i class="bi bi-plus-lg"></i>Adicionar streaming
+                <i class="bi bi-plus-lg"></i>Adicionar
             </a>
         </div>
 
@@ -55,30 +55,24 @@
 
             <!-- Card -->
             <li class="cards card-item text-center">
-                <div class="position-relative mb-3">
+                <div class="position-relative overflow-hidden">
                     <img class="img-fluid" src="images/streamings/netflix.png" alt="">
-                    <h2 class="h2 text-light position-absolute top-50 start-50 translate-middle"></h2>
                 </div>
-
-                <h3 class="h3 mb-2">Netflix</h3>
-
-                <p class="mb-2 text-secondary"></p>
-
-
-                <div class="d-flex justify-content-between ">
+                <h6 class="h6 mb-0 mt-1">Netflix</h6>
+                <div class="d-flex justify-content-between btns-action">
                     <a 
                         type="button"
-                        class="btn btn-success" 
+                        class="btn btn-edit" 
                         onclick="editarStreaming()">
-                        <i class="bi bi-pen-fill"></i>
+                        <i class="bi bi-pencil"></i>
                     </a>
                     <a 
                         type="button" 
-                        class="btn btn-danger" 
+                        class="btn btn-remover" 
                         data-bs-toggle="modal" 
                         data-bs-target="#modalRemoveStreaming"
                         >
-                        <i class="bi bi-trash-fill"></i> 
+                        <i class="bi bi-trash3"></i> 
                     </a>
                 </div>
             </li>
@@ -95,12 +89,12 @@
         aria-hidden="true">
         <div class="modal-dialog  modal-dialog-centered modal-lg ">
             <div class="modal-content">
-                <div class="modal-header border-0 mb-3">
-                    <h1 class="modal-title fs-3" id="modalRemoveStreamingLabel">Confirmar a remoção do streaming</h1>
+                <div class="modal-header border-0 pb-1">
+                    <h1 class="modal-title h2" id="modalRemoveStreaming">Confirmar a remoção da streaming</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body mb-2">
-                    <p class="">Realmente deseja remover a plataforma Netflix?</p>
+                <div class="modal-body mb-2 pt-0">
+                    <p class="">Realmente deseja remover a série <b>Netflix</b>?</p>
                 </div>
                 <div class="modal-footer border-0 mb-2">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
