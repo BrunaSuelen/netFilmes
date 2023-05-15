@@ -346,7 +346,15 @@ img.backdrop-image {
  }
 
  @media screen and (max-width: 250px) {
+    .card-content-page {
+        padding: 1rem 0 4rem;
+    }
     
+    .btn-add {
+        max-height: 25px;
+        padding: 4px;
+    }
+
     .btn-add::after {
         content: none;
     }
