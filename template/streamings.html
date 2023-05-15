@@ -98,12 +98,20 @@
                 </div>
                 <div class="modal-footer border-0 mb-2">
                     <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Apagar</button>
+                    <button 
+                        type="button" 
+                        class="btn btn-danger" 
+                        onclick="showMessage('Streaming removido com sucesso', false)" 
+                        data-bs-dismiss="modal">
+                        Apagar
+                    </button>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Modal -->
+
+    <div id="alert" hidden></div>
 
     <script src="./js/global.js"></script>
     <script src="./js/home.js" type="text/javascript"></script>

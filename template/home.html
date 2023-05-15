@@ -100,7 +100,13 @@
         </div>
         <div class="modal-footer border-0 mb-2">
           <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Apagar</button>
+          <button 
+            type="button" 
+            class="btn btn-danger" 
+            data-bs-dismiss="modal"
+            onclick="showMessage('Série removido com sucesso', false)" >
+            Apagar
+          </button>
         </div>
       </div>
     </div>
@@ -134,11 +140,15 @@
               <i class="bi bi-three-dots-vertical"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item p-2" onclick="editarSerie()">
+              <li>
+                <a class="dropdown-item p-2" onclick="editarSerie()">
                 <i class="bi bi-pencil p-2"></i>Editar</a></li>
-              <li><a class="dropdown-item p-2" data-bs-toggle="modal" data-bs-target="#modalRemoveSerie">
-                <i class="bi bi-trash3 p-2"></i>Remover
-              </a></li>
+              </li>
+              <li>
+                <a class="dropdown-item p-2" data-bs-toggle="modal" data-bs-target="#modalRemoveSerie">
+                  <i class="bi bi-trash3 p-2"></i>Remover
+                </a>
+              </li>
             </ul>
           </div>
         </div>
@@ -154,6 +164,8 @@
     </div>
   </div>
   <!-- End Modal -->
+
+  <div id="alert" hidden></div>
 
   <script src="./js/global.js"></script>
   <script src="./js/home.js"></script>
