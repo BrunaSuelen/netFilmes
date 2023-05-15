@@ -1,6 +1,7 @@
 init();
 
 function init() {
+  initForm();
   getStreamigs();
   const url = window.location.search;
 
@@ -33,18 +34,21 @@ function getStreamigs() {
   });
 }
 
-const form = document.querySelector('form');
-
-form.addEventListener('submit', e => {
-  e.preventDefault();
+function initForm() {
+  const form = document.querySelector('form');
   
-  const name = document.getElementById('nameSerie')?.value;
-  const streaming = document.getElementById('streamingSerie')?.value;
-  const categoria = document.getElementById('categoriaSerie')?.value;
-  const inputFile = document.getElementById('imageSerie')?.value;
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    
+    const name = document.getElementById('nameSerie')?.value;
+    const streaming = document.getElementById('streamingSerie')?.value;
+    const categoria = document.getElementById('categoriaSerie')?.value;
+    const inputFile = document.getElementById('imageSerie')?.value;
+  
+    if (!name || !streaming || !categoria || !inputFile)
+      return showMessage("Preencha todos os campos", true);
+  
+    return showMessage("Cadastro realizado com sucesso!", false);
+  })
+}
 
-  if (!name || !streaming || !categoria || !inputFile)
-    return showMessage("Preencha todos os campos", true);
-
-  return showMessage("Cadastro realizado com sucesso!", false);
-})
