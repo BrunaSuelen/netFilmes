@@ -4,14 +4,7 @@
 - Wireframe do projeto: https://miro.com/app/board/uXjVMNvRsHI=/
 - Figma, template de alta fidelidade: https://www.figma.com/file/nD58Y0A3nnKiJG9BwJDAdR/Untitled?type=design&node-id=0-1&t=imf9cV8yGshG11jm-0
 
-# To do
-- [ ] Confirmar se todos os requisitos no roteiro estão sendo atendidos  
-- [ ] Validar a responsividade  
-- [ ] Selecionar uma fonte family para o site 
-- [ ] Aplicar animações no site 
-- [ ] Arrumar a navbar
-- [ ] Verificar se vai ter logout 
-  
+
 # Anotações 
 ```
  Nome do breakpoint por  larguras de telas 
