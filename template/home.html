@@ -31,7 +31,7 @@
           <li class="nav-item"><a class="nav-link active" href="home.html"> Minhas Séries </a></li>
           <li class="nav-item"><a class="nav-link" href="streamings.html"> Streamings </a></li>
           <li class="nav-item ms-md-auto"><a class="nav-link" href="index.html"><i
-                class="bi bi-box-arrow-right d-none d-md-inline mx-1 "></i>Logout</a></li>
+                class="bi bi-box-arrow-right d-none d-md-inline mx-1 "></i>Sair</a></li>
         </ul>
       </div>
     </nav>
@@ -44,68 +44,130 @@
   <main class="card-content-page">
     <div class="mb-4 d-flex justify-content-between ">
       <h1 class="h2"> Séries Cadastradas </h1>
-      <a href="form-serie.html" class="btn btn-dark"><i class="bi bi-plus-lg"></i> Adicionar Série </a>
+      <a href="form-serie.html" class="btn btn-dark btn-add">
+        <i class="bi bi-plus-lg"></i>
+      </a>
     </div>
 
     <!-- List Cards -->
     <ul class="list-cards row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">
 
       <!-- Card -->
-      <li class="cards card-item text-center">
+      <li 
+        class="cards card-item text-center"
+        data-bs-toggle="modal" 
+        data-bs-target="#modalSerieDetail">
 
-        <div class="position-relative mb-3">
+        <div class="position-relative mb-2">
           <img class="img-fluid" src="images/series/serie.jpg" alt="">
-          <h2 class="h1 text-light position-absolute top-50 start-50 translate-middle">Vikings</h2>
+          <h4 class="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">Vikings</h4>
         </div>
 
-        <h3 class="h3 mb-2">Netflix</h3>
-
-        <p class="mb-2 text-secondary">Assistido</p>
-
-        <div class="d-flex justify-content-between ">
+        <h6 class="h6 mb-0">Netflix</h6>
+        <p class="mb-0 text-sm">Assistido</p>
+        <div class="d-flex justify-content-between btns-action">
           <a 
             type="button"
-            class="btn btn-success"
+            class="btn btn-edit"
             onclick="editarSerie()">
-            <i class="bi bi-pen-fill"></i>
+            <i class="bi bi-pencil"></i>
           </a>
           <a 
             type="button" 
-            class="btn btn-danger" 
+            class="btn btn-remover" 
             data-bs-toggle="modal" 
             data-bs-target="#modalRemoveSerie">
-            <i class="bi bi-trash-fill"></i> 
+            <i class="bi bi-trash3"></i> 
           </a>
         </div>
       </li>
       <!-- End Card -->
-
     </ul>
     <!-- List Cards -->
   </main>
   <!-- End Main Content -->
 
 
-  <!-- Modal -->
+  <!-- Modal - Confirmar Remoção -->
   <div class="modal fade" id="modalRemoveSerie" tabindex="-1" aria-labelledby="modalRemoveSerieLabel"
     aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg ">
       <div class="modal-content">
-        <div class="modal-header border-0 mb-3">
-          <h1 class="modal-title fs-3" id="modalRemoveSerieLabel">Confirmar a remoção da série</h1>
+        <div class="modal-header border-0 pb-1">
+          <h1 class="modal-title h2" id="modalRemoveSerieLabel">Confirmar a remoção da série</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body mb-2">
-          <p class="">Realmente deseja remover a série Vikings?</p>
+        <div class="modal-body mb-2 pt-0">
+          <p class="">Realmente deseja remover a série <b>Vikings</b>?</p>
         </div>
         <div class="modal-footer border-0 mb-2">
           <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Apagar</button>
+          <button 
+            type="button" 
+            class="btn btn-danger" 
+            data-bs-dismiss="modal"
+            onclick="showMessage('Série removido com sucesso', false)" >
+            Apagar
+          </button>
         </div>
       </div>
     </div>
   </div>
   <!-- End Modal -->
+
+
+  <!-- Modal - Detalhes Série-->
+  <div class="modal fade" id="modalSerieDetail" index="-1" aria-labelledby="modalSerieDetail"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg ">
+      <div class="modal-content">
+        <div class="modal-capa">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="image-wrap">
+            <img src="images/series/serie.jpg"/>
+            <img class="backdrop-image" src="images/series/serie.jpg" />
+          </div>
+        </div>
+        <div class="modal-header border-0 mb-3">
+          <h1 class="modal-title fs-3 h2">Vikings</h1>
+          <select class="form-select form-select-sm categoriaSerie">
+            <option value="nao_assistido">Assitido</option>
+            <option value="assistido">Não Assiti</option>
+            <option value="desejo_assistir">Desejo Assitir</option>
+            <option value="recomendo">Recomendo</option>
+            <option value="nao_recomendo">Não Recomendo</option>
+          </select>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-three-dots-vertical"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item p-2" onclick="editarSerie()">
+                <i class="bi bi-pencil p-2"></i>Editar</a></li>
+              </li>
+              <li>
+                <a class="dropdown-item p-2" data-bs-toggle="modal" data-bs-target="#modalRemoveSerie">
+                  <i class="bi bi-trash3 p-2"></i>Remover
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-body mb-2">
+          <h2 class="modal-subtitle">Disponível em: Netflix</h2>
+          <h6>Comentário</h6>
+          <p>
+            A série acompanha a saga dos navegadores nórdicos que exploram - e 
+            conquistam - novos territórios nos tempos medievais.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
+
+  <div id="alert" hidden></div>
 
   <script src="./js/global.js"></script>
   <script src="./js/home.js"></script>
