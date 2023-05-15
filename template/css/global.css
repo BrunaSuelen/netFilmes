@@ -43,8 +43,8 @@ h6 {
     border: 5px solid #b62735;
     color: #b62735;
     height: 5px;
-    width: calc(100% + 70px);
-    margin-left: -30px;
+    width: 100vw;
+    margin-left: -40px;
     opacity: 1;
 }
 
@@ -54,6 +54,7 @@ h6 {
     padding: 20px;
     min-height: 100vh;
     height: auto;
+    overflow: hidden;
 }
 
 .btn-return {
@@ -132,6 +133,10 @@ h6 {
 
 .btns-action {
     margin-top: -12px;
+}
+
+.btn-add::after {
+    content: "Adicionar";
 }
 
 .form-label {
@@ -296,13 +301,6 @@ img.backdrop-image {
 }
 
 
-@media screen and (min-width: 768px) {
-
-    :root{
-     font-size: 14px;
-    }
-     
-}
 
 @media screen and (min-width: 992px) {
 
@@ -311,14 +309,17 @@ img.backdrop-image {
     }
  }
 
+@media screen and (min-width: 768px) {
+
+    :root{
+     font-size: 14px;
+    }
+     
+}
+
 @media screen and (max-width: 576px) {
     :root .container, :root .container-sm {
         border-radius: 0px;
-    }
-
-    .hr-menu { 
-        width: calc(100% + 40px);
-        margin-left: -20px;
     }
  }
 
@@ -327,5 +328,34 @@ img.backdrop-image {
     .card-content-page {
         padding: 1rem 1rem 4rem;
     }
+ }
+
+  @media screen and (max-width: 350px) {
      
+    .list-cards {
+        display: block;
+    }
+
+    .list-cards .card-item {
+        min-width: 140px;
+    }
+
+    .img-fluid {
+        width: 100%;
+    }
+ }
+
+ @media screen and (max-width: 250px) {
+    
+    .btn-add::after {
+        content: none;
+    }
+
+    .h2 {
+        font-size: calc(1.325rem + .4vw);
+    }
+
+    .nav-link {
+        width: 100px;
+    }
  }
