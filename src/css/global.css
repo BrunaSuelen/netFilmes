@@ -183,6 +183,8 @@ textarea.form-control {
 .error {
     font-size: 10px;
     color: red;
+    text-align-last: left;
+    display: block;
 }
 
 #alert {
@@ -298,6 +300,10 @@ img.backdrop-image {
 
 .dropdown-toggle::after {
     content: none;
+}
+
+input {
+    text-align-last: left;
 }
 
 

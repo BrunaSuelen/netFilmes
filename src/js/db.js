@@ -1,6 +1,6 @@
 const db_serie = [
 	{
-		link: '/template/streaming.html',
+		link: 'streaming.html',
 		title: 'Vikings ',
 		imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',
@@ -8,7 +8,7 @@ const db_serie = [
     description: 'A série acompanha a saga dos navegadores nórdicos que exploram - e conquistam - novos territórios nos tempos medievais.'
 	},
 	{
-		link: '/template/streaming.html',
+		link: 'streaming.html',
 		title: 'Vikings ',
     imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',
@@ -16,7 +16,7 @@ const db_serie = [
     description: 'A série acompanha a saga dos navegadores nórdicos que exploram - e conquistam - novos territórios nos tempos medievais.'
 	},
 	{
-		link: '/template/streaming.html',
+		link: 'streaming.html',
 		title: 'Vikings ',
     imgSrc: "images/streamings/netflix.png",
     streaming: 'netflix',

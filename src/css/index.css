@@ -28,8 +28,19 @@ img{
 }
 
 .form-signin {
-  max-width: 600px;
+  max-width: 400px;
   padding: 30px;
+  border-radius: 5px;
+}
+
+.form-signin form {
+  display: flow-root;
+  text-align-last: center;
+}
+
+.form-signin img {
+  width: 50%;
+  max-width: 300px;
 }
 
 .form-signin .form-floating:focus-within {

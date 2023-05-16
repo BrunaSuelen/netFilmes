@@ -4,23 +4,14 @@ const form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
+  const name = document.getElementById('floatingInputName')?.value;
   const email = document.getElementById('floatingInput')?.value;
   const password = document.getElementById('floatingPassword')?.value;
 
-  const login = {
-    email: 'a@example.com',
-    password: '123',
-  }
 
-
-  if (!email || !password) {
+  if (!email || !password || !name) {
     return showMessage("Preencha todos os campos", true);
   }
-
-  if (email === login.email && password === login.password) {
-    return window.location.href = '/template/home.html'
-  }
-
-  return showMessage("Email ou senha estão incorretos", true);
-
+    
+  return window.location.href = 'index.html'
 })
