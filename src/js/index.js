@@ -18,7 +18,7 @@ form.addEventListener('submit', (e) => {
   }
 
   if (email === login.email && password === login.password) {
-    return window.location.href = '/template/home.html'
+    return window.location.href = 'home.html'
   }
 
   return showMessage("Email ou senha estão incorretos", true);

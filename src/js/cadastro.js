@@ -13,5 +13,5 @@ form.addEventListener('submit', (e) => {
     return showMessage("Preencha todos os campos", true);
   }
     
-  return window.location.href = '/template/index.html'
+  return window.location.href = 'index.html'
 })
