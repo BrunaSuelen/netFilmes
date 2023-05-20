@@ -6,8 +6,10 @@ function init() {
   const url = window.location.search;
 
   if (url && url.includes('editar')) {
+    const form = document.querySelector('form');
     document.getElementById('title-page').innerHTML = 'Editar Série'; 
     prepareFormEdit();
+    canBeEnableButtonForm(form);
     return;
   }
 
@@ -20,6 +22,7 @@ function prepareFormEdit() {
   document.getElementById('categoriaSerie').value = serie.categoria;
   document.getElementById('streamingSerie').value = serie.streaming;
   document.getElementById('comentarioSerie').value = serie.description;
+  setMockdataInputImage(document.getElementById('imageSerie'), serie.imgSrc);
 }
 
 function getStreamigs() {

@@ -1,3 +1,7 @@
+const login = {
+  email: 'a@example.com',
+  password: '123',
+}
 
 const form = document.querySelector('form');
 
@@ -6,11 +10,6 @@ form.addEventListener('submit', (e) => {
 
   const email = document.getElementById('floatingInput')?.value;
   const password = document.getElementById('floatingPassword')?.value;
-
-  const login = {
-    email: 'a@example.com',
-    password: '123',
-  }
 
 
   if (!email || !password) {
@@ -24,3 +23,16 @@ form.addEventListener('submit', (e) => {
   return showMessage("Email ou senha estão incorretos", true);
 
 })
+
+init();
+
+function init() {
+  initForm();
+}
+
+
+function initForm() {
+  document.getElementById('floatingInput').value = login.email;
+  document.getElementById('floatingPassword').value = login.password;
+  canBeEnableButtonForm(form);
+}
