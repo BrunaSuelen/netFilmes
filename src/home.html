@@ -89,24 +89,24 @@
 
 
   <!-- Modal - Confirmar Remoção -->
-  <div class="modal fade" id="modalRemoveSerie" tabindex="-1" aria-labelledby="modalRemoveSerieLabel"
+  <div class="modal fade" id="modalRemoveSerie" data-bs-backdrop="static" tabindex="-1" aria-labelledby="modalRemoveSerieLabel"
     aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg ">
       <div class="modal-content">
         <div class="modal-header border-0 pb-1">
           <h1 class="modal-title h2" id="modalRemoveSerieLabel">Confirmar a remoção da série</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="exitModalRemove('modalSerieDetail')"></button>
         </div>
         <div class="modal-body mb-2 pt-0">
           <p class="">Realmente deseja remover a série <b>Vikings</b>?</p>
         </div>
         <div class="modal-footer border-0 mb-2">
-          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal" onclick="exitModalRemove('modalSerieDetail')">Cancelar</button>
           <button 
             type="button" 
             class="btn btn-danger" 
             data-bs-dismiss="modal"
-            onclick="showMessage('Série removido com sucesso', false)" >
+            onclick="deteleItem('Série')">
             Apagar
           </button>
         </div>
@@ -138,7 +138,8 @@
             <option value="nao_recomendo">Não Recomendo</option>
           </select>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button 
+              class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-three-dots-vertical"></i>
             </button>
             <ul class="dropdown-menu">
@@ -147,7 +148,11 @@
                 <i class="bi bi-pencil p-2"></i>Editar</a></li>
               </li>
               <li>
-                <a class="dropdown-item p-2" data-bs-toggle="modal" data-bs-target="#modalRemoveSerie">
+                <a 
+                  class="dropdown-item p-2" 
+                  data-bs-toggle="modal" 
+                  data-bs-target="#modalRemoveSerie"
+                  onclick="goModalRemove()">
                   <i class="bi bi-trash3 p-2"></i>Remover
                 </a>
               </li>
