@@ -1,10 +1,10 @@
+let reopenDetails = false;
 
 init();
 
 function init() {
   const lista = document.querySelector('.list-cards');
   const item = document.querySelector('.cards');
-  let reopenDetails = false;
 
   //Insere na ul x quantidade o conteúdo dos cards 
   for (let i = 0; i < 20; i++) {
