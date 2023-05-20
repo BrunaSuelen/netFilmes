@@ -109,8 +109,14 @@ h6 {
     border: 1px solid;
 }
 
+.btn-outline-dark {
+  padding: 8px;
+  min-width: 100px;
+  font-weight: 500;
+  font-size: small;
+}
+
 .btn-primary {
-  float: right;
   padding: 8px;
   min-width: 100px;
   background: black;
@@ -119,7 +125,8 @@ h6 {
   font-size: small;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-outline-dark:hover {
   background: #b62735;
 }
 
