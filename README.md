@@ -5,15 +5,9 @@
 - Figma, template de alta fidelidade: https://www.figma.com/file/nD58Y0A3nnKiJG9BwJDAdR/Untitled?type=design&node-id=0-1&t=imf9cV8yGshG11jm-0
 
 
-# Anotações 
-```
- Nome do breakpoint por  larguras de telas 
- $grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px,
-  xl: 1200px,
-  xxl: 1400px
-);
-```
+# Integrantes:
+- Bruna Suelen Garcia Rosa Silva
+- Heidielton Carmo de Brito
+- Matheus Filipe Chaves da Cruz
+- Tiago Rocha dos Santos
+- Willian Ribeiro de Araújo
