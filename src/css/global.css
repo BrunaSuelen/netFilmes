@@ -119,7 +119,8 @@ h6 {
 .btn-primary, .btn-primary:disabled {
   padding: 8px;
   min-width: 100px;
-  border: transparent;
+  background: black;
+  border: transparent 1px solid;
   font-weight: 500;
   font-size: small;
 }
@@ -127,6 +128,7 @@ h6 {
 .btn-primary:hover,
 .btn-outline-dark:hover {
   background: #b62735;
+  border: transparent 1px solid;
 }
 
 .btn-close {
@@ -191,6 +193,7 @@ textarea.form-control {
     color: red;
     text-align-last: left;
     display: block;
+    margin-top: 5px;
 }
 
 #alert {
