@@ -273,6 +273,7 @@ img.backdrop-image {
 }
 
 .dropdown-toggle {
+    cursor: pointer;
     background: white;
     color: #3c3c3c;
     padding: 2px 5px;
@@ -306,6 +307,31 @@ input {
     text-align-last: left;
 }
 
+.dropdown-toggle {
+    text-decoration: none;
+    border: transparent;
+}
+
+.dropdown.user .dropdown-toggle .user-image::after {
+    display: inline-block;
+    margin-left: 0.2rem;
+    margin-right: 0.8rem;
+    vertical-align: 100%;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+}
+
+.dropdown.user .dropdown-toggle .user-name {
+    line-height: 16px;
+}
+
+.dropdown.user .dropdown-toggle:hover {
+    background-color: white;
+}
+
 
 
 @media screen and (min-width: 992px) {
@@ -319,8 +345,20 @@ input {
 
     :root{
      font-size: 14px;
-    }
-     
+    }  
+
+    .dropdown.user {
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }     
+}
+
+@media screen and (max-width: 767px) {
+    .dropdown.user {
+        margin-left: auto;
+        margin-right: 10px;
+    }     
 }
 
 @media screen and (max-width: 576px) {
