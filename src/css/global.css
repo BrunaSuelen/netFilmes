@@ -109,17 +109,16 @@ h6 {
     border: 1px solid;
 }
 
-.btn-primary {
+.btn-dark {
   float: right;
   padding: 8px;
   min-width: 100px;
-  background: black;
   border: transparent;
   font-weight: 500;
   font-size: small;
 }
 
-.btn-primary:hover {
+.btn-dark:hover {
   background: #b62735;
 }
 
@@ -164,7 +163,7 @@ textarea.form-control {
 }
 
 .card-item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     transition: transform .2s ease-out;
 }
 

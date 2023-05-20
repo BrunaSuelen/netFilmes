@@ -16,29 +16,29 @@
 
 <body>
   <main class="form-signin w-100 m-auto" id="boxformcad">
-    <form class="mb-3" action="index.html" method="post">
+    <form class="mb-3" action="index.html" method="post" >
       <img class="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes">
 
       <div class="form-floating">
         <input type="text" class="form-control" id="floatingInputName" placeholder="Nome"
-          onblur="onBlurField('floatingInputName')">
+          onfocus="onFocusInput(event)" oninput="onInput(event)">
         <label for="floatingInputName">Nome</label>
         <span class="error" id="error-floatingInputName"></span>
       </div>
       <div class="form-floating">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
-          onblur="onBlurField('floatingInput')">
+        onfocus="onFocusInput(event)" oninput="onInput(event)">
         <label for="floatingInput">Email</label>
         <span class="error" id="error-floatingInput"></span>
       </div>
       <div class="form-floating">
         <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
-          onblur="onBlurField('floatingPassword')">
+        onfocus="onFocusInput(event)" oninput="onInput(event)">
         <label for="floatingPassword">Senha</label>
         <span class="error" id="error-floatingPassword"></span>
       </div>
 
-      <button class="w-100 btn btn-lg btn-danger" id="botao" type="submit">Cadastrar</button>
+      <button class="w-100 btn btn-lg btn-danger" id="botao" type="submit" disabled>Cadastrar</button>
     </form>
 
     <span class="btn-return">

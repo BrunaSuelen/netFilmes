@@ -18,18 +18,18 @@
     <img class="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes">
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" onblur="onBlurField('floatingInput')" value="a@example.com" >
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" onfocus="onFocusInput(event)" oninput="onInput(event)">
       <label for="floatingInput">Email</label>
       <span class="error" id="error-floatingInput"></span>
     </div>
     
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" onblur="onBlurField('floatingPassword')" value="123" >
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" onfocus="onFocusInput(event)" oninput="onInput(event)">
       <label for="floatingPassword">Senha</label>
       <span class="error" id="error-floatingPassword"></span>
     </div>
     
-    <button class="w-100 btn btn-lg btn-danger" id="botao" type="submit">Entrar</button>
+    <button class="w-100 btn btn-lg btn-danger" id="botao" type="submit" disabled >Entrar</button>
     <a class="link-danger link-offset-2 link-underline link-underline-opacity-0" id="criarConta" href="cadastro.html">Criar Conta</a>
   </form>
 </main>
