@@ -4,8 +4,10 @@ function init() {
   const url = window.location.search;
 
   if (url && url.includes('editar')) {
+    const form = document.querySelector('form');
     document.getElementById('title-page').innerHTML = 'Editar Streaming'; 
     prepareFormEdit();
+    canBeEnableButtonForm(form);
     return;
   }
 
@@ -15,6 +17,7 @@ function init() {
 function prepareFormEdit() {
   const streaming = db_streaming[0];
   document.getElementById('nameStreaming').value = streaming.title;
+  setMockdataInputImage(document.getElementById('imageStreaming'), streaming.imgSrc);
 }
 
 const form = document.querySelector('form');

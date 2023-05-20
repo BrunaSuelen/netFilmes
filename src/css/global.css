@@ -116,10 +116,9 @@ h6 {
   font-size: small;
 }
 
-.btn-primary {
+.btn-primary, .btn-primary:disabled {
   padding: 8px;
   min-width: 100px;
-  background: black;
   border: transparent;
   font-weight: 500;
   font-size: small;
@@ -171,7 +170,7 @@ textarea.form-control {
 }
 
 .card-item:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     transition: transform .2s ease-out;
 }
 
