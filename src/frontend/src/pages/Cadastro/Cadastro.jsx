@@ -37,11 +37,21 @@ const Cadastro = () => {
         const msg = value === '' ? 'Campo Obrigatório' : '';
         setErrorMessages({...errorMessages, [name]: msg});
     }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // api.post("/users")
+        //     .then((response) => console.log(response.data))
+        //     .catch((err) => {
+        //         console.error("ops! ocorreu um erro" + err);
+        //     });
+    }
     
 
     return (
         <>
-            <form className="mb-3" action="index.html" method="post" >
+            <form className="mb-3" onSubmit={handleSubmit} >
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
                 <div className="form-floating">
                     <input type="text"

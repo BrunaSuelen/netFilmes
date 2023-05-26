@@ -1,78 +1,87 @@
 import React, { useEffect, useState } from 'react';
-import {  Link } from "react-router-dom";
-import './Login.css'
-
+import { Link } from "react-router-dom";
+import './Login.css';
+import api from '../../services/api';
 
 const Login = () => {
-    const [errorMessages, setErrorMessages ] = useState({});
- 
+    const [errorMessages, setErrorMessages] = useState({});
+
     const [formData, setFormData] = useState({
         email: '',
         password: ''
     });
 
-    
+
     const [isEnableButton, setIsEnableButton] = useState(false);
 
-    useEffect(() => {   
+    useEffect(() => {
         const areAllInputsHaveValues = Object.values(formData).every(element => element !== '');
         setIsEnableButton(areAllInputsHaveValues);
     }, [formData]);
 
-    function handleOnChangeInput({target}){
-        const {name, value} = target;
+    function handleOnChangeInput({ target }) {
+        const { name, value } = target;
 
-        setFormData({...formData, [name]: value});
-       
-        const msg = value === '' ? 'Campo Obrigatório' : '';
-        setErrorMessages({...errorMessages, [name]: msg});
-    }
-
-    function handleOnFocusInput({target}){
-        const {name, value} = target;
+        setFormData({ ...formData, [name]: value });
 
         const msg = value === '' ? 'Campo Obrigatório' : '';
-        setErrorMessages({...errorMessages, [name]: msg});
+        setErrorMessages({ ...errorMessages, [name]: msg });
     }
-    
+
+    function handleOnFocusInput({ target }) {
+        const { name, value } = target;
+
+        const msg = value === '' ? 'Campo Obrigatório' : '';
+        setErrorMessages({ ...errorMessages, [name]: msg });
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // api.get("/users")
+        //     .then((response) => console.log(response.data))
+        //     .catch((err) => {
+        //         console.error("ops! ocorreu um erro" + err);
+        //     });
+    }
     return (
         <main className="form-signin w-100 m-auto" id="boxformlogin">
-            <form className="" action="home.html" method="post">
+            <form className="" onSubmit={handleSubmit}>
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
 
                 <div className="form-floating">
                     <label htmlFor="floatingInput">Email</label>
-                    <input type="email" 
-                           className="form-control"
-                           id="floatingInput"
-                           placeholder="name@example.com"
-                           name="email"
-                           onChange={handleOnChangeInput}
-                           onFocus={handleOnFocusInput}
-                           value={formData.email}
-                           required
-                           />
-                           <span className="error" id="error-floatingInput">{errorMessages?.email}</span>
-                    
+                    <input type="email"
+                        className="form-control"
+                        id="floatingInput"
+                        placeholder="name@example.com"
+                        name="email"
+                        onChange={handleOnChangeInput}
+                        onFocus={handleOnFocusInput}
+                        value={formData.email}
+                        required
+                    />
+                    <span className="error" id="error-floatingInput">{errorMessages?.email}</span>
+
                 </div>
 
                 <div className="form-floating">
                     <input type="password"
-                           className="form-control"
-                           id="floatingPassword"
-                           placeholder="Password"
-                           name="password"
-                           onChange={handleOnChangeInput}
-                           onFocus={handleOnFocusInput}
-                           value={formData.password}
-                           required
-                           />
+                        className="form-control"
+                        id="floatingPassword"
+                        placeholder="Password"
+                        name="password"
+                        onChange={handleOnChangeInput}
+                        onFocus={handleOnFocusInput}
+                        value={formData.password}
+                        required
+                    />
                     <label htmlFor="floatingPassword">Senha</label>
                     <span className="error" id="error-floatingPassword">{errorMessages?.password}</span>
                 </div>
 
-                <button className="w-100 btn btn-lg btn-danger mb-3" id="botao" type="submit"  disabled={!isEnableButton}>Entrar</button>
-                 <Link className="link-danger link-offset-2 link-underline link-underline-opacity-0" id="criarConta" to="cadastro" >Criar Conta</Link> 
+                <button className="w-100 btn btn-lg btn-danger mb-3" id="botao" type="submit" disabled={!isEnableButton}>Entrar</button>
+                <Link className="link-danger link-offset-2 link-underline link-underline-opacity-0" id="criarConta" to="cadastro" >Criar Conta</Link>
             </form>
         </main>
     )

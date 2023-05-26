@@ -1,0 +1,15 @@
+.dropdown-menu {
+    position: absolute;
+    inset: 0px 0px auto auto;
+    margin: 0px;
+    transform: translate(0px, 34px);
+}
+
+.hr-menu {    
+    border: 5px solid #b62735;
+    color: #b62735;
+    height: 5px;
+    width: 100vw;
+    margin-left: -40px;
+    opacity: 1;
+}
