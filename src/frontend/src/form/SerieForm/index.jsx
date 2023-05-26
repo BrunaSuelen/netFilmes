@@ -10,11 +10,12 @@ const SerieForm = ({ props }) => {
     const [errorMessages, setErrorMessages] = useState({});
 
     const [formData, setFormData] = useState({
+        id: '',
         name: '',
         image: '',
-        streaming: '',
+        streaming: {},
         category: '',
-        comments: '',
+        comments: ''
     });
 
     useEffect(() => {
@@ -38,15 +39,15 @@ const SerieForm = ({ props }) => {
         const msg = value === '' ? 'Campo Obrigatório' : '';
         setErrorMessages({ ...errorMessages, [name]: msg });
     }
-
+    
     useEffect(() => {
-        if(serie){
-            const { name, image, streaming, category, comments } = serie;
-           setFormData({'name':name, 'image': image, 'streaming': streaming, 'category' : category, 'comments': comments});
+        if (serie) {
+            const { id, name, image, streaming, category, comments } = serie;
+            setFormData({ id, name, image, streaming, category, comments });
         }
-    }, []);
+    }, [serie]);
 
-  
+
 
     return (
         <form onSubmit={handleSubmit}>
@@ -58,7 +59,7 @@ const SerieForm = ({ props }) => {
 
             <div className="mb-3">
                 <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image"  onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
+                <input className="form-control" type="file" id="imageSerie" name="image" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
             </div>
 

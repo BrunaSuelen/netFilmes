@@ -1,20 +1,22 @@
-import React from "react";
-import SerieForm from "../../form/SerieForm/SerieForm";
+import React, { useEffect, useState } from "react";
+import SerieForm from "../../form/SerieForm";
+import { useParams } from "react-router-dom";
+import { seriesMockdata } from "../../services/mockdata";
 
 const EditSerie = () => {
-    const serie = {
-        name: 'Vikings',
-        image: 'images/serie.png',
-        streaming: 'netflix',
-        category: 'assistido',
-        comments: 'aaaa',
-    }
+    const { id } = useParams();
+
+    const [serie, setSerie] = useState({});
+
+    useEffect(() => {
+       const serieMockdata =  JSON.parse(seriesMockdata)[id];
+       setSerie(serieMockdata);
+    }, [id])
 
     function handleSubmit(event) {
         event.preventDefault();
         console.log('foi___editar');
     }
-
 
     return (
         <>

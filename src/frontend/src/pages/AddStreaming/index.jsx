@@ -1,23 +1,24 @@
 import React from "react";
-import SteamingForm from "../../form/StreamingForm/SteamingForm";
+import SteamingForm from "../../form/StreamingForm";
 
+import './AddStreaming.css';
 
-const EditStreaming = () => {
+const AddStreaming = () => {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log('streaming___edit');
+        console.log('streaming___add');
     }
 
 
     return (
         <>
             <div className="mb-4 d-flex justify-content-between ">
-                <h1 className="h2" id="title-page">Editar Streaming</h1>
+                <h1 className="h2" id="title-page">Cadastrar Streaming</h1>
             </div>
             <SteamingForm props={{ handleSubmit }} />
         </>
     )
 }
 
-export default EditStreaming;
+export default AddStreaming;

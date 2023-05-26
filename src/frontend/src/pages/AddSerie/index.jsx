@@ -1,5 +1,5 @@
 import React from "react";
-import SerieForm from "../../form/SerieForm/SerieForm";
+import SerieForm from "../../form/SerieForm";
 
 
 const AddSerie = () => {

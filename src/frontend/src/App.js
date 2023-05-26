@@ -1,15 +1,16 @@
 import './App.css';
 
 import { Routes, Route } from "react-router-dom";
-import Login from './pages/Login/Login'
-import Cadastro from './pages/Cadastro/Cadastro';
-import PageNotFound from './pages/PageNotFound/PageNotFound';
-import Home from './pages/Home/Home';
-import Streamings from './pages/Streamings/Streamings';
-import Layout from './components/Layout/Layout';
-import EditSerie from './pages/EditSerie/EditSerie';
-import AddSerie from './pages/AddSerie/AddSerie';
-import EditStreaming from './pages/EditStreaming/EditStreaming';
+import Login from './pages/Login'
+import Cadastro from './pages/Cadastro';
+import PageNotFound from './pages/PageNotFound';
+import Home from './pages/Home';
+import Streamings from './pages/Streamings';
+import Layout from './components/Layout';
+import EditSerie from './pages/EditSerie';
+import AddSerie from './pages/AddSerie';
+import EditStreaming from './pages/EditStreaming';
+import AddStreaming from './pages/AddStreaming';
 
 function App() {
   //Identar o código 
@@ -18,14 +19,14 @@ function App() {
   return (
     <Layout props={{hideHeaderPaths:['/', '/cadastro']}}>
       <Routes>
-        <Route index element={<Login />} />
+        <Route exact path="/" element={<Login />} />
         <Route path="cadastro" element={<Cadastro />} />
         <Route path='home' element={<Home />} />
         <Route path='streamings' element={<Streamings />} />
         <Route path='serie/adicionar' element={<AddSerie/>}/>
-        <Route path='serie/editar' element={<EditSerie/>}/>
-        <Route path='streaming/adicionar' element=''/>
-        <Route path='streaming/editar' element={<EditStreaming/>}/>
+        <Route path='serie/editar/:id' element={<EditSerie/>}/>
+        <Route path='streaming/adicionar' element={<AddStreaming/>}/>
+        <Route path='streaming/editar/:id' element={<EditStreaming/>}/>
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Layout>

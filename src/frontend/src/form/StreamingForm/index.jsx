@@ -47,19 +47,19 @@ const StreamingForm = ({ props }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div class="mb-3">
-                <label for="nameStreaming" class="form-label">Streaming</label>
-                <input type="name" class="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
-                <span class="error" id="error-nameStreaming">{errorMessages?.name}</span>
+            <div className="mb-3">
+                <label htmlFor="nameStreaming" className="form-label">Streaming</label>
+                <input type="name" className="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
+                <span className="error" id="error-nameStreaming">{errorMessages?.name}</span>
             </div>
 
-            <div class="mb-3">
-                <label for="imageStreaming" class="form-label">Imagem da capa</label>
-                <input class="form-control" type="file" id="imageStreaming" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
-                <span class="error" id="error-imageStreaming">{errorMessages?.image}</span>
+            <div className="mb-3">
+                <label htmlFor="imageStreaming" className="form-label">Imagem da capa</label>
+                <input type="file" className="form-control" id="imageStreaming" name="image" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
+                <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
             </div>
-            <a class="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" onclick="history.back()">Voltar</a>
-            <button class="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>
+            <a className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" onClick={e => console.log(e)}>Voltar</a>
+            <button className="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>
         </form>
     );
 };
