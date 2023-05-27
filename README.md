@@ -19,3 +19,8 @@
 - Baixar o projeto ou clonar projeto
 - Abrir como no navegador de sua preferência o arquivo index.html
 - Caso possua a extensão live server no vscode  clicar com o botão direito no index.html e clicar em "open with liver server"
+
+# Iniciar projeto 
+- cd src/frontend/ 
+- npm i
+- npm run start
