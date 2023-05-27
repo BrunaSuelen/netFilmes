@@ -24,3 +24,9 @@
 - cd src/frontend/ 
 - npm i
 - npm run start
+
+## Acessar as páginas 
+Atualmente é preciso acessar as páginas manualmente, olhar as rotas no arquivo app.js
+ex:
+- http://localhost:3000/home
+- http://localhost:3000/serie/editar/1
