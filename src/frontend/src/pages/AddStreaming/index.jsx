@@ -1,5 +1,5 @@
 import React from "react";
-import SteamingForm from "../../form/StreamingForm";
+import SteamingForm from "../../forms/StreamingForm";
 
 import './AddStreaming.css';
 

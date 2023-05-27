@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import './SerieForm.css';
+import { Link } from 'react-router-dom';
 
-const SerieForm = ({ props }) => {
+const SerieForm = ({ props}) => {
     const { serie, handleSubmit } = props;
 
     const [isEnableButton, setIsEnableButton] = useState(false);
@@ -11,9 +12,9 @@ const SerieForm = ({ props }) => {
 
     const [formData, setFormData] = useState({
         id: '',
-        name: '',
+        serieTitle: '',
         image: '',
-        streaming: {},
+        streaming: '',
         category: '',
         comments: ''
     });
@@ -42,8 +43,7 @@ const SerieForm = ({ props }) => {
     
     useEffect(() => {
         if (serie) {
-            const { id, name, image, streaming, category, comments } = serie;
-            setFormData({ id, name, image, streaming, category, comments });
+            setFormData( {...serie});
         }
     }, [serie]);
 
@@ -53,8 +53,8 @@ const SerieForm = ({ props }) => {
         <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="nameSerie" className="form-label">Série</label>
-                <input type="name" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
-                <span className="error" id="error-nameSerie">{errorMessages?.name}</span>
+                <input type="name" className="form-control" id="nameSerie" name="serieTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.serieTitle} required />
+                <span className="error" id="error-nameSerie">{errorMessages?.serieTitle}</span>
             </div>
 
             <div className="mb-3">
@@ -65,15 +65,18 @@ const SerieForm = ({ props }) => {
 
             <div className="mb-3">
                 <label htmlFor="streamingSerie" className="form-label">Streaming</label>
-                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="streaming" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.streaming} required>
+                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="streamingTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.streamingTitle?.toLowerCase()} required>
                     <option value="" select="">Selecione um streaming</option>
-                    <option value="netflix">Netflix </option><option value="globo-play">Globo Play </option><option value="hbo">HBO </option></select>
-                <span className="error" id="error-streamingSerie">{errorMessages?.streaming}</span>
+                    <option value="netflix">Netflix </option>
+                    <option value="globo-play">Globo Play </option>
+                    <option value="hbo">HBO </option>
+                </select>
+                <span className="error" id="error-streamingSerie">{errorMessages?.streamingTitle}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="categoriaSerie" className="form-label">Categoria</label>
-                <select id="categoriaSerie" className="form-select form-select" aria-label=".form-select" name="category" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.category} required>
+                <select id="categoriaSerie" className="form-select form-select" aria-label=".form-select" name="category" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.category?.toLowerCase()} required>
                     <option value="" select="">Selecione a categoria</option>
                     <option value="assistido">Assitido</option>
                     <option value="nao_assistido">Não Assiti</option>
@@ -89,7 +92,7 @@ const SerieForm = ({ props }) => {
                 <textarea className="form-control" id="comentarioSerie" name="comments" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.comments} required></textarea>
                 <span className="error" id="error-comentarioSerie">{errorMessages?.comments}</span>
             </div>
-            <a className="btn mt-4 btn-outline-dark float-start d-none d-sm-inline" onClick={(e) => console.log(e)}>Voltar</a>
+            <Link to="/home" className="btn mt-4 btn-outline-dark float-start d-none d-sm-inline" >Voltar</Link>
             <button className="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>
         </form>
     );

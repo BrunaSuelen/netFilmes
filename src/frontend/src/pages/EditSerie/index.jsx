@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SerieForm from "../../form/SerieForm";
+import SerieForm from "../../forms/SerieForm";
 import { useParams } from "react-router-dom";
 import { seriesMockdata } from "../../services/mockdata";
 

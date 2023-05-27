@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
     const [series, setSeries] = useState([]);
+    
     useEffect(() => {
         // api.get("/series")
         // .then((response) => response.json)
@@ -26,7 +27,7 @@ const Home = () => {
                 </Link>
             </div>
 
-            {series && <CardList props={{series}} />}
+            {series && <CardList props={{'items':series, 'editUrl': '/serie/editar'}} />}
         </>
     )
 }
