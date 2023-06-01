@@ -1,0 +1,49 @@
+.btn-close-modal-more-detail{
+    position: absolute;
+    right: 0;
+    top: -30px;
+    z-index: 99999;
+}
+
+
+.image-wrap {
+    overflow: hidden;
+    height: 220px;
+    width: 100%;
+    border-radius: 7px 7px 0 0;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+}
+
+
+img.backdrop-image {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    filter: blur(10px) brightness(0.5);
+    transform: translate(2px, -16px) scale(1.2);
+}
+
+.image-wrap ~ img {
+    width: 100%;
+}
+
+
+.modal-subtitle {
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: -3rem;
+    margin-bottom: 2rem;
+}
+
+.modal-body p {
+    font-weight: 300;
+}
+
+h6 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
