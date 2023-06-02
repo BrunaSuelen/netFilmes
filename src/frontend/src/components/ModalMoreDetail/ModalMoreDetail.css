@@ -27,23 +27,34 @@ img.backdrop-image {
 }
 
 .image-wrap ~ img {
-    width: 100%;
+    width: 100% ;
 }
 
+.modal-more-detail-title {
+    font-weight: 700;
+}
 
-.modal-subtitle {
+.modal-more-detail-subtitle {
     font-size: 14px;
     font-weight: 300;
-    margin-top: -3rem;
+    /* margin-top: -3rem; */
     margin-bottom: 2rem;
 }
 
-.modal-body p {
-    font-weight: 300;
+.modal-more-detail-select {
+width: 120px;
+font-size: 0.8rem;
+margin-left: auto;
+margin-right: 5px;
+border: 1px solid;
 }
 
-h6 {
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
+.modal-more-detail-comments-title{
+    font-weight: 300 !important;
+}
+
+.modal-more-detail-comments {
+    font-weight: 600 !important;
+    margin-bottom: 8px !important;
+    display: block !important;
 }

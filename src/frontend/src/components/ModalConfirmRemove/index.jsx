@@ -3,6 +3,7 @@ import React from "react";
 
 import Modal from 'react-bootstrap/Modal';
 
+import './ModalConfirmRemove.css';
 
 const ModalConfirmRemove = ({ props }) => {
     const { handleClose, handleSubmit, show, content } = props;

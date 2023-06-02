@@ -10,7 +10,6 @@ const Card = ({ props }) => {
 
 
   const [showConfirmRemove, setShowConfirmRemove] = useState(false);
-
   const [showMoreDetail, setShowMoreDetail] = useState(false);
 
   const handleCloseConfirmRemove = () => setShowConfirmRemove(false);
@@ -51,6 +50,7 @@ const Card = ({ props }) => {
           'handleSubmit': handleSubmitMoreDetail,
           'show': showMoreDetail,
           'content': {
+            'id': content.id,
             'title': content?.serieTitle,
             'subTitle': content?.streamingTitle,
             'comments':content?.comments,

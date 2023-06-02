@@ -11,19 +11,20 @@ const ModalMoreDetail = ({ props }) => {
 
     return (
         <Modal show={show} onHide={handleClose} size="lg" centered>
-            <Modal.Header className="modal-capa border-0 mb-3 p-0">
-                <div className="w-100">
-                    <button className="btn-close btn-close-white opacity-100 btn-close-modal-more-detail" onClick={handleClose}></button>
+            <Modal.Header className="border-0 mb-3 p-0">
+                <button className="btn-close btn-close-white opacity-100 btn-close-modal-more-detail" onClick={handleClose}></button>
 
-                    <div className="image-wrap">
-                        <img src="images/serie.jpg" />
-                        <img className="backdrop-image" src="images/serie.jpg" />
-                    </div>
+                <div className="image-wrap">
+                    <img src="images/serie.jpg" />
+                    <img className="backdrop-image" src="images/serie.jpg" />
+                </div>
+            </Modal.Header>
+            <Modal.Body>
+                {content?.title &&
+                    <div className="d-flex mt-2">
+                        <h2 className="modal-more-detail-title fs-3 h2">{content?.title}</h2>
 
-                    <div>
-                        <h2 className="modal-title fs-3 h2">{content?.title}</h2>
-
-                        <select className="form-select form-select-sm categoriaSerie">
+                        <select className="form-select form-select-sm modal-more-detail-select">
                             <option value="nao_assistido">Assitido</option>
                             <option value="assistido">Não Assiti</option>
                             <option value="desejo_assistir">Desejo Assitir</option>
@@ -43,21 +44,19 @@ const ModalMoreDetail = ({ props }) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button className="dropdown-item p-2">
+                                    <button className="dropdown-item p-2" onClick={handleSubmit}>
                                         <i className="bi bi-trash3 p-2"></i>Remover
                                     </button>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </div>
-            </Modal.Header>
-            <Modal.Body>
-
-
-                <h2 className="modal-subtitle">Disponível em: {content?.subTitle}</h2>
-                <h6>Comentário</h6>
-                <p>{content?.comments}</p>
+                }
+                <h2 className="modal-more-detail-subtitle">Disponível em: {content?.subTitle}</h2>
+                {content?.comments &&<>
+                <h6 className="modal-more-detail-comments">Comentário</h6>
+                <p className="modal-more-detail-comments-title">{content.comments}</p>
+                </>}
             </Modal.Body>
         </Modal>
     )
