@@ -53,10 +53,11 @@ const ModalMoreDetail = ({ props }) => {
                     </div>
                 }
                 <h2 className="modal-more-detail-subtitle">Disponível em: {content?.subTitle}</h2>
-                {content?.comments &&<>
-                <h6 className="modal-more-detail-comments">Comentário</h6>
-                <p className="modal-more-detail-comments-title">{content.comments}</p>
-                </>}
+                {content?.comments && 
+                    <>
+                        <h6 className="modal-more-detail-comments">Comentário</h6>
+                        <p className="modal-more-detail-comments-title">{content.comments}</p>
+                    </>}
             </Modal.Body>
         </Modal>
     )
