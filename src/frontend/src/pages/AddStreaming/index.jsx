@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SteamingForm from "../../forms/StreamingForm";
 
 import './AddStreaming.css';
+import { useNavigate } from "react-router-dom";
 
 const AddStreaming = () => {
+    const navigate = useNavigate();
+    
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+    },[])
+    
 
     function handleSubmit(event) {
         event.preventDefault();

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ModalConfirmRemove from "../ModalConfirmRemove";
 import ModalMoreDetail from "../ModalMoreDetail";
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 
 const Card = ({ props }) => {
   const { content, editUrl } = props;

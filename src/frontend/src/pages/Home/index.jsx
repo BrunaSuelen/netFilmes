@@ -3,12 +3,18 @@ import React, { useEffect, useState } from "react";
 import api from '../../services/api';
 import {seriesMockdata} from '../../services/mockdata';
 import CardList from "../../components/CardsList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
     const [series, setSeries] = useState([]);
     
     useEffect(() => {
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+        
         // api.get("/series")
         // .then((response) => response.json)
         // .then((data) => console.log(data))

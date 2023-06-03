@@ -59,7 +59,7 @@ const SerieForm = ({ props}) => {
 
             <div className="mb-3">
                 <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
+                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/*" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
             </div>
 

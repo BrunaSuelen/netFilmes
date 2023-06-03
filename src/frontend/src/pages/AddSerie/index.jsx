@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SerieForm from "../../forms/SerieForm";
+import { useNavigate } from "react-router-dom";
 
 
 const AddSerie = () => {
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+    },[])
+    
 
     function handleSubmit(event) {
         event.preventDefault();

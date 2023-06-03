@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import './Login.css';
 import api from '../../services/api';
 
 const Login = () => {
+    const navigate = useNavigate();
+
     const [errorMessages, setErrorMessages] = useState({});
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: ''
-    });
-
+    const [formData, setFormData] = useState({email: '', password: ''});
 
     const [isEnableButton, setIsEnableButton] = useState(false);
 
@@ -38,11 +36,17 @@ const Login = () => {
     function handleSubmit(event) {
         event.preventDefault();
 
-        // api.get("/users")
-        //     .then((response) => console.log(response.data))
-        //     .catch((err) => {
-        //         console.error("ops! ocorreu um erro" + err);
-        //     });
+       
+        api.post("/user",formData )
+            .then((response) => {
+                const {data} = response;
+                localStorage.setItem('token', JSON.stringify(data.token));
+                localStorage.setItem('contentUser', JSON.stringify(data.content));
+                navigate('/home');
+            })
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
     }
     return (
         <main className="form-signin w-100 m-auto" id="boxformlogin">
@@ -50,7 +54,6 @@ const Login = () => {
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
 
                 <div className="form-floating">
-                    <label htmlFor="floatingInput">Email</label>
                     <input type="email"
                         className="form-control"
                         id="floatingInput"
@@ -61,6 +64,7 @@ const Login = () => {
                         value={formData.email}
                         required
                     />
+                    <label htmlFor="floatingInput">Email</label>
                     <span className="error" id="error-floatingInput">{errorMessages?.email}</span>
 
                 </div>

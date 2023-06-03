@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from "react";
 import SteamingForm from "../../forms/StreamingForm";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { streamingsMockdata } from "../../services/mockdata";
 import api from "../../services/api";
 
 
 const EditStreaming = () => {
     const { id } = useParams();
-
     const [streaming, setStreaming] = useState({});
+
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+    },[])
 
     useEffect(() => {
         const streamingMockdata =  JSON.parse(streamingsMockdata)[id];

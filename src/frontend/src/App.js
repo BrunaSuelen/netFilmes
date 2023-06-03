@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Login from './pages/Login'
 import Cadastro from './pages/Cadastro';
 import PageNotFound from './pages/PageNotFound';
@@ -11,9 +11,7 @@ import EditStreaming from './pages/EditStreaming';
 import AddStreaming from './pages/AddStreaming';
 
 function App() {
-  //Identar o código 
-  //Refatorar o nome dos forms EditSerie->UpdateSerie, AddSerie -> CreateSerie 
-  
+  const location = useLocation();
   return (
     <Layout props={{hideHeaderPaths:['/', '/cadastro']}}>
       <Routes>

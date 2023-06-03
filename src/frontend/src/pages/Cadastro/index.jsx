@@ -3,7 +3,6 @@ import './Cadastro.css';
 import { Link } from "react-router-dom";
 
 const Cadastro = () => {
-
     const [errorMessages, setErrorMessages ] = useState({});
  
     const [formData, setFormData] = useState({

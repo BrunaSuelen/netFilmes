@@ -2,15 +2,22 @@ import React, { useEffect, useState } from "react";
 import api from '../../services/api';
 import {streamingsMockdata} from '../../services/mockdata';
 import CardList from "../../components/CardsList";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import './Streamings.css'
 
 const Streamings = () => {
 
     const [streamings, setStreamings] = useState([]);
+    const navigate = useNavigate();
     
     useEffect(() => {
+
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+
         // api.get("/series")
         // .then((response) => response.json)
         // .then((data) => console.log(data))

@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
 import SerieForm from "../../forms/SerieForm";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { seriesMockdata } from "../../services/mockdata";
 
 const EditSerie = () => {
     const { id } = useParams();
-
     const [serie, setSerie] = useState({});
 
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+    },[])
+
     useEffect(() => {
+        
        const serieMockdata =  JSON.parse(seriesMockdata)[id];
        setSerie(serieMockdata);
     }, [id])

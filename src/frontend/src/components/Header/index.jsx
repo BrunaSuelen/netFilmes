@@ -1,8 +1,16 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
+  const contentUser = JSON.parse(localStorage.getItem('contentUser'));
+  const navigate = useNavigate();
+
+  function handleClick(e) {
+    localStorage.removeItem('token');
+    localStorage.removeItem('contentUser');
+    navigate('/');
+  }
 
   return (
     <header className="sticky-top">
@@ -24,11 +32,11 @@ const Header = () => {
             
             <div className="ms-md-auto user-name">
               <p>Bem vindo!</p>
-              <p>Adilson</p>
+              <p>{contentUser?.name}</p>
             </div>
           </button>
           <ul className="dropdown-menu text-small" data-popper-placement="bottom-end" >
-            <li><a className="dropdown-item" href="index.html">Sair</a></li>
+            <li><button className="dropdown-item" onClick={handleClick}>Sair</button></li>
           </ul>
         </div>
 
@@ -53,5 +61,23 @@ const Header = () => {
     </header>
   )
 }
+   
+{/* 
+<Dropdown className="dropdown text-end ms-md-auto user">
+  <Dropdown.Toggle id="dropdown-basic"  variant="" size={"sm"} className="d-flex link-dark text-decoration-none  show">
+      <div className="user-image">
+        <img src="images/profile.png" alt="mdo" width="32" height="32" className="rounded-circle" />
+      </div>
+
+      <div className="ms-md-auto user-name">
+        <p>Bem vindo!</p>
+        <p>{contentUser?.name}</p>
+      </div>
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item className="" onClick={handleClick}>Sair</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown> */}
 
 export default Header;
