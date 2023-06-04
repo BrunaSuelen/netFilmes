@@ -55,18 +55,56 @@
   color: black;
   font-weight: 600;
 }
+  
+.dropdown.user {
+  position: absolute;
+  right: 0;
+}
+
+.dropdown.user .user-nome {
+  font-weight: 600;
+  text-align: end;
+}
 
 /* Responsividade */
 @media screen and (max-width: 767px) {
-.dropdown.user {
-  margin-left: auto;
-  margin-right: 10px;
-}
+  .dropdown.user {
+    margin-left: auto;
+    right: 40px;
+  }
 }
 
 @media screen and (max-width: 576px) {
   .hr-menu {
     margin-left: -20px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .dropdown-toggle {
+    display: block !important;
+  }
+
+  .dropdown-toggle p {
+    font-size: 10px;
+  }
+
+  .dropdown.user .dropdown-toggle .user-image::after {
+    margin-right: 0;
+  }
+
+  .dropdown.user .dropdown-toggle .user-image img {
+    width: 20px;
+    height: 20px;    
+    margin-left: 4px;
+  }
+  
+  .dropdown.user .user-nome {
+    text-align: center;
+  }
+
+  .navbar .nav-link img {
+    width: 100px;
   }
 }
 

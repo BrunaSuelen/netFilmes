@@ -1,0 +1,34 @@
+.pagina-nao-encontrada {
+  display: grid;
+  color: white;
+  justify-content: center;
+}
+
+.pagina-nao-encontrada div {
+  display: flex;
+  align-items: end;
+  height: 36vh;
+}
+
+.pagina-nao-encontrada div h1 {
+  font-size: 10rem;
+}
+
+.pagina-nao-encontrada div p {
+  font-size: 2.5rem;
+  max-width: 250px;
+  font-weight: 200;
+  margin-left: 12px;
+}
+
+.pagina-nao-encontrada a {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  margin-top: 40px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 4px 4px 1px black;
+  text-align: center;
+}

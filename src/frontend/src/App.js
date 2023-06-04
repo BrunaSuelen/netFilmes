@@ -13,7 +13,15 @@ import AddStreaming from './pages/AddStreaming';
 function App() {
   const location = useLocation();
   return (
-    <Layout props={{hideHeaderPaths:['/', '/cadastro']}}>
+    <Layout props={{
+      showHeaderPaths: [
+        '/home',
+        '/streamings',
+        '/serie/adicionar',
+        '/serie/editar',
+        '/streaming/adicionar',
+        '/streaming/editar'
+      ]}}>
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route path="cadastro" element={<Cadastro />} />

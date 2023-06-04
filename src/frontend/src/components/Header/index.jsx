@@ -19,22 +19,6 @@ const Header = () => {
           <img src="images/logo-header.png" alt="Logo da página NetFilmes" />
         </NavLink>
 
-        {/* Itens Menu */}
-        <div className="collapse navbar-collapse" id="headerNavbar">
-          <ul className="nav align-items-center w-100 ">
-            <li className="nav-item">
-              <NavLink className="nav-link active" to="home">
-                Minhas Séries
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="streamings">
-                Streamings
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-
         {/* Usuário */}
         <div className="dropdown text-end ms-md-auto user">
           <button
@@ -47,15 +31,17 @@ const Header = () => {
                 alt="mdo"
                 width="32"
                 height="32"
-                className="rounded-circle"
-              />
+                className="rounded-circle"/>
             </div>
             <div className="ms-md-auto user-name">
               <p>Bem vindo!</p>
-              <p>{contentUser?.name}</p>
+              <p className="user-nome">{contentUser?.name}</p>
             </div>
           </button>
-          <ul className="dropdown-menu text-small" data-popper-placement="bottom-end">
+          <ul
+            className="dropdown-menu text-small"
+            data-popper-placement="bottom-end"
+          >
             <li>
               <button className="dropdown-item" onClick={handleClick}>
                 Sair
@@ -76,6 +62,22 @@ const Header = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+        {/* Itens Menu */}
+        <div className="collapse navbar-collapse" id="headerNavbar">
+          <ul className="nav align-items-center w-100 ">
+            <li className="nav-item">
+              <NavLink className="nav-link active" to="home">
+                Minhas Séries
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="streamings">
+                Streamings
+              </NavLink>
+            </li>
+          </ul>
+        </div>
       </nav>
 
       <hr className="hr-menu mb-4" />

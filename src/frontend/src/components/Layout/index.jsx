@@ -4,17 +4,17 @@ import "./reset.css";
 import Header from "../Header";
 
 const Layout = ({ children, props }) => {
-    const {hideHeaderPaths} = props;
-    const isHideHeader = hideHeaderPaths.includes(window.location.pathname);
+    const {showHeaderPaths} = props;
+    const isShowHeader = showHeaderPaths.includes(window.location.pathname);
     return (
       <> 
-        { isHideHeader ? (
-          <main className='card-content-page'>{children}</main>
-        ) : (
+        { isShowHeader ? (
           <div className='container'>
             <Header />
             <main className='card-content-page'>{children}</main>
           </div>
+        ) : (
+          <main>{children}</main>
         )}
       </>
     );
