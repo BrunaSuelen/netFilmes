@@ -2,11 +2,11 @@
 const {db} = require('../db');
 
 async function getUser(data){
-  const { nome, email, password } = data;
-
+  const { email, password } = data;
+  
   try {
-    await new Promise((resolve, reject) => {
-      db.get(
+   return await new Promise((resolve, reject) => {
+     db.get(
         `Select * from Usuario u WHERE  u.email = ? and u.senha = ?`,
         [email, password],
         function (error, row) {
@@ -18,8 +18,6 @@ async function getUser(data){
         }
       );
     });
-
-    return row; 
   } catch (error) {
     return null; 
   }
@@ -29,25 +27,23 @@ async function createUser(data){
   const { nome, email, password } = data;
 
   try {
-    await new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       db.run(
         `INSERT INTO Usuario (nome, email, senha) VALUES (?, ?, ?)`,
         [nome, email, password],
         function (error) {
           if (error) {
             console.error(error.message);
-            reject(error); 
+            reject(false); 
           } else {
-            console.log(`Inserted a row with the ID: ${this.lastID}`);
-            resolve(); 
+            resolve(true); 
           }
         }
       );
     });
 
-    return true; // Retorna true se a inserção for bem-sucedida
   } catch (error) {
-    return false; // Retorna false se ocorrer um erro
+    return false; 
   }
 }
 

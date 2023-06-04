@@ -36,7 +36,7 @@ const Login = () => {
     function handleSubmit(event) {
         event.preventDefault();
 
-        api.get("/user", { data:formData })
+        api.post("/user", formData)
             .then((response) => {
                 const {data} = response;
                 localStorage.setItem('token', JSON.stringify(data.token));
@@ -44,12 +44,15 @@ const Login = () => {
                 navigate('/home');
             })
             .catch((err) => {
-                console.error("ops! ocorreu um erro" + err);
+                const message = err?.response?.data?.message;
+                setFormData({email: '', password: ''});
+                setErrorMessages({...errorMessages, 'login': message });
             });
     }
 
     return (
         <main className="form-signin w-100 m-auto" id="boxformlogin">
+            <div>{errorMessages?.login}</div>
             <form className="" onSubmit={handleSubmit}>
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
 

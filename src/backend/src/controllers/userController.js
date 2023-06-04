@@ -1,4 +1,5 @@
 const userService = require('../services/userService');
+const { generate_token } = require('../utils/utils');
 
 const getUser = async (req, res) => {
     const response = {
@@ -8,8 +9,6 @@ const getUser = async (req, res) => {
     }
     try{
         const body = req.body;
-       
-
         if(Object.keys(body).length == 0){
             throw new Error("Campo vazio");
         }
@@ -18,19 +17,25 @@ const getUser = async (req, res) => {
             "email" : body?.email,
             "password": body?.password,
         }
-        //Retornar o usuario
+        
         const user = await userService.getUser(data)
 
-        //validar 
         if(!user) {
-            throw new Error("Não conseguiu criar no banco de dados");
+            throw new Error("Usuario não consegui logar");
         }
 
-        //fazer a logica para retorna o nome do usuairo para que seja armazenado no local storage do react 
+        response['message'] = "Usuario logado com sucesso !";
+        response['content'] = {
+            id: user?.id,
+            name: user?.nome,
+            email: user?.email
+        };
+        response['token'] = 'asd1234' ;
+
         return res.status(200).json(response);
     }catch (error) {
-        response['message'] = 'Erro ao criar usuário';
-        return res.status(400).json(response);
+        response['message'] = 'Usuário e/ou senha inválido(s) !';
+        return res.status(401).json(response);
     }
 
 }
@@ -43,7 +48,7 @@ const createUser =  async (req, res) => {
     try{
         const body = req.body;
 
-        if(Object.keys(myEmptyObj).length == 0){
+        if(Object.keys(body).length == 0){
             throw new Error("Campo vazio");
         }
 
@@ -52,7 +57,7 @@ const createUser =  async (req, res) => {
             "email" : body?.email,
             "password": body?.password,
         }
-
+        
         const isCreated = await userService.createUser(data)
 
         if(!isCreated) {
@@ -65,7 +70,7 @@ const createUser =  async (req, res) => {
     }catch (error) {
         response['message'] = 'Erro ao criar usuário';
         response['created']= false;
-        return res.status(400).json(response);
+        return res.status(401).json(response);
     }
 
    
