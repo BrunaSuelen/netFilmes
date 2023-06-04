@@ -8,28 +8,28 @@ const getUser = async (req, res) => {
     }
     try{
         const body = req.body;
+       
 
-        if(Object.keys(myEmptyObj).length == 0){
+        if(Object.keys(body).length == 0){
             throw new Error("Campo vazio");
         }
-        
+
         const data = {
             "email" : body?.email,
             "password": body?.password,
         }
+        //Retornar o usuario
+        const user = await userService.getUser(data)
 
-        const isCreated = await userService.getUser(data)
-
-        if(!isCreated) {
+        //validar 
+        if(!user) {
             throw new Error("Não conseguiu criar no banco de dados");
         }
 
-        response['created'] = isCreated;
-        response['message'] = "Criado com sucesso !";
+        //fazer a logica para retorna o nome do usuairo para que seja armazenado no local storage do react 
         return res.status(200).json(response);
     }catch (error) {
         response['message'] = 'Erro ao criar usuário';
-        response['created']= false;
         return res.status(400).json(response);
     }
 

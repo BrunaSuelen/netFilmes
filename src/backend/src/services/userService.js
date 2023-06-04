@@ -6,27 +6,24 @@ async function getUser(data){
 
   try {
     await new Promise((resolve, reject) => {
-      db.run(
-        `Select COUNT(*) from Usuario u WHERE  u.email = ? and u.senha = ?`,
-        [nome, email, password],
-        function (error) {
+      db.get(
+        `Select * from Usuario u WHERE  u.email = ? and u.senha = ?`,
+        [email, password],
+        function (error, row) {
           if (error) {
-            console.error(error.message);
             reject(error); 
           } else {
-            console.log(`Inserted a row with the ID: ${this.lastID}`);
-            resolve(); 
+            resolve(row); 
           }
         }
       );
     });
 
-    return true; // Retorna true se a inserção for bem-sucedida
+    return row; 
   } catch (error) {
-    return false; // Retorna false se ocorrer um erro
+    return null; 
   }
 }
-
 async function createUser(data){
 
   const { nome, email, password } = data;
@@ -54,4 +51,4 @@ async function createUser(data){
   }
 }
 
-module.exports = {createUser}
+module.exports = { getUser, createUser};
