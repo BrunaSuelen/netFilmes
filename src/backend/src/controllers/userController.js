@@ -1,36 +1,74 @@
+const userService = require('../services/userService');
 
-
-
-const getUser = (req, res) => {
-    const body = req.body;
-    const defaultResponseUser = {
+const getUser = async (req, res) => {
+    const response = {
         token: null,
         message: null,
         content: null
     }
-   
-    defaultResponseUser['content'] = {
-        name : 'Carlos'
-    }
-    defaultResponseUser['token'] = 'aaaaasssssdddddd';
+    try{
+        const body = req.body;
 
-    res.status(200).json(defaultResponseUser);
+        if(Object.keys(myEmptyObj).length == 0){
+            throw new Error("Campo vazio");
+        }
+        
+        const data = {
+            "email" : body?.email,
+            "password": body?.password,
+        }
+
+        const isCreated = await userService.getUser(data)
+
+        if(!isCreated) {
+            throw new Error("Não conseguiu criar no banco de dados");
+        }
+
+        response['created'] = isCreated;
+        response['message'] = "Criado com sucesso !";
+        return res.status(200).json(response);
+    }catch (error) {
+        response['message'] = 'Erro ao criar usuário';
+        response['created']= false;
+        return res.status(400).json(response);
+    }
+
 }
 
-const createUser = (req, res) => {
-    const body = req.body;
-    const queryStringID = req.query.id;
-
-
-    const message = {
-        token: null,
+const createUser =  async (req, res) => {
+    const response = {
         message: null,
-        content: null
+        created: null,
+    }
+    try{
+        const body = req.body;
+
+        if(Object.keys(myEmptyObj).length == 0){
+            throw new Error("Campo vazio");
+        }
+
+        const data = {
+            "nome" : body?.name,
+            "email" : body?.email,
+            "password": body?.password,
+        }
+
+        const isCreated = await userService.createUser(data)
+
+        if(!isCreated) {
+            throw new Error("Não conseguiu criar no banco de dados");
+        }
+
+        response['created'] = isCreated;
+        response['message'] = "Criado com sucesso !";
+        return res.status(200).json(response);
+    }catch (error) {
+        response['message'] = 'Erro ao criar usuário';
+        response['created']= false;
+        return res.status(400).json(response);
     }
 
-    console.log(body);
-    
-    res.status(200).json({'message': 200});
+   
 }
 
 module.exports = {getUser, createUser};

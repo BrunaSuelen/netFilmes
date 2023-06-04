@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import './Login.css';
 import api from '../../services/api';
 
@@ -36,8 +36,7 @@ const Login = () => {
     function handleSubmit(event) {
         event.preventDefault();
 
-       
-        api.post("/user",formData )
+        api.get("/user", { data:formData })
             .then((response) => {
                 const {data} = response;
                 localStorage.setItem('token', JSON.stringify(data.token));
@@ -48,6 +47,7 @@ const Login = () => {
                 console.error("ops! ocorreu um erro" + err);
             });
     }
+
     return (
         <main className="form-signin w-100 m-auto" id="boxformlogin">
             <form className="" onSubmit={handleSubmit}>

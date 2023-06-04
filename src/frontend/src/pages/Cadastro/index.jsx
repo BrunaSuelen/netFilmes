@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './Cadastro.css';
 import { Link } from "react-router-dom";
 
+import api from '../../services/api'
+
 const Cadastro = () => {
     const [errorMessages, setErrorMessages ] = useState({});
  
@@ -40,11 +42,11 @@ const Cadastro = () => {
     function handleSubmit(event) {
         event.preventDefault();
 
-        // api.post("/users")
-        //     .then((response) => console.log(response.data))
-        //     .catch((err) => {
-        //         console.error("ops! ocorreu um erro" + err);
-        //     });
+        api.post("/user")
+            .then((response) => console.log(response.data))
+            .catch((err) => {
+                console.error("ops! ocorreu um erro" + err);
+            });
     }
     
 

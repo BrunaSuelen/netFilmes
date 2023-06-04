@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"Email@email.com\",\n    \"password\": \"senha\"\n}",
+							"raw": "{\n    \"name\": \"teste postman\",\n    \"email\": \"Email@email.com\",\n    \"password\": \"senha\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -23,19 +23,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/user",
+							"raw": "{{host}}/user/create",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"user"
+								"user",
+								"create"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Create Copy",
+					"name": "Get User",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -44,12 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n    \"email\": \"Email@email.com\",\n    \"password\": \"senha\"\n}"
 						},
 						"url": {
 							"raw": "{{host}}/user",

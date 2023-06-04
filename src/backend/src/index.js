@@ -9,9 +9,9 @@ const streamingRoute = require('./routes/streamingRoute');
 const app = express();
 
 
-//const db = require('./db');
-//db.initDb();
-//db.populateDabase();
+const db = require('./db');
+db.initDb();
+db.populateDabase();
 
 const port = 5000;
 
