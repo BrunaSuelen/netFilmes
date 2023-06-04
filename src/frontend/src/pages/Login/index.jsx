@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link,  useNavigate } from "react-router-dom";
-import './Login.css';
+import { Link, useNavigate } from "react-router-dom";
+//import './Login.css';
 import api from '../../services/api';
 
 const Login = () => {
@@ -49,10 +49,8 @@ const Login = () => {
                 setErrorMessages({...errorMessages, 'login': message });
             });
     }
-
     return (
         <main className="form-signin w-100 m-auto" id="boxformlogin">
-            <div>{errorMessages?.login}</div>
             <form className="" onSubmit={handleSubmit}>
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
 

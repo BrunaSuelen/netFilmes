@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Cards";
-
+import './CardList.css';
 
 const CardList = ({ props }) => {
     const { items, editUrl} = props;

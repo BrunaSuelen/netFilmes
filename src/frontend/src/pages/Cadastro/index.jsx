@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './Cadastro.css';
 import { Link } from "react-router-dom";
 
+//import './Cadastro.css';
 import api from '../../services/api'
 
 const Cadastro = () => {
@@ -53,16 +53,16 @@ const Cadastro = () => {
             })
             .catch((err) => {
                 const message = err?.response?.data?.message;
-              //  setFormData({ email: '', password: '' });
+                //  setFormData({ email: '', password: '' });
                 setErrorMessages({ ...errorMessages, 'cadastro': message });
             });
     }
 
+
     return (
         <>
-            <div>{errorMessages?.cadastro}</div>
-            <form className="mb-3" onSubmit={handleSubmit} >
-                <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
+            <form className="mb-3" onSubmit={handleSubmit} id='formulario' >
+                <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" id='imagem' />
                 <div className="form-floating">
                     <input type="text"
                         name="name"

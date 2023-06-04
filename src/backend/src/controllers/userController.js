@@ -1,5 +1,4 @@
 const userService = require('../services/userService');
-const { generate_token } = require('../utils/utils');
 
 const getUser = async (req, res) => {
     const response = {
