@@ -10,10 +10,10 @@ const Home = () => {
     const [series, setSeries] = useState([]);
     
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if(token === null){
-            navigate("/");
-        }
+        // const token = localStorage.getItem('token');
+        // if(token === null){
+        //     navigate("/");
+        // }
         
         // api.get("/series")
         // .then((response) => response.json)
