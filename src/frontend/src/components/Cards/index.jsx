@@ -20,16 +20,30 @@ const Card = ({ props }) => {
 
   if (!content) return;
 
+  // {
+  //   "id": 10,
+  //   "nome": "Série 8",
+  //   "image": "http://localhost:5000/uploads/caminho/imagem8.jpg",
+  //   "categoria": "Categoria 8",
+  //   "comment": "Comentário 8",
+  //   "streaming": {
+  //     "id": 8,
+  //     "nome": "Streaming 8",
+  //     "image": "http://localhost:5000/uploads/caminho/imagem8.jpg"
+  //   }
+  // }
+  console.log(content);
+
   return (
     <li className="cards card-item text-center">
       <div className="" onClick={handleShowMoreDetail}>
         <div className="position-relative mb-2" >
           <img className="img-fluid" src={content?.image} alt="" />
-          <h4 className="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">{content?.serieTitle}</h4>
+          <h4 className="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">{content?.nome}</h4>
         </div>
 
-        <h6 className="h6 mb-0">{content?.streamingTitle}</h6>
-        <p className="mb-0 text-sm">{content?.category}</p>
+        <h6 className="h6 mb-0">{content?.streaming?.nome}</h6>
+        <p className="mb-0 text-sm">{content?.categoria}</p>
       </div>
       <div className="d-flex justify-content-between btns-action">
         <Link className="btn btn-edit" to={`${editUrl}/${content?.id}`} >
@@ -49,9 +63,9 @@ const Card = ({ props }) => {
           'show': showMoreDetail,
           'content': {
             'id': content.id,
-            'title': content?.serieTitle,
-            'subTitle': content?.streamingTitle,
-            'comments':content?.comments,
+            'title': content?.nome,
+            'subTitle': content?.streaming?.nome,
+            'comments':content?.comment,
           }
       }}/>
 

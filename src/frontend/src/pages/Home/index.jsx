@@ -10,20 +10,23 @@ const Home = () => {
     const [series, setSeries] = useState([]);
     
     useEffect(() => {
-        // const token = localStorage.getItem('token');
-        // if(token === null){
-        //     navigate("/");
-        // }
-        
-        // api.get("/series")
-        // .then((response) => response.json)
-        // .then((data) => console.log(data))
-        // .catch((err) => {
-        //   console.error("ops! ocorreu um erro" + err);
-        // });
-        setSeries(JSON.parse(seriesMockdata));
+        const token = localStorage.getItem('token');
+        if(token === null){
+            navigate("/");
+        }
+
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        api.get("/serie", { params: { 'idUser': user?.id} })
+        .then((response) =>response.data)
+        .then((data) => setSeries(data?.content))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
     }, []);
 
+
+    if(!series) return ;
     return (
         <>
             <div className="mb-4 d-flex justify-content-between ">

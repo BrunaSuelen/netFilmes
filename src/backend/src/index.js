@@ -24,8 +24,7 @@ app.use("/serie", serieRoute);
 app.use("/streaming", streamingRoute);
 
 // Rota para pegar arquivos de upload
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
 //Caso tente acessar uma rota desconhecida
 app.use(function(req, res, next) {
