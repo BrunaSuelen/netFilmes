@@ -77,16 +77,16 @@ function populateDabase() {
             if (row.count == 0) {
                 // Insere dados na tabela "Série"
                 db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
-                ('Série 1', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 1', 'Comentário 1', 1, 1),
-                ('Série 2', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 2', 'Comentário 2', 2, 1),
-                ('Série 3', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 3', 'Comentário 3', 3, 1),
-                ('Série 4', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 4', 'Comentário 4', 4, 1),
-                ('Série 5', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 5', 'Comentário 5', 5, 1),
-                ('Série 6', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 6', 'Comentário 6', 6, 1),
-                ('Série 7', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 7', 'Comentário 7', 7, 1),
-                ('Série 8', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 8', 'Comentário 8', 8, 1),
-                ('Série 9', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 9', 'Comentário 9', 9, 1),
-                ('Série 10', 'http://localhost:5000/uploads/serie.jpg', 'Categoria 10', 'Comentário 10', 10, 1);
+                ('Série 1', 'http://localhost:5000/uploads/serie.png', 'Categoria 1', 'Comentário 1', 1, 1),
+                ('Série 2', 'http://localhost:5000/uploads/serie.png', 'Categoria 2', 'Comentário 2', 2, 1),
+                ('Série 3', 'http://localhost:5000/uploads/serie.png', 'Categoria 3', 'Comentário 3', 3, 1),
+                ('Série 4', 'http://localhost:5000/uploads/serie.png', 'Categoria 4', 'Comentário 4', 4, 1),
+                ('Série 5', 'http://localhost:5000/uploads/serie.png', 'Categoria 5', 'Comentário 5', 5, 1),
+                ('Série 6', 'http://localhost:5000/uploads/serie.png', 'Categoria 6', 'Comentário 6', 6, 1),
+                ('Série 7', 'http://localhost:5000/uploads/serie.png', 'Categoria 7', 'Comentário 7', 7, 1),
+                ('Série 8', 'http://localhost:5000/uploads/serie.png', 'Categoria 8', 'Comentário 8', 8, 1),
+                ('Série 9', 'http://localhost:5000/uploads/serie.png', 'Categoria 9', 'Comentário 9', 9, 1),
+                ('Série 10', 'http://localhost:5000/uploads/serie.png', 'Categoria 10', 'Comentário 10', 10, 1);
               `);
 
             }

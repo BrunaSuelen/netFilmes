@@ -24,17 +24,20 @@ async function getAllStreamings(idUser){
 
 
 async function createStreaming(data){
-    if(! data) return false;
+    if( Object.keys(data).length == 0 ){
+        throw new Error("Objeto Vazio ")
+    }   
+    const {nome, image, usuarioId} = data;
 
-    if(! Object.values(body)) {
-        throw new Error("Campo vazio");
+    if(!nome || !image || !usuarioId){
+        throw new Error("Campo vaizo")
     }
 
     try{
         return await new Promise((resolve,reject)=> {
-            db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
-            (?, ?, ?, ?, ?, ?);`,
-            [nome, image, categoria, comment, streamingId, usuarioId],
+            db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
+            (?, ?, ?);`,
+            [nome, image, usuarioId],
             function (error){
                 if(error){
                     reject(false)

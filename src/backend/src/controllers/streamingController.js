@@ -1,4 +1,5 @@
 const streamingService = require('../services/streamingService');
+const { writeBase64ImageToUploadFolder } = require('../utils/utils');
 
 const create = async (req, res) => {
     const response = {
@@ -6,11 +7,20 @@ const create = async (req, res) => {
         created: null,
     }
     try{
-        const body = req.body;
-        
-        if(! Object.values(body)) {
+        const {name, image, userId} = req.body
+
+        if( Object.values(image).length == 0 || !name || !userId ) {
             throw new Error("Campo vazio");
         }
+
+        const hostName = `http://${req.headers.host}`;
+        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        
+        if(urlImage === null){
+            throw new Error("Falha ao salvar imagem");
+        }
+
+        const body = {'nome': name, 'image': urlImage, 'usuarioId': userId};
 
         const isCreated = await streamingService.createStreaming(body);
 

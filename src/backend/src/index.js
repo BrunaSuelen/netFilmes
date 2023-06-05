@@ -15,9 +15,9 @@ db.populateDabase();
 
 const port = 5000;
 
-app.use(express.json());
+app.use(express.json({limit:'100mb'}));
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({origin: '*'}));
+app.use(cors({origin: '*' }));
 
 app.use("/user", userRoute);
 app.use("/serie", serieRoute);
