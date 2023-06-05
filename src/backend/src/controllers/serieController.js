@@ -103,9 +103,34 @@ const updateById = (req, res) => {
 } 
 
 
-const removeById = (req,res) => {
-    const id = req.query.id;
-    res.status(200).json({'message': 'remove'});
+const removeById = async (req,res) => {
+    const response = {
+        message: null,
+        removed: null,
+    }
+    try{
+        const {idUser} = req.query;
+        const {id} = req.params;
+
+        if(!idUser || !id ) {
+            throw new Error("Campo vazio");
+        }
+
+        const isRemoved = await serieService.removeStreamingById(idUser, id);
+
+        if(!isRemoved){
+            throw new Error("Retorno vazio!");
+        }
+
+        response['message'] = "Série removida com sucesso !";
+        response['removed'] = isRemoved;
+        return res.status(200).json(response);
+    }catch(error){
+        response['message'] = 'Erro ao remover a Série';
+        response['removed']= false;
+        return res.status(401).json(response);
+    }
+    
 }
 
 

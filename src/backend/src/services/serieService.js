@@ -26,10 +26,34 @@ async function getAllSeries(idUser){
     }
 }
 
-async function getSerieById(idUser, idSerie){
-    if(! idUser || ! idSerie ){
-        return null;
+async function createStreaming(data){
+    if(! data) return false;
+
+    const {nome, image, usuarioId} = data;
+
+    if(!nome || ! image || ! usuarioId) return false;
+
+    try{
+        return await new Promise((resolve,reject)=> {
+            db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
+            ('?', '?', '?');`,
+            [nome, image, usuarioId],
+            function (error){
+                if(error){
+                    reject(false)
+                }else{
+                    resolve(true)
+                }
+            });
+        })
+    }catch(error){
+        return false;
     }
+}
+
+
+async function getSerieById(idUser, idSerie){
+    if(! idUser || ! idSerie )return null;
 
     try{
         return await  new Promise((resolve, reject) => {
@@ -54,4 +78,26 @@ async function getSerieById(idUser, idSerie){
     }
 }
 
-module.exports = {getAllSeries, getSerieById};
+
+async function removeStreamingById(idUser, idSerie){
+    if(!idUser || !idSerie) return false;
+    
+    try{
+        return await new Promise((resolve, reject)=> {
+            db.get(`DELETE FROM Serie as s
+            WHERE s.usuario_id = ? and s.id = ?`,
+            [idUser, idSerie],
+            function (error){
+                if(error){
+                    reject(false);
+                }else{
+                    resolve(true);
+                }
+            })
+        })
+    }catch(error){
+        return false;
+    }
+}
+
+module.exports = {getAllSeries, createStreaming, getSerieById, removeStreamingById};

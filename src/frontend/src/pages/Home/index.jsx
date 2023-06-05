@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import api from '../../services/api';
-import {seriesMockdata} from '../../services/mockdata';
 import CardList from "../../components/CardsList";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -27,6 +26,7 @@ const Home = () => {
 
 
     if(!series) return ;
+    
     return (
         <>
             <div className="mb-4 d-flex justify-content-between ">
@@ -36,7 +36,7 @@ const Home = () => {
                 </Link>
             </div>
 
-            {series && <CardList props={{'items':series, 'editUrl': '/serie/editar'}} />}
+            {series && <CardList props={{'items':series, 'editUrl': '/serie/editar', 'type': 'serie'}} />}
         </>
     )
 }

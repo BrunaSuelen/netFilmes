@@ -15,9 +15,10 @@ const AddStreaming = () => {
     },[])
     
 
-    function handleSubmit(event) {
+    function handleSubmit(event, formData) {
         event.preventDefault();
-        console.log('streaming___add');
+
+        console.log(formData);
     }
 
 

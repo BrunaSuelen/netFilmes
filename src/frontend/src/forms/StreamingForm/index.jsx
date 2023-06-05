@@ -11,7 +11,7 @@ const StreamingForm = ({ props }) => {
     const [errorMessages, setErrorMessages] = useState({});
 
     const [formData, setFormData] = useState({
-        streamingTitle: '',
+        name: '',
         image: '',
     });
 
@@ -45,10 +45,10 @@ const StreamingForm = ({ props }) => {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={e => handleSubmit(e, formData)}>
             <div className="mb-3">
                 <label htmlFor="nameStreaming" className="form-label">Streaming</label>
-                <input type="name" className="form-control" id="nameStreaming" name="streamingTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.streamingTitle} required />
+                <input type="name" className="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
                 <span className="error" id="error-nameStreaming">{errorMessages?.streamingTitle}</span>
             </div>
 
@@ -57,7 +57,7 @@ const StreamingForm = ({ props }) => {
                 <input type="file" className="form-control" id="imageStreaming" name="image" onChange={handleOnChangeInput} onFocus={handleOnFocusInput}  src={formData.image} required />
                 <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
             </div>
-            <Link  to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline"  >Voltar</Link>
+            <Link  to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" >Voltar</Link>
             <button className="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>
         </form>
     );

@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import ModalConfirmRemove from "../ModalConfirmRemove";
 import ModalMoreDetail from "../ModalMoreDetail";
 import './Cards.css';
-const Card = ({ props }) => {
-  const { content, editUrl } = props;
 
+const Card = ({ props }) => {
+  const { content, editUrl, type } = props;
 
   const [showConfirmRemove, setShowConfirmRemove] = useState(false);
   const [showMoreDetail, setShowMoreDetail] = useState(false);
@@ -19,30 +19,17 @@ const Card = ({ props }) => {
   const handleSubmitMoreDetail = () => console.log('More Detail');
 
   if (!content) return;
-
-  // {
-  //   "id": 10,
-  //   "nome": "Série 8",
-  //   "image": "http://localhost:5000/uploads/caminho/imagem8.jpg",
-  //   "categoria": "Categoria 8",
-  //   "comment": "Comentário 8",
-  //   "streaming": {
-  //     "id": 8,
-  //     "nome": "Streaming 8",
-  //     "image": "http://localhost:5000/uploads/caminho/imagem8.jpg"
-  //   }
-  // }
-  console.log(content);
+ 
 
   return (
     <li className="cards card-item text-center">
       <div className="" onClick={handleShowMoreDetail}>
         <div className="position-relative mb-2" >
           <img className="img-fluid" src={content?.image} alt="" />
-          <h4 className="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">{content?.nome}</h4>
+          <h4 className="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">{type === 'serie'? content?.nome : null}</h4>
         </div>
 
-        <h6 className="h6 mb-0">{content?.streaming?.nome}</h6>
+        <h6 className="h6 mb-0">{type === 'serie'? content?.streaming?.nome : content?.nome}</h6>
         <p className="mb-0 text-sm">{content?.categoria}</p>
       </div>
       <div className="d-flex justify-content-between btns-action">
@@ -61,12 +48,8 @@ const Card = ({ props }) => {
           'handleClose': handleCloseMoreDetail,
           'handleSubmit': handleSubmitMoreDetail,
           'show': showMoreDetail,
-          'content': {
-            'id': content.id,
-            'title': content?.nome,
-            'subTitle': content?.streaming?.nome,
-            'comments':content?.comment,
-          }
+          content,
+          type,
       }}/>
 
       <ModalConfirmRemove props={{
@@ -75,7 +58,7 @@ const Card = ({ props }) => {
         'show': showConfirmRemove,
         'content': {
           'type': 'série',
-          'title': content?.streamingTitle
+          'title': content?.nome
         }
       }} />
     </li >

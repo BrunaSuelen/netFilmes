@@ -102,15 +102,15 @@ function populateDabase() {
                     // Insere dados na tabela "Streaming"
                     db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
                     ('Streaming 1', 'http://localhost:5000/uploads/netflix.png', 1),
-                    ('Streaming 2', 'http://localhost:5000/uploads/netflix.png', 2),
-                    ('Streaming 3', 'http://localhost:5000/uploads/netflix.png', 3),
-                    ('Streaming 4', 'http://localhost:5000/uploads/netflix.png', 4),
-                    ('Streaming 5', 'http://localhost:5000/uploads/netflix.png', 5),
-                    ('Streaming 6', 'http://localhost:5000/uploads/netflix.png', 6),
-                    ('Streaming 7', 'http://localhost:5000/uploads/netflix.png', 7),
-                    ('Streaming 8', 'http://localhost:5000/uploads/netflix.png', 8),
-                    ('Streaming 9', 'http://localhost:5000/uploads/netflix.png', 9),
-                    ('Streaming 10', 'http://localhost:5000/uploads/netflix.png', 10);`);
+                    ('Streaming 2', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 3', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 4', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 5', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 6', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 7', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 8', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 9', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 10', 'http://localhost:5000/uploads/netflix.png', 1);`);
                 }
             }
         });

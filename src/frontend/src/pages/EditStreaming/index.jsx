@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SteamingForm from "../../forms/StreamingForm";
 import { useNavigate, useParams } from "react-router-dom";
-import { streamingsMockdata } from "../../services/mockdata";
 import api from "../../services/api";
 
 
@@ -19,8 +18,7 @@ const EditStreaming = () => {
     },[])
 
     useEffect(() => {
-        const streamingMockdata =  JSON.parse(streamingsMockdata)[id];
-        setStreaming(streamingMockdata);
+        setStreaming();
      }, [id])
 
      
