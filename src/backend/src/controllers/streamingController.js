@@ -46,7 +46,7 @@ const list = async (req, res) => {
     try{
         const {idUser} = req.query;
 
-        if(Object.keys(idUser).length == 0) {
+        if(! idUser) {
             throw new Error("Campo vazio");
         }
 
@@ -101,14 +101,14 @@ const findById = async(req, res) => {
     }
 }
 
-const update = (req, res) => {
+const updateById = (req, res) => {
     const body = req.body;
     const id = req.query.id;
     res.status(200).json({'message': 'update'});
 } 
 
 
-const remove = async (req,res) => {
+const removeById = async (req,res) => {
     const response = {
         message: null,
         removed: null,
@@ -138,5 +138,4 @@ const remove = async (req,res) => {
     
 }
 
-
-module.exports = {create, list, findById , update, remove};
+module.exports = {create, list, findById , updateById, removeById};

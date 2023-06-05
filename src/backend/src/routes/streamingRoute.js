@@ -10,8 +10,8 @@ router.post("/", streamingController.create);
 
 router.get("/:id", streamingController.findById);
 
-router.put('/:id', streamingController.update);
+router.put('/:id', streamingController.updateById);
 
-router.delete('/:id', streamingController.remove);
+router.delete('/:id', streamingController.removeById);
 
 module.exports = router

@@ -1,22 +1,43 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModalConfirmRemove from "../ModalConfirmRemove";
 import ModalMoreDetail from "../ModalMoreDetail";
 import './Cards.css';
+import api from "../../services/api";
 
 const Card = ({ props }) => {
   const { content, editUrl, type } = props;
+
+  const navigate = useNavigate();
 
   const [showConfirmRemove, setShowConfirmRemove] = useState(false);
   const [showMoreDetail, setShowMoreDetail] = useState(false);
 
   const handleCloseConfirmRemove = () => setShowConfirmRemove(false);
   const handleShowConfirmRemove = () => setShowConfirmRemove(true);
-  const handleSubmitConfirmRemove = () => console.log('foi');
 
   const handleCloseMoreDetail = () => setShowMoreDetail(false);
   const handleShowMoreDetail = () => setShowMoreDetail(true);
-  const handleSubmitMoreDetail = () => console.log('More Detail');
+
+
+  const handleRemoveItem = () => {
+    let endpoint = type == "serie" ? "/serie" : "/streaming";
+    
+    endpoint = `${endpoint}/${content?.id}`;
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    api.delete(endpoint, { params: { 'idUser': user?.id} })
+    .then((response) =>response.data)
+    .then((data) => { 
+      if(data.removed){
+        //Força reload da página 
+        navigate(0)
+      } 
+    })
+    .catch((err) => {
+      console.error("ops! ocorreu um erro" + err);
+    });
+  }
 
   if (!content) return;
  
@@ -46,7 +67,7 @@ const Card = ({ props }) => {
 
       <ModalMoreDetail props={{
           'handleClose': handleCloseMoreDetail,
-          'handleSubmit': handleSubmitMoreDetail,
+          'handleSubmit': handleRemoveItem,
           'show': showMoreDetail,
           content,
           type,
@@ -54,7 +75,7 @@ const Card = ({ props }) => {
 
       <ModalConfirmRemove props={{
         'handleClose': handleCloseConfirmRemove,
-        'handleSubmit': handleSubmitConfirmRemove,
+        'handleSubmit': handleRemoveItem,
         'show': showConfirmRemove,
         'content': {
           'type': 'série',

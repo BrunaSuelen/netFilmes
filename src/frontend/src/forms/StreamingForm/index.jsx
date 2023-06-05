@@ -37,18 +37,12 @@ const StreamingForm = ({ props }) => {
         setErrorMessages({ ...errorMessages, [name]: msg });
     }
 
-    useEffect(() => {
-        if (streaming) {
-            setFormData({ ...streaming });
-        }
-    }, [streaming]);
-
 
     const handleImageUpload = ({target}) => {
         const file = target.files[0];
 
         if(!file.name.match(/\.(png)$/)){
-            const msg = "Apenas é possível utilizar imagens no formato .png";
+            const msg = "Apenas é possível utilizar imagem no formato .png";
             setErrorMessages({ ...errorMessages, 'image': msg });
             return;
         }

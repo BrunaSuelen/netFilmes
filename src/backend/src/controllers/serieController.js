@@ -1,8 +1,53 @@
 const serieService = require('../services/serieService');
+const { writeBase64ImageToUploadFolder } = require('../utils/utils');
 
-const create = (req, res) => {
-    const body = req.body;
-    res.status(200).json({'message': 'create'});
+const create = async (req, res) => {
+    const response = {
+        message: null,
+        created: null,
+    } 
+    try{
+
+        const areAllInputsHaveValues = Object.values(req.body).every(element => Boolean( element) );
+
+        if(! areAllInputsHaveValues) {
+            throw new Error("Campo vazio");
+        }
+
+        if( Object.values(req.body?.image).length == 0 ) {
+            throw new Error("Campo imagem vazio");
+        }
+
+        const {image} = req.body;
+
+        const hostName = `http://${req.headers.host}`;
+        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        
+        if(urlImage === null){
+            throw new Error("Falha ao salvar imagem");
+        }
+
+        const body = {'nome': req.body?.name,
+            'image': urlImage,
+            'categoria': req.body?.category,
+            'comment': req.body?.comments,
+            'streamingId': parseInt(req.body?.idStreaming),
+            'usuarioId': req.body?.userId};
+        
+        const isCreated = await serieService.createSerie(body);
+
+        if(!isCreated){
+            throw new Error("Não conseguiu criar no banco de dados");
+        }
+
+        response['created'] = isCreated;
+        response['message'] = "Criado com sucesso !";
+        return res.status(200).json(response);
+    }catch(error){
+        response['message'] = 'Erro ao criar streaming';
+        response['created']= false;
+        return res.status(400).json(response);
+    }
 }
 
 const list = async (req, res) => {
@@ -13,7 +58,7 @@ const list = async (req, res) => {
     try{
         const {idUser} = req.query;
 
-        if(Object.keys(idUser).length == 0) {
+        if(!idUser){
             throw new Error("Campo vazio");
         }
 
@@ -116,7 +161,7 @@ const removeById = async (req,res) => {
             throw new Error("Campo vazio");
         }
 
-        const isRemoved = await serieService.removeStreamingById(idUser, id);
+        const isRemoved = await serieService.removeSerieById(idUser, id);
 
         if(!isRemoved){
             throw new Error("Retorno vazio!");
@@ -132,6 +177,5 @@ const removeById = async (req,res) => {
     }
     
 }
-
 
 module.exports = {create,list, findById, updateById, removeById};

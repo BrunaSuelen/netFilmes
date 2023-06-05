@@ -1,9 +1,7 @@
 const {db} = require('../db');
 
 async function getAllSeries(idUser){
-    if(! idUser) {
-        return null;
-    }
+    if(! idUser) return null;
 
     try{
         return await new Promise((resolve, reject)=> {
@@ -26,18 +24,19 @@ async function getAllSeries(idUser){
     }
 }
 
-async function createStreaming(data){
+async function createSerie(data){
     if(! data) return false;
 
-    const {nome, image, usuarioId} = data;
+    const areAllInputsHaveValues = Object.values(data).every(element => Boolean(element) );
 
-    if(!nome || ! image || ! usuarioId) return false;
+    if(! areAllInputsHaveValues) return false;
 
+    const {nome, image, categoria, comment, streamingId, usuarioId} = data;
     try{
         return await new Promise((resolve,reject)=> {
-            db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
-            ('?', '?', '?');`,
-            [nome, image, usuarioId],
+            db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
+            (?, ?, ?, ?, ?, ?);`,
+            [nome, image, categoria, comment, streamingId, usuarioId],
             function (error){
                 if(error){
                     reject(false)
@@ -79,7 +78,7 @@ async function getSerieById(idUser, idSerie){
 }
 
 
-async function removeStreamingById(idUser, idSerie){
+async function removeSerieById(idUser, idSerie){
     if(!idUser || !idSerie) return false;
     
     try{
@@ -100,4 +99,4 @@ async function removeStreamingById(idUser, idSerie){
     }
 }
 
-module.exports = {getAllSeries, createStreaming, getSerieById, removeStreamingById};
+module.exports = {getAllSeries, createSerie, getSerieById, removeSerieById};
