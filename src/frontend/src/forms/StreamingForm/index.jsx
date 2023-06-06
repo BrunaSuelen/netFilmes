@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import './SteamingForm.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const StreamingForm = ({ props }) => {
     const { streaming, handleSubmit } = props;
@@ -20,6 +20,11 @@ const StreamingForm = ({ props }) => {
         setIsEnableButton(areAllInputsHaveValues);
     }, [formData]);
 
+    useEffect( ()=> {
+        if(streaming){
+           setFormData({'name': streaming?.nome, 'image': streaming?.image})
+        }
+    },[streaming])
 
     function handleOnChangeInput({ target }) {
         const { name, value } = target;
@@ -59,13 +64,13 @@ const StreamingForm = ({ props }) => {
         <form onSubmit={e => handleSubmit(e, formData)}>
             <div className="mb-3">
                 <label htmlFor="nameStreaming" className="form-label">Streaming</label>
-                <input type="name" className="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
-                <span className="error" id="error-nameStreaming">{errorMessages?.streamingTitle}</span>
+                <input type="text" className="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.name} required />
+                <span className="error" id="error-nameStreaming">{errorMessages?.name}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="imageStreaming" className="form-label">Imagem da capa</label>
-                <input type="file" className="form-control" id="imageStreaming" name="image" onChange={handleImageUpload} onFocus={handleOnFocusInput} src={formData?.image?.name} required />
+                <input type="file" className="form-control" id="imageStreaming" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} required />
                 <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
             </div>
             <Link to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" >Voltar</Link>

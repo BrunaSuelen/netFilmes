@@ -29,7 +29,6 @@ const AddStreaming = () => {
         api.post("/streaming", body)
         .then((response) => {
             const {data} = response;
-            console.log(data);
             setDisplayMessage(data?.created);
             setMessage(data?.message);
         })

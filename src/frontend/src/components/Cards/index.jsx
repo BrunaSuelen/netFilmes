@@ -4,6 +4,9 @@ import ModalConfirmRemove from "../ModalConfirmRemove";
 import ModalMoreDetail from "../ModalMoreDetail";
 import './Cards.css';
 import api from "../../services/api";
+import { formatCategoryName } from "../../utils/utils";
+
+
 
 const Card = ({ props }) => {
   const { content, editUrl, type } = props;
@@ -51,7 +54,7 @@ const Card = ({ props }) => {
         </div>
 
         <h6 className="h6 mb-0">{type === 'serie'? content?.streaming?.nome : content?.nome}</h6>
-        <p className="mb-0 text-sm">{content?.categoria}</p>
+        <p className="mb-0 text-sm">{formatCategoryName(content?.categoria)}</p>
       </div>
       <div className="d-flex justify-content-between btns-action">
         <Link className="btn btn-edit" to={`${editUrl}/${content?.id}`} >
@@ -71,6 +74,7 @@ const Card = ({ props }) => {
           'show': showMoreDetail,
           content,
           type,
+          editUrl,
       }}/>
 
       <ModalConfirmRemove props={{

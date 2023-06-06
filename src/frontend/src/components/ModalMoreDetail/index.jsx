@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Modal from 'react-bootstrap/Modal';
@@ -7,8 +7,12 @@ import './ModalMoreDetail.css';
 
 const ModalMoreDetail = ({ props }) => {
 
-    const { handleClose, handleSubmit, show, content, type } = props;
-
+    const { handleClose, handleSubmit, show, content, type, editUrl} = props;
+    const [selectCategory, setSelectCategory] = useState('');
+    
+    useEffect(()=> {
+        setSelectCategory(content?.categoria);
+    }, [content?.categoria])
     return (
         <Modal show={show} onHide={handleClose} size="lg" centered>
             <Modal.Header className="border-0 mb-3 p-0">
@@ -25,7 +29,7 @@ const ModalMoreDetail = ({ props }) => {
                     <h2 className="modal-more-detail-title fs-3 h2">{content?.nome}</h2>
 
                     {type === 'serie'  && 
-                        <select className="form-select form-select-sm modal-more-detail-select">
+                        <select className="form-select form-select-sm modal-more-detail-select" onChange={(e) => setSelectCategory(e.target.value)} value={selectCategory}>
                             <option value="nao_assistido">Assitido</option>
                             <option value="assistido">Não Assiti</option>
                             <option value="desejo_assistir">Desejo Assitir</option>
@@ -40,7 +44,7 @@ const ModalMoreDetail = ({ props }) => {
                         </button>
                         <ul className="dropdown-menu">
                             <li>
-                                <Link className="dropdown-item p-2" to={`/serie/editar/${content?.id}`}>
+                                <Link className="dropdown-item p-2" to={`${editUrl}/${content?.id}`}>
                                     <i className="bi bi-pencil p-2"></i>Editar
                                 </Link>
                             </li>

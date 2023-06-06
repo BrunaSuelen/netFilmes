@@ -77,6 +77,35 @@ async function getSerieById(idUser, idSerie){
     }
 }
 
+async function updateSerieById(data){
+    if(! data) {
+        throw new Error("Objeto vazio ");
+    }
+    
+    const areAllInputsHaveValues = Object.values(data).every(element => Boolean(element) );
+    
+    if(! areAllInputsHaveValues) {
+        throw new Error("Campo vazio ");
+    }
+    
+    const {nome, image, categoria, comment, idStreaming, usuarioId} = data;
+
+    try{
+        return await new Promise((resolve,reject)=> {
+            db.run(`UPDATE Serie SET nome = ?, image = ?, categoria = ?, comment = ?, streaming_id = ? WHERE id = ?`,
+            [nome, image, categoria, comment,  usuarioId, idStreaming],
+            function (error){
+                if(error){
+                    reject(false)
+                }else{
+                    resolve(true)
+                }
+            });
+        })
+    }catch(error){
+        return false;
+    }
+}
 
 async function removeSerieById(idUser, idSerie){
     if(!idUser || !idSerie) return false;
@@ -99,4 +128,4 @@ async function removeSerieById(idUser, idSerie){
     }
 }
 
-module.exports = {getAllSeries, createSerie, getSerieById, removeSerieById};
+module.exports = {getAllSeries, createSerie, getSerieById, updateSerieById, removeSerieById};

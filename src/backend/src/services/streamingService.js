@@ -74,6 +74,34 @@ async function getStreamingById(idUser, idStreaming){
 
 }
 
+async function updateStreamingById(data){
+
+    if( Object.keys(data).length == 0){
+        throw new Error("Objeto Vazio ")
+    }
+    const {nome, image, usuarioId, idStreaming} = data;
+    
+    if( !nome || !image || !usuarioId  || !idStreaming){
+        throw new Error("Campo vazio ");
+    }
+
+    try{
+        return await new Promise((resolve, reject) => {
+            db.run(`UPDATE Streaming SET nome = ?, image = ?, usuario_id = ? WHERE id = ?`,
+            [nome, image, usuarioId, idStreaming ],
+            function(error){
+                if(error){
+                    reject(false);
+                }else{
+                    resolve(true);
+                }
+            })
+        })
+    }catch(error){
+        return null;
+    }
+}
+
 async function removeStreamingById(idUser, idStreaming){
     if(!idUser || !idStreaming) return false;
 
@@ -95,4 +123,4 @@ async function removeStreamingById(idUser, idStreaming){
     }
 }
 
-module.exports = {getAllStreamings, createStreaming, getStreamingById, removeStreamingById}
+module.exports = {getAllStreamings, createStreaming, getStreamingById, updateStreamingById,removeStreamingById}

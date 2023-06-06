@@ -101,11 +101,51 @@ const findById = async(req, res) => {
     }
 }
 
-const updateById = (req, res) => {
-    const body = req.body;
-    const id = req.query.id;
-    res.status(200).json({'message': 'update'});
-} 
+const updateById = async (req, res) => {
+    const response = {
+        message: null,
+        created: null,
+    }
+    try{
+        const {name, image, userId} = req.body
+        const {id} = req.params;
+
+        if( Object.values(image).length == 0 ) {
+            throw new Error("Campo vazio");
+        }
+
+        if( !name || !id || !userId){
+            throw new Error("Campo vazio");
+        }
+
+        const hostName = `http://${req.headers.host}`;
+        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        
+        if(urlImage === null){
+            throw new Error("Falha ao salvar imagem");
+        }
+
+        const body = {
+            'nome': name,
+            'image': urlImage,
+            'usuarioId': userId,
+            'idStreaming': id
+        };
+        const isCreated = await streamingService.updateStreamingById(body);
+
+        if(!isCreated){
+            throw new Error("Não conseguiu criar no banco de dados");
+        }
+
+        response['created'] = isCreated;
+        response['message'] = "Criado com sucesso !";
+        return res.status(200).json(response);
+    }catch(error){
+        response['message'] = 'Erro ao criar streaming';
+        response['created']= false;
+        return res.status(400).json(response);
+    }
+}
 
 
 const removeById = async (req,res) => {

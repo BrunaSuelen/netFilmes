@@ -15,9 +15,9 @@ const SerieForm = ({ props}) => {
     const [formData, setFormData] = useState({
         name: '',
         image: '',
-        idStreaming: '',
         category: '',
-        comments: ''
+        comments: '',
+        idStreaming: ''
     });
 
     useEffect(() => {
@@ -35,6 +35,17 @@ const SerieForm = ({ props}) => {
         setIsEnableButton(areAllInputsHaveValues);
     }, [formData]);
 
+    useEffect(()=> {
+        if(serie){
+            setFormData({
+                'name': serie?.nome,
+                'image': serie?.image,
+                'category': serie?.categoria && serie?.categoria.toLowerCase(),
+                'comments': serie?.comment,
+                'idStreaming': serie?.streaming?.id
+            })
+        }
+    },[serie])
 
     function handleOnChangeInput({ target }) {
         const { name, value } = target;
@@ -73,19 +84,19 @@ const SerieForm = ({ props}) => {
         <form onSubmit={e => handleSubmit(e, formData)}>
             <div className="mb-3">
                 <label htmlFor="nameSerie" className="form-label">Série</label>
-                <input type="name" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.serieTitle} required />
-                <span className="error" id="error-nameSerie">{errorMessages?.serieTitle}</span>
+                <input type="text" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.name} required />
+                <span className="error" id="error-nameSerie">{errorMessages?.name}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/*" onChange={handleImageUpload} onFocus={handleOnFocusInput} src={formData?.image?.name} required />
+                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} required />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="streamingSerie" className="form-label">Streaming</label>
-                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="idStreaming" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.streamingTitle?.toLowerCase()} required>
+                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="idStreaming" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.idStreaming} required>
                     <option value="" >Selecione um streaming</option>
                     {listSelectStreamings && listSelectStreamings.map((value, index) =>  <option key={index} value={value?.id}>{value?.nome}</option>)}
                 </select>
@@ -94,7 +105,7 @@ const SerieForm = ({ props}) => {
 
             <div className="mb-3">
                 <label htmlFor="categoriaSerie" className="form-label">Categoria</label>
-                <select id="categoriaSerie" className="form-select form-select" aria-label=".form-select" name="category" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.category?.toLowerCase()} required>
+                <select id="categoriaSerie" className="form-select form-select" aria-label=".form-select" name="category" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.category} required>
                     <option value="" select="">Selecione a categoria</option>
                     <option value="assistido">Assitido</option>
                     <option value="nao_assistido">Não Assiti</option>

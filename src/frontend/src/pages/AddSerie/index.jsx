@@ -26,7 +26,6 @@ const AddSerie = () => {
         api.post("/serie", body)
         .then((response) => {
             const {data} = response;
-            console.log(data);
             setDisplayMessage(data?.created);
             setMessage(data?.message);
         })
