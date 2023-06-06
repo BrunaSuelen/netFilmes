@@ -1,20 +1,5 @@
-html,
-body {
-  height: 100%;
-  width: 100%;
-}
-
-
-#boxformlogin{
-  background-color: #ffffff;
-}
-
-
-#boxformcad{
-  background-color: #ffffff;
-}
-
-body {
+.page-login {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,21 +8,26 @@ body {
   background-color: #b62735;
 }
 
+#containerLogin{
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+#boxformlogin{
+  background-color: #ffffff;
+}
+
+#boxformcad{
+  background-color: #ffffff;
+}
+
 #h1{
     padding-left: 40%;
 }
 
-img{
-  width: 100%;
+#containerLogin img {
+    width: 100%;
 }
-
-.img-fluid {
-    filter: blur(1px) contrast(0.5);
-    overflow: hidden;
-    transform: scale(1.1);
-    height: 150px;
-}
-
 
 .form-signin {
   max-width: 400px;
@@ -46,35 +36,36 @@ img{
 }
 
 .form-signin form {
-  display: flow-root;
-  text-align-last: center;
+    display: flow-root;
+    text-align-last: center;
+    border-radius: 5px;
 }
 
 .form-signin img {
-  width: 50%;
-  max-width: 300px;
+    width: 50%;
+    max-width: 300px;
 }
 
 .form-signin .form-floating:focus-within {
-  z-index: 2;
+    z-index: 2;
 }
 
 .form-signin input {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
-
 #criarConta{
-text-decoration-color: black;
+    text-decoration-color: black;
 }
 
 
 @media screen and (max-width: 575px) {
-
- body{
-  background: #ffffff;
- }
-   
+    
+    body{
+        background: #ffffff;
+    }
+    
 }
+

@@ -1,51 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400&display=swap');
-
-
-
-#root{
-    background-color: #ffffff;
-    border-radius: 5px;
-    padding: 15px;
-    padding-bottom: 40px;
-    width: 20%;
-    height: auto;
-    overflow-x: hidden;
-}
-
 /*INICIO Fomulario*/
 
-#formulario{
-    padding: 20px;
-    display: block;
-    margin-top: 0em;
-}
+
 
 /*INICIO INPUT*/
 input {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-  }
+}
 /*FIM INPUT*/
 
 /*Fim Fomulario*/
 
 
-html, body {
-    background-color: #b62735;
-    height: 100vh;
+.page-cadastro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #b62735;
 }
 
-#imagem {
-    margin: auto;
-    display: block;
+#formulario{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    padding-bottom: 40px;
+    height: auto;
+    overflow-x: hidden;
+}
+
+main{
+    border-radius: 5px;
 }
 
 #imagem {
     width: 50%;
     margin: auto;
     display: block;
-  }
+}
+
+
+
+/* Inicio Botões*/
 
 .btn-return i {
     font-size: 14px;
@@ -66,51 +65,27 @@ html, body {
     color: black;
 }
 
-.btn-edit {
-    height: 20px;
-    width: 20px;
-    padding: 2px;
-    background-color: black;
-    color: white;
-    border-radius: 0 0 0 5px;
-    font-size: 10px;
-}
-
-.btn-remover {
-    height: 20px;
-    width: 20px;
-    padding: 2px;
-    background-color: #b62735;
-    color: white;
-    border-radius: 0 0 5px 0;
-    font-size: 10px;
-}
-
-.btn-remover:hover,
-.btn-edit:hover {
-    border: 1px solid;
-}
 
 .btn-outline-dark {
-  padding: 8px;
-  min-width: 100px;
-  font-weight: 500;
+    padding: 8px;
+    min-width: 100px;
+    font-weight: 500;
   font-size: small;
 }
 
 .btn-primary, .btn-primary:disabled {
-  padding: 8px;
-  min-width: 100px;
-  background: black;
-  border: transparent 1px solid;
-  font-weight: 500;
-  font-size: small;
+    padding: 8px;
+    min-width: 100px;
+    background: black;
+    border: transparent 1px solid;
+    font-weight: 500;
+    font-size: small;
 }
 
 .btn-primary:hover,
 .btn-outline-dark:hover {
-  background: #b62735;
-  border: transparent 1px solid;
+    background: #b62735;
+    border: transparent 1px solid;
 }
 
 .btn-close {
@@ -125,9 +100,7 @@ html, body {
     margin-top: -12px;
 }
 
-.btn-add::after {
-    content: "Adicionar";
-}
+/* Fim Botões*/
 
 .form-label {
     margin-bottom: 0.2rem;
@@ -139,27 +112,6 @@ textarea.form-control {
     min-height: 80px;
 }
 
-.card-content-page {
-    padding: 1rem 6rem 4rem;
-}
-
-
-.card-item:hover {
-    transform: translateY(-2px);
-    transition: transform .2s ease-out;
-}
-
-.card-item .position-relative {
-    overflow: hidden;
-    border-radius: 5px 5px 0 0;
-}
-
-.img-fluid {
-    filter: blur(1px) contrast(0.5);
-    overflow: hidden;
-    transform: scale(1.1);
-    height: 150px;
-}
 
 .error {
     font-size: 10px;
@@ -195,129 +147,10 @@ textarea.form-control {
     color: #b62735;
 }
 
-.image-wrap {
-    overflow: hidden;
-    height: 220px;
-    width: 100%;
-    border-radius: 7px 7px 0 0;
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-}
-
-img.backdrop-image {
-    width: 100%;
-    position: absolute;
-    left: 0;
-    z-index: -1;
-    filter: blur(10px) brightness(0.5);
-    transform: translate(2px, -16px) scale(1.2);
-}
-
-.image-wrap ~ img {
-    width: 100%;
-}
-
-.modal-subtitle {
-    font-size: 14px;
-    font-weight: 300;
-    margin-top: -3rem;
-    margin-bottom: 2rem;
-}
-
-.modal-body p {
-    font-weight: 300;
-}
-
-.categoriaSerie {
-    width: 120px;
-    font-size: 0.8rem;
-    margin-left: auto;
-    margin-right: 5px;
-    border: 1px solid;
-}
-
-.navbar-toggler {
-    border: 0;
-    color: black;
-    opacity: 1;
-    filter: drop-shadow(0px 0px 0px black);
-}
-
-.navbar-toggler:focus:not(:focus-visible) {
-    outline: transparent;
-    box-shadow: none;
-}
-
-.text-sm {
-    font-size: 10px;
-    color: #8c8c8c;
-}
-
-.dropdown-toggle {
-    cursor: pointer;
-    background: white;
-    color: #3c3c3c;
-    padding: 2px 5px;
-    border: 1px solid;
-    border-radius: 4px;
-}
-
-.dropdown-toggle:hover {
-    background: #000000;
-}
-
-.btn:first-child:active {
-    background: #f1f1f1;
-    color: black;
-}
-
-.dropdown-item {
-    cursor: pointer;
-}
-
-.dropdown-item:active {
-    cursor: pointer;
-    background: #000000;
-}
-
-.dropdown-toggle::after {
-    content: none;
-}
-
-input {
-    text-align-last: left;
-}
-
-.dropdown-toggle {
-    text-decoration: none;
-    border: transparent;
-}
-
-.dropdown.user .dropdown-toggle .user-image::after {
-    display: inline-block;
-    margin-left: 0.2rem;
-    margin-right: 0.8rem;
-    vertical-align: 100%;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-}
-
-.dropdown.user .dropdown-toggle .user-name {
-    line-height: 16px;
-}
-
-.dropdown.user .dropdown-toggle:hover {
-    background-color: white;
-}
-
 
 
 @media screen and (min-width: 992px) {
-
+    
     :root{
      font-size: 16px;
     }
