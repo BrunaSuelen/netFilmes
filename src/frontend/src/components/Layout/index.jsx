@@ -5,7 +5,9 @@ import Header from "../Header";
 
 const Layout = ({ children, props }) => {
     const {showHeaderPaths} = props;
-    const isShowHeader = showHeaderPaths.includes(window.location.pathname);
+    const path = window.location.pathname;
+    const isShowHeader = showHeaderPaths.find(i => path.includes(i));
+    
     return (
       <> 
         { isShowHeader ? (
@@ -13,7 +15,7 @@ const Layout = ({ children, props }) => {
             <Header />
             <main className='card-content-page'>{children}</main>
           </div>
-        ) : (
+          ) : (
           <main>{children}</main>
         )}
       </>
