@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import './Cadastro.css';
 import { Link } from "react-router-dom";
-
-//import './Cadastro.css';
-import api from '../../services/api'
+import api from '../../services/api';
 
 const Cadastro = () => {
     const [errorMessages, setErrorMessages] = useState({});
@@ -60,7 +59,7 @@ const Cadastro = () => {
 
 
     return (
-        <>
+        <div className="page-cadastro">
             <form className="mb-3" onSubmit={handleSubmit} id='formulario' >
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" id='imagem' />
                 <div className="form-floating">
@@ -105,7 +104,7 @@ const Cadastro = () => {
                 <Link className="btn mt-4 btn-outline-dark float-start d-none d-sm-inline" to="/" >Voltar</Link>
                 <button className="btn mt-4 btn-primary float-end" id="botao" type="submit" disabled={!isEnableButton}>Cadastrar</button>
             </form>
-        </>
+        </div>
     )
 }
 
