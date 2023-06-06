@@ -3,12 +3,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import './Header.css';
 
 const Header = () => {
-  const contentUser = JSON.parse(localStorage.getItem('contentUser'));
+  const user = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
 
   function handleClick(e) {
     localStorage.removeItem('token');
-    localStorage.removeItem('contentUser');
+    localStorage.removeItem('user');
     navigate('/');
   }
 
@@ -35,7 +35,7 @@ const Header = () => {
             </div>
             <div className="ms-md-auto user-name">
               <p>Bem vindo!</p>
-              <p className="user-nome">{contentUser?.name}</p>
+              <p className="user-nome">{user?.name}</p>
             </div>
           </button>
           <ul
@@ -94,7 +94,7 @@ const Header = () => {
 
       <div className="ms-md-auto user-name">
         <p>Bem vindo!</p>
-        <p>{contentUser?.name}</p>
+        <p>{user?.name}</p>
       </div>
   </Dropdown.Toggle>
 

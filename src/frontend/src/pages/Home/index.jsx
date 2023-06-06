@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 import api from '../../services/api';
-import {seriesMockdata} from '../../services/mockdata';
 import CardList from "../../components/CardsList";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -14,16 +13,20 @@ const Home = () => {
         if(token === null){
             navigate("/");
         }
-        
-        // api.get("/series")
-        // .then((response) => response.json)
-        // .then((data) => console.log(data))
-        // .catch((err) => {
-        //   console.error("ops! ocorreu um erro" + err);
-        // });
-        setSeries(JSON.parse(seriesMockdata));
+
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        api.get("/serie", { params: { 'idUser': user?.id} })
+        .then((response) =>response.data)
+        .then((data) => setSeries(data?.content))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
     }, []);
 
+
+    if(!series) return ;
+    
     return (
         <>
             <div className="mb-4 d-flex justify-content-between ">
@@ -33,7 +36,7 @@ const Home = () => {
                 </Link>
             </div>
 
-            {series && <CardList props={{'items':series, 'editUrl': '/serie/editar'}} />}
+            {series && <CardList props={{'items':series, 'editUrl': '/serie/editar', 'type': 'serie'}} />}
         </>
     )
 }

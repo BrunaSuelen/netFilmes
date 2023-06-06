@@ -1,0 +1,80 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+
+#boxformlogin{
+  background-color: #ffffff;
+}
+
+
+#boxformcad{
+  background-color: #ffffff;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #b62735;
+}
+
+#h1{
+    padding-left: 40%;
+}
+
+img{
+  width: 100%;
+}
+
+.img-fluid {
+    filter: blur(1px) contrast(0.5);
+    overflow: hidden;
+    transform: scale(1.1);
+    height: 150px;
+}
+
+
+.form-signin {
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.form-signin form {
+  display: flow-root;
+  text-align-last: center;
+}
+
+.form-signin img {
+  width: 50%;
+  max-width: 300px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+#criarConta{
+text-decoration-color: black;
+}
+
+
+@media screen and (max-width: 575px) {
+
+ body{
+  background: #ffffff;
+ }
+   
+}

@@ -2,23 +2,34 @@ import React, { useState, useEffect } from 'react';
 
 import './SerieForm.css';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 const SerieForm = ({ props}) => {
     const { serie, handleSubmit } = props;
 
+    const [listSelectStreamings, setListSelectStreamings] = useState([]);
     const [isEnableButton, setIsEnableButton] = useState(false);
 
     const [errorMessages, setErrorMessages] = useState({});
 
     const [formData, setFormData] = useState({
-        id: '',
-        serieTitle: '',
+        name: '',
         image: '',
-        streaming: '',
+        idStreaming: '',
         category: '',
         comments: ''
     });
 
+    useEffect(() => {
+        const user = JSON.parse(localStorage.getItem('user'));
+        api.get("/streaming", { params: { 'idUser': user?.id} })
+        .then((response) =>response.data)
+        .then((data) => setListSelectStreamings(data?.content))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
+    }, []);
+    
     useEffect(() => {
         const areAllInputsHaveValues = Object.values(formData).every(element => element !== '');
         setIsEnableButton(areAllInputsHaveValues);
@@ -41,37 +52,44 @@ const SerieForm = ({ props}) => {
         setErrorMessages({ ...errorMessages, [name]: msg });
     }
     
-    useEffect(() => {
-        if (serie) {
-            setFormData( {...serie});
+    const handleImageUpload = ({target}) => {
+        const file = target.files[0];
+
+        if(!file.name.match(/\.(png)$/)){
+            const msg = "Apenas é possível utilizar imagem no formato .png";
+            setErrorMessages({ ...errorMessages, 'image': msg });
+            return;
         }
-    }, [serie]);
+        const reader = new FileReader();
 
-
+        reader.onload = (e) => {
+            const base64 = e.target.result;
+            setFormData({...formData, 'image':{ 'name': file.name, 'encondingImage': base64}});
+        };
+        reader.readAsDataURL(file);
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={e => handleSubmit(e, formData)}>
             <div className="mb-3">
                 <label htmlFor="nameSerie" className="form-label">Série</label>
-                <input type="name" className="form-control" id="nameSerie" name="serieTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.serieTitle} required />
+                <input type="name" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.serieTitle} required />
                 <span className="error" id="error-nameSerie">{errorMessages?.serieTitle}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/*" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} src={formData.image} required />
+                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/*" onChange={handleImageUpload} onFocus={handleOnFocusInput} src={formData?.image?.name} required />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="streamingSerie" className="form-label">Streaming</label>
-                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="streamingTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.streamingTitle?.toLowerCase()} required>
-                    <option value="" select="">Selecione um streaming</option>
-                    <option value="netflix">Netflix </option>
-                    <option value="globo-play">Globo Play </option>
-                    <option value="hbo">HBO </option>
+                <select id="streamingSerie" className="form-select form-select" aria-label=".form-select" name="idStreaming" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.streamingTitle?.toLowerCase()} required>
+                    <option value="" >Selecione um streaming</option>
+                    {listSelectStreamings && listSelectStreamings.map((value, index) =>  <option key={index} value={value?.id}>{value?.nome}</option>)}
                 </select>
-                <span className="error" id="error-streamingSerie">{errorMessages?.streamingTitle}</span>
+                <span className="error" id="error-streamingSerie">{errorMessages?.idStreaming}</span>
             </div>
 
             <div className="mb-3">

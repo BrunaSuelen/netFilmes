@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import api from '../../services/api';
-import {streamingsMockdata} from '../../services/mockdata';
 import CardList from "../../components/CardsList";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -18,15 +17,18 @@ const Streamings = () => {
             navigate("/");
         }
 
-        // api.get("/series")
-        // .then((response) => response.json)
-        // .then((data) => console.log(data))
-        // .catch((err) => {
-        //   console.error("ops! ocorreu um erro" + err);
-        // });
-        setStreamings(JSON.parse(streamingsMockdata));
+        const user = JSON.parse(localStorage.getItem('user'));
+        
+        api.get("/streaming", { params: { 'idUser': user?.id} })
+        .then((response) =>response.data)
+        .then((data) => setStreamings(data?.content))
+        .catch((err) => {
+          console.error("ops! ocorreu um erro" + err);
+        });
     }, []);
 
+    if(!streamings) return ;
+    
     return (
         <>
             <div className="mb-4 d-flex justify-content-between ">
@@ -36,7 +38,7 @@ const Streamings = () => {
                 </Link>
             </div>
 
-            {streamings && <CardList props={{'items': streamings, 'editUrl': '/streaming/editar'}} />}
+            {streamings && <CardList props={{'items': streamings, 'editUrl': '/streaming/editar', 'type':'streaming'}} />}
         </>
     )
 }

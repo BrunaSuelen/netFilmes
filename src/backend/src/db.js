@@ -29,7 +29,9 @@ function initDb() {
             categoria VARCHAR(255) NOT NULL,
             comment VARCHAR(255),
             streaming_id INTEGER,
-            FOREIGN KEY (streaming_id) REFERENCES Streaming(id)
+            usuario_id INTEGER,
+            FOREIGN KEY (streaming_id) REFERENCES Streaming(id),
+            FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
             );`);
 
         // Cria a tabela "Streaming"
@@ -73,19 +75,19 @@ function populateDabase() {
             console.error(err.message);
         } else {
             if (row.count == 0) {
-
                 // Insere dados na tabela "Série"
-                db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id) VALUES
-                ('Série 1', ''http://localhost:5000/uploads/caminho/imagem1.jpg', 'Categoria 1', 'Comentário 1', 1),
-                ('Série 2', ''http://localhost:5000/uploads/caminho/imagem2.jpg', 'Categoria 2', 'Comentário 2', 2),
-                ('Série 3', ''http://localhost:5000/uploads/caminho/imagem3.jpg', 'Categoria 3', 'Comentário 3', 3),
-                ('Série 4', ''http://localhost:5000/uploads/caminho/imagem4.jpg', 'Categoria 4', 'Comentário 4', 4),
-                ('Série 5', ''http://localhost:5000/uploads/caminho/imagem5.jpg', 'Categoria 5', 'Comentário 5', 5),
-                ('Série 6', ''http://localhost:5000/uploads/caminho/imagem6.jpg', 'Categoria 6', 'Comentário 6', 6),
-                ('Série 7', ''http://localhost:5000/uploads/caminho/imagem7.jpg', 'Categoria 7', 'Comentário 7', 7),
-                ('Série 8', ''http://localhost:5000/uploads/caminho/imagem8.jpg', 'Categoria 8', 'Comentário 8', 8),
-                ('Série 9', ''http://localhost:5000/uploads/caminho/imagem9.jpg', 'Categoria 9', 'Comentário 9', 9),
-                ('Série 10', ''http://localhost:5000/uploads/caminho/imagem10.jpg', 'Categoria 10', 'Comentário 10', 10);`);
+                db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
+                ('Série 1', 'http://localhost:5000/uploads/serie.png', 'Categoria 1', 'Comentário 1', 1, 1),
+                ('Série 2', 'http://localhost:5000/uploads/serie.png', 'Categoria 2', 'Comentário 2', 2, 1),
+                ('Série 3', 'http://localhost:5000/uploads/serie.png', 'Categoria 3', 'Comentário 3', 3, 1),
+                ('Série 4', 'http://localhost:5000/uploads/serie.png', 'Categoria 4', 'Comentário 4', 4, 1),
+                ('Série 5', 'http://localhost:5000/uploads/serie.png', 'Categoria 5', 'Comentário 5', 5, 1),
+                ('Série 6', 'http://localhost:5000/uploads/serie.png', 'Categoria 6', 'Comentário 6', 6, 1),
+                ('Série 7', 'http://localhost:5000/uploads/serie.png', 'Categoria 7', 'Comentário 7', 7, 1),
+                ('Série 8', 'http://localhost:5000/uploads/serie.png', 'Categoria 8', 'Comentário 8', 8, 1),
+                ('Série 9', 'http://localhost:5000/uploads/serie.png', 'Categoria 9', 'Comentário 9', 9, 1),
+                ('Série 10', 'http://localhost:5000/uploads/serie.png', 'Categoria 10', 'Comentário 10', 10, 1);
+              `);
 
             }
         }
@@ -99,16 +101,16 @@ function populateDabase() {
                 if (row.count == 0) {
                     // Insere dados na tabela "Streaming"
                     db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
-                    ('Streaming 1', 'http://localhost:5000/uploads/caminho/imagem1.jpg', 1),
-                    ('Streaming 2', 'http://localhost:5000/uploads/caminho/imagem2.jpg', 2),
-                    ('Streaming 3', 'http://localhost:5000/uploads/caminho/imagem3.jpg', 3),
-                    ('Streaming 4', 'http://localhost:5000/uploads/caminho/imagem4.jpg', 4),
-                    ('Streaming 5', 'http://localhost:5000/uploads/caminho/imagem5.jpg', 5),
-                    ('Streaming 6', 'http://localhost:5000/uploads/caminho/imagem6.jpg', 6),
-                    ('Streaming 7', 'http://localhost:5000/uploads/caminho/imagem7.jpg', 7),
-                    ('Streaming 8', 'http://localhost:5000/uploads/caminho/imagem8.jpg', 8),
-                    ('Streaming 9', 'http://localhost:5000/uploads/caminho/imagem9.jpg', 9),
-                    ('Streaming 10', 'http://localhost:5000/uploads/caminho/imagem10.jpg', 10);`);
+                    ('Streaming 1', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 2', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 3', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 4', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 5', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 6', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 7', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 8', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 9', 'http://localhost:5000/uploads/netflix.png', 1),
+                    ('Streaming 10', 'http://localhost:5000/uploads/netflix.png', 1);`);
                 }
             }
         });

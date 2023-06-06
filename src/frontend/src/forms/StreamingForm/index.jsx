@@ -11,7 +11,7 @@ const StreamingForm = ({ props }) => {
     const [errorMessages, setErrorMessages] = useState({});
 
     const [formData, setFormData] = useState({
-        streamingTitle: '',
+        name: '',
         image: '',
     });
 
@@ -37,27 +37,38 @@ const StreamingForm = ({ props }) => {
         setErrorMessages({ ...errorMessages, [name]: msg });
     }
 
-    useEffect(() => {
-        if (streaming) {
-            setFormData({ ...streaming });
-        }
-    }, [streaming]);
 
+    const handleImageUpload = ({target}) => {
+        const file = target.files[0];
+
+        if(!file.name.match(/\.(png)$/)){
+            const msg = "Apenas é possível utilizar imagem no formato .png";
+            setErrorMessages({ ...errorMessages, 'image': msg });
+            return;
+        }
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const base64 = e.target.result;
+            setFormData({...formData, 'image':{ 'name': file.name, 'encondingImage': base64}});
+        };
+        reader.readAsDataURL(file);
+    };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={e => handleSubmit(e, formData)}>
             <div className="mb-3">
                 <label htmlFor="nameStreaming" className="form-label">Streaming</label>
-                <input type="name" className="form-control" id="nameStreaming" name="streamingTitle" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.streamingTitle} required />
+                <input type="name" className="form-control" id="nameStreaming" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData.name} required />
                 <span className="error" id="error-nameStreaming">{errorMessages?.streamingTitle}</span>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="imageStreaming" className="form-label">Imagem da capa</label>
-                <input type="file" className="form-control" id="imageStreaming" name="image" onChange={handleOnChangeInput} onFocus={handleOnFocusInput}  src={formData.image} required />
+                <input type="file" className="form-control" id="imageStreaming" name="image" onChange={handleImageUpload} onFocus={handleOnFocusInput} src={formData?.image?.name} required />
                 <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
             </div>
-            <Link  to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline"  >Voltar</Link>
+            <Link to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" >Voltar</Link>
             <button className="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>
         </form>
     );

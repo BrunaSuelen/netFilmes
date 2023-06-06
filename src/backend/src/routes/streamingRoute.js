@@ -4,12 +4,14 @@ const streamingController = require('../controllers/streamingController');
 
 const router = express.Router();
 
-router.get("/", streamingController.listStreaming);
+router.get("/", streamingController.list);
 
-router.post("/", streamingController.createStreaming);
+router.post("/", streamingController.create);
 
-router.put('/:id', streamingController.updateStreaming);
+router.get("/:id", streamingController.findById);
 
-router.delete('/:id', streamingController.removeStreaming);
+router.put('/:id', streamingController.updateById);
+
+router.delete('/:id', streamingController.removeById);
 
 module.exports = router

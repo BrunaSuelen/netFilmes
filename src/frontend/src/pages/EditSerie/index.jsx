@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SerieForm from "../../forms/SerieForm";
 import { useNavigate, useParams } from "react-router-dom";
-import { seriesMockdata } from "../../services/mockdata";
 
 const EditSerie = () => {
     const { id } = useParams();
@@ -18,8 +17,7 @@ const EditSerie = () => {
 
     useEffect(() => {
         
-       const serieMockdata =  JSON.parse(seriesMockdata)[id];
-       setSerie(serieMockdata);
+       setSerie();
     }, [id])
 
     function handleSubmit(event) {
