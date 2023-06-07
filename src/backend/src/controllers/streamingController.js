@@ -1,5 +1,5 @@
 const streamingService = require('../services/streamingService');
-const { writeBase64ImageToUploadFolder } = require('../utils/utils');
+const { writeBase64ToImageUploadFolder, encondingImageToBase64 } = require('../utils/utils');
 
 const create = async (req, res) => {
     const response = {
@@ -14,7 +14,7 @@ const create = async (req, res) => {
         }
 
         const hostName = `http://${req.headers.host}`;
-        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        const urlImage = await writeBase64ToImageUploadFolder(image.encondingImage, image.name, hostName);
         
         if(urlImage === null){
             throw new Error("Falha ao salvar imagem");
@@ -92,6 +92,15 @@ const findById = async(req, res) => {
             throw new Error("Retorno vazio!");
         }
 
+        const nameOfImage = streamings?.image && streamings?.image.split('/uploads/')[1] ;
+        const imageBase64 = await encondingImageToBase64(nameOfImage);
+
+        if(! imageBase64){
+            throw new Error("Imagem não encontrada ")
+        }
+        //Atribui ao objeto image o campo de nome da imagem e base64
+        streamings.image = { 'name': nameOfImage, 'encondingImage': `data:image/png;base64, ${imageBase64}`};
+
         response['message'] = "Streaming encontrada com sucesso !";
         response['content'] = streamings;
         return res.status(200).json(response);
@@ -119,7 +128,7 @@ const updateById = async (req, res) => {
         }
 
         const hostName = `http://${req.headers.host}`;
-        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        const urlImage = await writeBase64ToImageUploadFolder(image.encondingImage, image.name, hostName);
         
         if(urlImage === null){
             throw new Error("Falha ao salvar imagem");

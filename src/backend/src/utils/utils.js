@@ -3,7 +3,7 @@ const path = require('path');
 const slugify = require('slugify');
 
 
-const writeBase64ImageToUploadFolder = async (base64Image, nameImage, hostName) => {
+const writeBase64ToImageUploadFolder = async (base64Image, nameImage, hostName) => {
     try{
         return await new Promise((resolve, reject) => {
         
@@ -28,6 +28,23 @@ const writeBase64ImageToUploadFolder = async (base64Image, nameImage, hostName) 
     }
 }
 
+const encondingImageToBase64 = async (nameImage) => {
+    try{
+        return await new Promise((resolve, reject) => {
+
+            if(!nameImage){
+                throw new Error("Nome da imagem vazio")
+            }
+            const pathToWrite = path.join(__dirname, '..', 'public', 'uploads', nameImage) ;
+            const base64 = fs.readFileSync(pathToWrite, "base64");
+            resolve(base64);
+        })
+    }catch(error){
+        console.log(error);
+        reject(null);
+    }
+}
 
 
-module.exports = {writeBase64ImageToUploadFolder}
+
+module.exports = {writeBase64ToImageUploadFolder, encondingImageToBase64}

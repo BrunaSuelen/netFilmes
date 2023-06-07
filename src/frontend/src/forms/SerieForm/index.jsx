@@ -20,6 +20,8 @@ const SerieForm = ({ props}) => {
         idStreaming: ''
     });
 
+    const [srcImage, setSrcImage] =  useState('');
+
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem('user'));
         api.get("/streaming", { params: { 'idUser': user?.id} })
@@ -45,6 +47,7 @@ const SerieForm = ({ props}) => {
                 'idStreaming': serie?.streaming?.id
             })
         }
+        setSrcImage(serie?.image?.encondingImage)
     },[serie])
 
     function handleOnChangeInput({ target }) {
@@ -76,6 +79,7 @@ const SerieForm = ({ props}) => {
         reader.onload = (e) => {
             const base64 = e.target.result;
             setFormData({...formData, 'image':{ 'name': file.name, 'encondingImage': base64}});
+            setSrcImage(base64);
         };
         reader.readAsDataURL(file);
     };
@@ -90,8 +94,12 @@ const SerieForm = ({ props}) => {
 
             <div className="mb-3">
                 <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} required />
+                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput}  />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
+
+                { serie?.image?.encondingImage && 
+                    <img src={srcImage} alt="Imagem para editar" />
+                }
             </div>
 
             <div className="mb-3">

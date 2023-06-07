@@ -15,6 +15,8 @@ const StreamingForm = ({ props }) => {
         image: '',
     });
 
+    const [srcImage, setSrcImage] =  useState('');
+    
     useEffect(() => {
         const areAllInputsHaveValues = Object.values(formData).every(element => element !== '');
         setIsEnableButton(areAllInputsHaveValues);
@@ -23,6 +25,7 @@ const StreamingForm = ({ props }) => {
     useEffect( ()=> {
         if(streaming){
            setFormData({'name': streaming?.nome, 'image': streaming?.image})
+           setSrcImage(streaming?.image?.encondingImage)
         }
     },[streaming])
 
@@ -56,6 +59,7 @@ const StreamingForm = ({ props }) => {
         reader.onload = (e) => {
             const base64 = e.target.result;
             setFormData({...formData, 'image':{ 'name': file.name, 'encondingImage': base64}});
+            setSrcImage(base64);
         };
         reader.readAsDataURL(file);
     };
@@ -70,8 +74,12 @@ const StreamingForm = ({ props }) => {
 
             <div className="mb-3">
                 <label htmlFor="imageStreaming" className="form-label">Imagem da capa</label>
-                <input type="file" className="form-control" id="imageStreaming" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} required />
+                <input type="file" className="form-control" id="imageStreaming" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} />
                 <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
+
+                { streaming?.image?.encondingImage && 
+                    <img src={srcImage} alt="Imagem para editar" />
+                }
             </div>
             <Link to="/streamings" className="btn mt-4 btn-outline-dark float-start  d-none d-sm-inline" >Voltar</Link>
             <button className="btn mt-4 btn-primary float-end" disabled={!isEnableButton}>Salvar</button>

@@ -1,5 +1,5 @@
 const serieService = require('../services/serieService');
-const { writeBase64ImageToUploadFolder } = require('../utils/utils');
+const { writeBase64ToImageUploadFolder, encondingImageToBase64 } = require('../utils/utils');
 
 const create = async (req, res) => {
     const response = {
@@ -21,7 +21,7 @@ const create = async (req, res) => {
         const {image} = req.body;
 
         const hostName = `http://${req.headers.host}`;
-        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        const urlImage = await writeBase64ToImageUploadFolder(image.encondingImage, image.name, hostName);
         
         if(urlImage === null){
             throw new Error("Falha ao salvar imagem");
@@ -111,18 +111,26 @@ const findById = async (req, res) => {
             throw new Error("Retorno vazio!");
         }
 
-        const { id, nome, image, categoria, comment, streaming_id, streaming_nome, streaming_image } = serie;
+        const nameOfImage = serie?.image && serie?.image.split('/uploads/')[1] ;
+        const imageBase64 = await encondingImageToBase64(nameOfImage);
+        
+        if(! imageBase64){
+            throw new Error("Imagem não encontrada ")
+        }
+        
+        //Atribui ao objeto image o campo de nome da imagem e base64
+        serie.image = { 'name': nameOfImage, 'encondingImage': `data:image/png;base64, ${imageBase64}`};
         
         const data = {
-            id,
-            nome,
-            image,
-            categoria,
-            comment,
+            'id': serie?.id, 
+            'nome': serie?.nome,
+            'image': serie?.image,
+            'categoria': serie?.categoria,
+            'comment': serie?.comment,
             'streaming': {
-                'id': streaming_id,
-                'nome': streaming_nome,
-                'image': streaming_image
+                'id': serie?.streaming_id,
+                'nome': serie?.streaming_nome,
+                'image': serie?.streaming_image
             }
         };
         
@@ -155,7 +163,7 @@ const updateById = async (req, res) => {
         const {image} = req.body;
         
         const hostName = `http://${req.headers.host}`;
-        const urlImage = await writeBase64ImageToUploadFolder(image.encondingImage, image.name, hostName);
+        const urlImage = await writeBase64ToImageUploadFolder(image.encondingImage, image.name, hostName);
         
         if(urlImage === null){
             throw new Error("Falha ao salvar imagem");

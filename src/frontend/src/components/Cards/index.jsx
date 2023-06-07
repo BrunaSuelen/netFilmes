@@ -6,8 +6,6 @@ import './Cards.css';
 import api from "../../services/api";
 import { formatCategoryName } from "../../utils/utils";
 
-
-
 const Card = ({ props }) => {
   const { content, editUrl, type } = props;
 
