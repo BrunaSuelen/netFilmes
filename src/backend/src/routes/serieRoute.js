@@ -13,4 +13,6 @@ router.put('/:id',serieController.updateById);
 
 router.delete('/:id', serieController.removeById);
 
+router.put('/:id/update/category', serieController.updateCategoryById);
+
 module.exports = router

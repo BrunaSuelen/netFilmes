@@ -147,7 +147,7 @@ const updateById = async (req, res) => {
         }
 
         response['created'] = isCreated;
-        response['message'] = "Criado com sucesso !";
+        response['message'] = "Atualizado com sucesso !";
         return res.status(200).json(response);
     }catch(error){
         response['message'] = 'Erro ao criar streaming';
