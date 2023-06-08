@@ -44,48 +44,50 @@ const Card = ({ props }) => {
  
 
   return (
-    <li className="cards card-item text-center">
-      <div className="" onClick={handleShowMoreDetail}>
-        <div className="position-relative mb-2" >
-          <img className="img-fluid" src={content?.image} alt="" />
-          <h4 className="h4 text-light position-absolute bottom-0 start-50 translate-middle-x">{type === 'serie'? content?.nome : null}</h4>
-        </div>
-
-        <h6 className="h6 mb-0">{type === 'serie'? content?.streaming?.nome : content?.nome}</h6>
-        <p className="mb-0 text-sm">{formatCategoryName(content?.categoria)}</p>
-      </div>
-      <div className="d-flex justify-content-between btns-action">
-        <Link className="btn btn-edit" to={`${editUrl}/${content?.id}`} >
-          <i className="bi bi-pencil"></i>
-        </Link>
+    <li className='cards card-item text-center'>
+      <div className='position-relative'>
+        {content?.categoria && 
+        <p className='categoria'> {formatCategoryName(content?.categoria)}</p>}
+        <img className='img-fluid' src={content?.image} onClick={handleShowMoreDetail}/>
         <button
-          type="button"
-          className="btn btn-remover"
+          type='button'
+          className='btn btn-remover'
           onClick={handleShowConfirmRemove}>
-          <i className="bi bi-trash3"></i>
+          <i className='bi bi-trash3'></i>
         </button>
       </div>
+      <div className='justify-content-between btns-action' onClick={handleShowMoreDetail}>
+        <h4>{type === 'serie' ? content?.streaming?.nome : content?.nome}</h4>
+        <h6>{type === 'serie' ? content?.nome : null}</h6>
+        <Link className='btn btn-edit' to={`${editUrl}/${content?.id}`}>
+          <i className='bi bi-pencil'></i>
+        </Link>
+      </div>
 
-      <ModalMoreDetail props={{
-          'handleClose': handleCloseMoreDetail,
-          'handleSubmit': handleRemoveItem,
-          'show': showMoreDetail,
+      <ModalMoreDetail
+        props={{
+          handleClose: handleCloseMoreDetail,
+          handleSubmit: handleRemoveItem,
+          show: showMoreDetail,
           content,
           type,
           editUrl,
-      }}/>
+        }}
+      />
 
-      <ModalConfirmRemove props={{
-        'handleClose': handleCloseConfirmRemove,
-        'handleSubmit': handleRemoveItem,
-        'show': showConfirmRemove,
-        'content': {
-          'type': 'série',
-          'title': content?.nome
-        }
-      }} />
-    </li >
-  )
+      <ModalConfirmRemove
+        props={{
+          handleClose: handleCloseConfirmRemove,
+          handleSubmit: handleRemoveItem,
+          show: showConfirmRemove,
+          content: {
+            type: 'série',
+            title: content?.nome,
+          },
+        }}
+      />
+    </li>
+  );
 }
 
 export default Card;

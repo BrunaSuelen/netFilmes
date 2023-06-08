@@ -23,9 +23,6 @@ const Home = () => {
           console.error("ops! ocorreu um erro" + err);
         });
     }, []);
-
-
-    if(!series) return ;
     
     return (
         <>

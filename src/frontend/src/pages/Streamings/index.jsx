@@ -26,8 +26,6 @@ const Streamings = () => {
           console.error("ops! ocorreu um erro" + err);
         });
     }, []);
-
-    if(!streamings) return ;
     
     return (
         <>
