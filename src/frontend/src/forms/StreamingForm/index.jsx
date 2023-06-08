@@ -77,7 +77,7 @@ const StreamingForm = ({ props }) => {
                 <input type="file" className="form-control" id="imageStreaming" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} />
                 <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
 
-                { streaming?.image?.encondingImage && 
+                { srcImage && 
                     <img src={srcImage} alt="Imagem para editar" />
                 }
             </div>
