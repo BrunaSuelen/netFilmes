@@ -38,7 +38,7 @@ const EditStreaming = () => {
         api.put(`/streaming/${id}`, body)
         .then((response) => {
             const {data} = response;
-            setDisplayMessage(data?.created);
+            setDisplayMessage(data?.updated);
             setMessage(data?.message);
         })
         .catch((err) => {

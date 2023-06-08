@@ -147,12 +147,14 @@ const findById = async (req, res) => {
 const updateById = async (req, res) => {
     const response = {
         message: null,
-        created: null,
+        updated: null,
     } 
     try{
         const areAllInputsHaveValues = Object.values(req.body).every(element => Boolean( element) );
         
-        if(! areAllInputsHaveValues) {
+        const {id} = req.params;
+
+        if(! areAllInputsHaveValues || ! id) {
             throw new Error("Campo vazio");
         }
         
@@ -170,6 +172,7 @@ const updateById = async (req, res) => {
         }
         
         const body = {
+            'id': id,
             'nome': req.body?.name,
             'image': urlImage,
             'categoria': req.body?.category,
@@ -179,18 +182,16 @@ const updateById = async (req, res) => {
         };
         
         const isCreated = await serieService.updateSerieById(body);
-
-
         if(!isCreated){
             throw new Error("Não conseguiu criar no banco de dados");
         }
 
-        response['created'] = isCreated;
-        response['message'] = "Criado com sucesso !";
+        response['updated'] = isCreated;
+        response['message'] = "Atualizado com sucesso !";
         return res.status(200).json(response);
     }catch(error){
         response['message'] = 'Erro ao criar streaming';
-        response['created']= false;
+        response['updated']= false;
         return res.status(400).json(response);
     }
 } 
@@ -223,7 +224,39 @@ const removeById = async (req,res) => {
         response['removed']= false;
         return res.status(401).json(response);
     }
-    
 }
 
-module.exports = {create,list, findById, updateById, removeById};
+
+const updateCategoryById = async (req, res) => {
+    const response = {
+        message: null,
+        updated: null,
+    } 
+    try{
+        const {id} = req.params;
+
+        if( Object.values(req.body).length == 0  || ! id ) {
+            throw new Error("Campo imagem vazio");
+        }
+
+        const body = {
+            'id': id,
+            'categoria': req.body?.category,
+        };
+    
+        const isCreated = await serieService.updateCategoryById(body);
+        if(!isCreated){
+            throw new Error("Não conseguiu criar no banco de dados");
+        }
+
+        response['updated'] = isCreated;
+        response['message'] = "Atualizado com sucesso !";
+        return res.status(200).json(response);
+    }catch(error){
+        response['message'] = 'Erro ao criar streaming';
+        response['updated']= false;
+        return res.status(400).json(response);
+    }
+}
+
+module.exports = {create,list, findById, updateById, removeById, updateCategoryById};

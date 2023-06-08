@@ -97,7 +97,7 @@ const SerieForm = ({ props}) => {
                 <input className="form-control" type="file" id="imageSerie" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput}  />
                 <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
 
-                { serie?.image?.encondingImage && 
+                { srcImage && 
                     <img src={srcImage} alt="Imagem para editar" />
                 }
             </div>
