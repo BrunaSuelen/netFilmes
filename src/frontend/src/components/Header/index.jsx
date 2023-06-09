@@ -35,7 +35,7 @@ const Header = () => {
             </div>
             <div className="ms-md-auto user-name">
               <p>Bem vindo!</p>
-              <p className="user-nome">{user?.name}</p>
+              <p className="user-nome">{user?.name && user?.name.split(' ')[0] }</p>
             </div>
           </button>
           <ul
@@ -84,23 +84,5 @@ const Header = () => {
     </header>
   );
 }
-   
-{/* 
-<Dropdown className="dropdown text-end ms-md-auto user">
-  <Dropdown.Toggle id="dropdown-basic"  variant="" size={"sm"} className="d-flex link-dark text-decoration-none  show">
-      <div className="user-image">
-        <img src="images/profile.png" alt="mdo" width="32" height="32" className="rounded-circle" />
-      </div>
-
-      <div className="ms-md-auto user-name">
-        <p>Bem vindo!</p>
-        <p>{user?.name}</p>
-      </div>
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item className="" onClick={handleClick}>Sair</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown> */}
 
 export default Header;

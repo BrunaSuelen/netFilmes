@@ -1,4 +1,5 @@
 const userService = require('../services/userService');
+const { generateToken } = require('../utils/utils');
 
 const getUser = async (req, res) => {
     const response = {
@@ -29,7 +30,8 @@ const getUser = async (req, res) => {
             name: user?.nome,
             email: user?.email
         };
-        response['token'] = 'asd1234' ;
+
+        response['token'] = generateToken() ;
 
         return res.status(200).json(response);
     }catch (error) {

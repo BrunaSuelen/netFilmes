@@ -45,6 +45,10 @@ const encondingImageToBase64 = async (nameImage) => {
     }
 }
 
+const generateToken = () => {
+    //https://www.programiz.com/javascript/examples/generate-random-strings
+    return  Math.random().toString(36).slice(2) ;
+}
 
 
-module.exports = {writeBase64ToImageUploadFolder, encondingImageToBase64}
+module.exports = {writeBase64ToImageUploadFolder, encondingImageToBase64, generateToken}
