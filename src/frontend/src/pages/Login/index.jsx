@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import './Login.css';
 import api from '../../services/api';
+import Notification from '../../components/Notification';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ const Login = () => {
     const [formData, setFormData] = useState({email: '', password: ''});
 
     const [isEnableButton, setIsEnableButton] = useState(false);
+
+    const [alert, setAlert] = useState({'show': false, 'message':'', 'variant':''});
 
     useEffect(() => {
         const areAllInputsHaveValues = Object.values(formData).every(element => element !== '');
@@ -46,13 +49,14 @@ const Login = () => {
             .catch((err) => {
                 const message = err?.response?.data?.message;
                 setFormData({email: '', password: ''});
-                setErrorMessages({...errorMessages, 'login': message });
+                setAlert({'show': true, 'message': message, 'variant':'danger'})
             });
     }
     return (
         <div className="page-login">
             <div id='containerLogin'>
                 <main className="form-signin w-100 m-auto" id="boxformlogin">
+                    {alert.show && <Notification props={{alert, setAlert}}/> }
                     <form className="" onSubmit={handleSubmit}>
                         <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" />
 

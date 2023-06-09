@@ -113,7 +113,7 @@ const findById = async(req, res) => {
 const updateById = async (req, res) => {
     const response = {
         message: null,
-        created: null,
+        updated: null,
     }
     try{
         const {name, image, userId} = req.body
@@ -140,18 +140,18 @@ const updateById = async (req, res) => {
             'usuarioId': userId,
             'idStreaming': id
         };
-        const isCreated = await streamingService.updateStreamingById(body);
+        const isUpdated = await streamingService.updateStreamingById(body);
 
-        if(!isCreated){
+        if(!isUpdated){
             throw new Error("Não conseguiu criar no banco de dados");
         }
 
-        response['created'] = isCreated;
+        response['updated'] = isUpdated;
         response['message'] = "Atualizado com sucesso !";
         return res.status(200).json(response);
     }catch(error){
         response['message'] = 'Erro ao criar streaming';
-        response['created']= false;
+        response['updated']= false;
         return res.status(400).json(response);
     }
 }

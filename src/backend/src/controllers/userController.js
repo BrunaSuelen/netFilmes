@@ -69,7 +69,7 @@ const createUser =  async (req, res) => {
         response['message'] = "Criado com sucesso !";
         return res.status(200).json(response);
     }catch (error) {
-        response['message'] = 'Erro ao criar usuário';
+        response['message'] = 'Usuário já existe';
         response['created']= false;
         return res.status(401).json(response);
     }

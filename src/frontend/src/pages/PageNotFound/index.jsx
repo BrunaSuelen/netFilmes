@@ -7,7 +7,7 @@ const PageNotFound = () => {
     return (
       <div className='pagina-nao-encontrada'>
         <img 
-          src='images/logo-branca.png' 
+          src='/images/logo-branca.png' 
           alt='Netfilmes' 
           width="32"/>
         <div>

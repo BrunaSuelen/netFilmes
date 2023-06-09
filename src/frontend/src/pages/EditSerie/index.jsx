@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import SerieForm from "../../forms/SerieForm";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
+import Notification from "../../components/Notification";
 
 const EditSerie = () => {
     const { id } = useParams();
     const [serie, setSerie] = useState({});
+    const [alert, setAlert] = useState({'show': false, 'message':'', 'variant':''});
 
     const navigate = useNavigate();
-    const [message, setMessage] = useState('');
-    const [displayMessage, setDisplayMessage] = useState(false);
-
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -38,19 +37,17 @@ const EditSerie = () => {
         api.put(`/serie/${id}`, body)
             .then((response) => {
                 const { data } = response;
-                setDisplayMessage(data?.updated);
-                setMessage(data?.message);
+                setAlert({'show': true, 'message': data?.message , 'variant': data?.updated ? 'success': 'danger'})
             })
             .catch((err) => {
                 const message = err?.response?.data?.message;
-                console.log(message);
+                setAlert({'show': true, 'message': message, 'variant': 'danger'})
             });
     }
 
     return (
         <>
-            {/*Implementar o alerta*/}
-            {displayMessage && <div>{message}</div>}
+            {alert.show && <Notification props={{alert, setAlert}}/> }  
             <div className="mb-4 d-flex justify-content-between ">
                 <h1 className="h2" id="title-page">Editar Série</h1>
             </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SerieForm from "../../forms/SerieForm";
 import { useNavigate } from "react-router-dom";
 import api from '../../services/api';
+import Notification from "../../components/Notification";
 
 
 const AddSerie = () => {
@@ -14,8 +15,7 @@ const AddSerie = () => {
         }
     },[])
     
-    const [message, setMessage] = useState('');
-    const [displayMessage, setDisplayMessage] = useState(false);
+    const [alert, setAlert] = useState({'show': false, 'message':'', 'variant':''});
 
     function handleSubmit(event, formData) {
         event.preventDefault();
@@ -26,11 +26,11 @@ const AddSerie = () => {
         api.post("/serie", body)
         .then((response) => {
             const {data} = response;
-            setDisplayMessage(data?.created);
-            setMessage(data?.message);
+            setAlert({'show': true, 'message': data?.message , 'variant': data?.created ? 'success': 'danger'})
         })
         .catch((err) => {
             const message = err?.response?.data?.message;
+            setAlert({'show': true, 'message': message, 'variant': 'danger'})
             console.log(message);
         });
     }
@@ -38,8 +38,7 @@ const AddSerie = () => {
 
     return (
         <>
-            {/*Implementar o alerta*/}
-            {displayMessage && <div>{message}</div> }
+            {alert.show && <Notification props={{alert, setAlert}}/> }
 
             <div className="mb-4 d-flex justify-content-between ">
                 <h1 className="h2" id="title-page">Cadastrar Série</h1>

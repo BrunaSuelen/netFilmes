@@ -30,6 +30,7 @@ input {
     padding-bottom: 40px;
     height: auto;
     overflow-x: hidden;
+    position: relative;
 }
 
 main{
@@ -37,7 +38,7 @@ main{
 }
 
 #imagem {
-    width: 50%;
+    width: 100%;
     margin: auto;
     display: block;
 }

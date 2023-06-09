@@ -116,7 +116,7 @@ const SerieForm = ({ props}) => {
                 <select id="categoriaSerie" className="form-select form-select" aria-label=".form-select" name="category" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.category} required>
                     <option value="" select="">Selecione a categoria</option>
                     <option value="assistido">Assitido</option>
-                    <option value="nao_assistido">Não Assiti</option>
+                    <option value="nao_assistido">Não Assitido</option>
                     <option value="desejo_assistir">Desejo Assitir</option>
                     <option value="recomendo">Recomendo</option>
                     <option value="nao_recomendo">Não Recomendo</option>

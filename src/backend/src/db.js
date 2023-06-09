@@ -17,7 +17,7 @@ function initDb() {
         db.run(`CREATE TABLE IF NOT EXISTS Usuario (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome VARCHAR(255) NOT NULL,
-            email VARCHAR(255) NOT NULL,
+            email VARCHAR(255) NOT NULL UNIQUE,
             senha VARCHAR(255) NOT NULL
           );`);
 

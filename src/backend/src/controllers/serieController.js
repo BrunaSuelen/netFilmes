@@ -244,12 +244,12 @@ const updateCategoryById = async (req, res) => {
             'categoria': req.body?.category,
         };
     
-        const isCreated = await serieService.updateCategoryById(body);
-        if(!isCreated){
+        const isUpdated = await serieService.updateCategoryById(body);
+        if(!isUpdated){
             throw new Error("Não conseguiu criar no banco de dados");
         }
 
-        response['updated'] = isCreated;
+        response['updated'] = isUpdated;
         response['message'] = "Atualizado com sucesso !";
         return res.status(200).json(response);
     }catch(error){

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Cadastro.css';
 import { Link } from "react-router-dom";
 import api from '../../services/api';
+import Notification from '../../components/Notification';
 
 const Cadastro = () => {
     const [errorMessages, setErrorMessages] = useState({});
@@ -14,6 +15,7 @@ const Cadastro = () => {
 
     const [isEnableButton, setIsEnableButton] = useState(false);
 
+    const [alert, setAlert] = useState({'show': false, 'message':'', 'variant':''});
 
     useEffect(() => {
         const areAllInputsHaveValues = Object.values(formData).every(element => element !== '');
@@ -45,15 +47,12 @@ const Cadastro = () => {
         api.post("/user/create", formData)
             .then((response) => {
                 const { data } = response;
-                //colocar um novo div para isso 
-                setErrorMessages({ ...errorMessages, 'cadastro': data?.message });
-                //verificar como tá no  prototipo, mas a ideia colocar time out e ir para home 
-                //navigate('/');
+                setAlert({'show': true, 'message': data?.message , 'variant':'success'})
+                setFormData({name: '', email: '', password: '' });
             })
             .catch((err) => {
                 const message = err?.response?.data?.message;
-                //  setFormData({ email: '', password: '' });
-                setErrorMessages({ ...errorMessages, 'cadastro': message });
+                setAlert({'show': true, 'message': message, 'variant':'danger'})
             });
     }
 
@@ -61,6 +60,7 @@ const Cadastro = () => {
     return (
         <div className="page-cadastro">
             <form className="mb-3" onSubmit={handleSubmit} id='formulario' >
+                {alert.show && <Notification props={{alert, setAlert}}/> }
                 <img className="mb-5" src="images/logo.png" alt="Logo da Página NetFilmes" id='imagem' />
                 <div className="form-floating">
                     <input type="text"

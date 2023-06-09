@@ -42,11 +42,12 @@ img.backdrop-image {
 }
 
 .modal-more-detail-select {
-width: 120px;
-font-size: 0.8rem;
-margin-left: auto;
-margin-right: 5px;
-border: 1px solid;
+    width: 120px;
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-right: 5px;
+    border: 1px solid;
+    cursor: pointer;
 }
 
 .modal-more-detail-comments-title{

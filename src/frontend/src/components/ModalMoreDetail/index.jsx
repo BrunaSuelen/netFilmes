@@ -4,20 +4,14 @@ import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import api from "../../services/api";
 import './ModalMoreDetail.css';
+import Notification from "../Notification";
 
 const ModalMoreDetail = ({ props }) => {
 
     const { handleClose, handleSubmit, show, content, type, editUrl} = props;
-    const [selectCategory, setSelectCategory] = useState('');
-
-    const [message, setMessage] = useState('');
-    const [displayMessage, setDisplayMessage] = useState(false);
+    const [alert, setAlert] = useState({'show': false, 'message':'', 'variant':''})
+    const [selectedCategory, setSelectedCategory] = useState(content.categoria);
     
-    console.log(content);
-    useEffect(()=> {
-        setSelectCategory(content?.categoria);
-    }, [content?.categoria])
-
     function handleSelectCategory(event){
         const value = event.target.value
        
@@ -27,26 +21,25 @@ const ModalMoreDetail = ({ props }) => {
             'id': content.id,
             'category': value,
         }
-        
+
         api.put(`/serie/${content.id}/update/category`, body)
         .then((response) => {
             const {data} = response;
-
-            setSelectCategory(value);
-            setDisplayMessage(data?.updated);
-            setMessage(data?.message);
-            content.categoria = value;
+            if(data?.updated){
+                content.categoria = value;
+            }
+            setAlert({'show': true, 'message': data?.message, 'variant': data?.updated ? 'success': 'danger' })
         })
         .catch((err) => {
             const message = err?.response?.data?.message;
-            console.log(message);
+            setAlert({'show':true, 'message':message, 'variant': 'danger'})
         });
+        setSelectedCategory(value);
     }
 
     return (        
             <Modal show={show} onHide={handleClose} size="lg" centered>
-                {/*Implementar o alerta*/}
-                {displayMessage && <div>{message}</div> }
+                {alert.show && <Notification props={{alert, setAlert}}/> }
                 <Modal.Header className="border-0 mb-3 p-0">
                     <button className="btn-close btn-close-white opacity-100 btn-close-modal-more-detail" onClick={handleClose}></button>
 
@@ -61,9 +54,9 @@ const ModalMoreDetail = ({ props }) => {
                         <h2 className="modal-more-detail-title fs-3 h2">{content?.nome}</h2>
 
                         {type === 'serie'  && 
-                            <select className="form-select form-select-sm modal-more-detail-select" onChange={handleSelectCategory} value={selectCategory}>
+                            <select className="form-select form-select-sm modal-more-detail-select" onChange={handleSelectCategory} value={selectedCategory}>
                                 <option value="assistido">Assitido</option>
-                                <option value="nao_assistido">Não Assiti</option>
+                                <option value="nao_assistido">Não Assitido</option>
                                 <option value="desejo_assistir">Desejo Assitir</option>
                                 <option value="recomendo">Recomendo</option>
                                 <option value="nao_recomendo">Não Recomendo</option>
