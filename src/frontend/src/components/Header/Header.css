@@ -43,17 +43,26 @@
   border: 0;
   color: black;
   opacity: 1;
+  background-color: transparent;
   filter: drop-shadow(0px 0px 0px black);
 }
 
-.navbar-toggler:focus:not(:focus-visible) {
-  outline: transparent;
+button.navbar-toggler:focus:not(:focus-visible),
+button.navbar-toggler:hover,
+button.navbar-toggler:active {
+  outline: white;
   box-shadow: none;
+  background-color: white !important;
 }
 
 .nav-link {
   color: black;
   font-weight: 600;
+}
+
+.nav-item .nav-link:hover,
+.nav-item .nav-link:focus {
+  color: #b62735;
 }
   
 .dropdown.user {
@@ -64,6 +73,17 @@
 .dropdown.user .user-nome {
   font-weight: 600;
   text-align: end;
+}
+
+.dropdown.user,
+.dropdown.user:hover,
+.dropdown.user:focus,
+.dropdown.user:active,
+.dropdown.user button.dropdown-toggle,
+.dropdown.user button.dropdown-toggle:hover,
+.dropdown.user button.dropdown-toggle:focus,
+.dropdown.user button.dropdown-toggle:active  {
+  background-color: white !important;
 }
 
 /* Responsividade */
