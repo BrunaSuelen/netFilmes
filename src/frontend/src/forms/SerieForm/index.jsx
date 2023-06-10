@@ -86,20 +86,23 @@ const SerieForm = ({ props}) => {
 
     return (
         <form onSubmit={e => handleSubmit(e, formData)}>
+            <div className="mb-3 field-image">
+                <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
+                { srcImage && <p>Solte ou clique sobre a imagem para altera-lá.</p>}
+                <label className="file">
+                    <input type="file" className="form-control" id="imageStreaming" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput} />
+                    { srcImage
+                        ? <img src={srcImage} alt="Imagem para editar"/>
+                        : <span>Solte ou clique aqui e selecione a sua imagem.</span>
+                    }
+                </label>
+                <span className="error" id="error-imageStreaming">{errorMessages?.image}</span>
+            </div>
+
             <div className="mb-3">
                 <label htmlFor="nameSerie" className="form-label">Série</label>
                 <input type="text" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.name} required />
                 <span className="error" id="error-nameSerie">{errorMessages?.name}</span>
-            </div>
-
-            <div className="mb-3">
-                <label htmlFor="imageSerie" className="form-label">Imagem da capa</label>
-                <input className="form-control" type="file" id="imageSerie" name="image" accept="image/png" onChange={handleImageUpload} onFocus={handleOnFocusInput}  />
-                <span className="error" id="error-imageSerie">{errorMessages?.image}</span>
-
-                { srcImage && 
-                    <img src={srcImage} alt="Imagem para editar" />
-                }
             </div>
 
             <div className="mb-3">

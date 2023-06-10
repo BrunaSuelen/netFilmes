@@ -72,8 +72,8 @@
     display: block;
     position: absolute;
     z-index: 999;
-    background-image: linear-gradient(174deg, #000000d6, #0000005c, #00000017, transparent);
-    font-size: 8px;
+    background-image: linear-gradient(152deg, #000000d6, #0000005c, #00000017, transparent);
+    font-size: 11px;
     padding: 6px;
     color: white;
     width: 60px;
@@ -88,10 +88,11 @@
     text-transform: uppercase;
     text-shadow: -3px 3px 3px #00000082;
     font-size: 13px;
+    max-width: 130px;
 }
 
 .card-item:hover h6 {
-    font-size: 8px;
+    font-size: 11px;
     color: #c2c2c2;
     text-align: left;
     padding-top: 4px
@@ -101,7 +102,7 @@
     text-align: center!important;
 }
 .img-fluid {
-    filter: blur(1px) contrast(0.5);
+    filter: blur(1px) contrast(0.5) brightness(0.5);
     overflow: hidden;
     transform: scale(1.1);
     height: 185px;

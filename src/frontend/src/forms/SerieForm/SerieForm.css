@@ -1,0 +1,87 @@
+input[type='file'] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  outline: 0;
+  border: 1px solid red;
+}
+
+label.file {
+  position: relative;
+  display: flex;
+  width: 100%;
+  font-size: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px dashed #ccc;
+  height: 165px;
+  justify-content: center;
+  align-items: center;
+}
+
+label.file:hover {
+  font-size: 0px;
+}
+
+label.file:hover::after {
+  cursor: pointer;
+  content: "Solte ou clique aqui e selecione a sua imagem.";
+  background-color: #00000030;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e2e2e2;
+  backdrop-filter: brightness(0.5) blur(1.5px);
+  line-height: 18px;
+}
+
+label.file:active,
+label.file.focus {
+  border-color: #09f;
+}
+
+input[type='file'] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  outline: 0;
+  border: 1px solid red;
+}
+
+button {
+  color: #eee;
+  background-color: #666;
+  padding: 1rem 2rem;
+  border: 0;
+  outline: none;
+}
+
+button:hover,
+button:focus {
+  background-color: #333;
+}
+
+button:active {
+  color: #fff;
+  background-color: #000;
+}
+
+.file img {
+  height: 100%;
+}
+
+.field-image p {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
