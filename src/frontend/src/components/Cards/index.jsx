@@ -46,19 +46,27 @@ const Card = ({ props }) => {
   return (
     <li className='cards card-item text-center'>
       <div className='position-relative'>
-        {content?.categoria && 
-        <p className='categoria'> {formatCategoryName(content?.categoria)}</p>}
-        <img className='img-fluid' src={content?.image} onClick={handleShowMoreDetail}/>
+        {content?.categoria && (
+          <p className='categoria'> {formatCategoryName(content?.categoria)}</p>
+        )}
+        <img
+          className='img-fluid'
+          src={content?.image}
+          onClick={handleShowMoreDetail}
+        />
         <button
           type='button'
           className='btn btn-remover'
-          onClick={handleShowConfirmRemove}>
+          onClick={handleShowConfirmRemove}
+        >
           <i className='bi bi-trash3'></i>
         </button>
       </div>
-      <div className='justify-content-between btns-action' onClick={handleShowMoreDetail}>
-        <h4>{type === 'serie' ? content?.streaming?.nome : content?.nome}</h4>
-        <h6>{type === 'serie' ? content?.nome : null}</h6>
+      <div
+        className='justify-content-between btns-action'
+        onClick={handleShowMoreDetail}>
+        <h4>{content?.nome}</h4>
+        <h6>{type === 'serie' ? content?.streaming?.nome : null}</h6>
         <Link className='btn btn-edit' to={`${editUrl}/${content?.id}`}>
           <i className='bi bi-pencil'></i>
         </Link>

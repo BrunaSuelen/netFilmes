@@ -81,6 +81,11 @@
     filter: drop-shadow(2px 4px 6px black);
 }
 
+.card-item:hover .img-fluid {   
+    filter: blur(1px) contrast(0.5) brightness(0.8);
+    transition: transform .2s ease-out;
+}
+
 .card-item:hover h4 {
     margin-top: -14px;
     color: white;
@@ -102,13 +107,13 @@
     text-align: center!important;
 }
 .img-fluid {
-    filter: blur(1px) contrast(0.5) brightness(0.5);
     overflow: hidden;
     transform: scale(1.1);
     height: 185px;
     width: 100%;
     object-fit: cover;
 }
+
 h6 {
     font-weight: 500;
     line-height: 1.2;
@@ -125,7 +130,7 @@ h6 {
     margin-inline-end: 0px;
 }
 .h6, h6 {
-        font-size: 1rem;
+    font-size: 1rem;
 }
 
 .mb-0 {
