@@ -8,17 +8,19 @@ const streamingRoute = require('./routes/streamingRoute');
 
 const app = express();
 
-
+//Cria as tabelas e popula o banco de dados com os registros
 const db = require('./db');
 db.initDb();
 db.populateDabase();
 
 const port = 5000;
 
+//Implementando algumas configurações no projeto
 app.use(express.json({limit:'100mb'}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({origin: '*' }));
 
+// Rotas da nossa aplicação
 app.use("/user", userRoute);
 app.use("/serie", serieRoute);
 app.use("/streaming", streamingRoute);

@@ -1,7 +1,7 @@
 const userService = require('../services/userService');
 const { generateToken } = require('../utils/utils');
 
-const getUser = async (req, res) => {
+const login = async (req, res) => {
     const response = {
         token: null,
         message: null,
@@ -18,7 +18,7 @@ const getUser = async (req, res) => {
             "password": body?.password,
         }
         
-        const user = await userService.getUser(data)
+        const user = await userService.login(data)
 
         if(!user) {
             throw new Error("Usuario não consegui logar");
@@ -77,4 +77,4 @@ const createUser =  async (req, res) => {
    
 }
 
-module.exports = {getUser, createUser};
+module.exports = {login, createUser};

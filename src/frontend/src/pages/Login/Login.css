@@ -7,15 +7,21 @@
   padding-bottom: 40px;
   background-color: #b62735;
 }
+.form-signin input {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 2;
+}
 
 #containerLogin{
   border-radius: 5px;
   background-color: #ffffff;
+  text-align: center;
 }
 
 #boxformlogin{
   background-color: #ffffff;
-  position: relative;
 }
 
 #boxformcad{
@@ -38,7 +44,6 @@
 
 .form-signin form {
     display: flow-root;
-    text-align-last: center;
     border-radius: 5px;
 }
 
@@ -60,6 +65,9 @@
 #criarConta{
     text-decoration-color: black;
 }
+.link-underline-opacity-0 {
+  --bs-link-underline-opacity: 0;
+}
 
 
 @media screen and (max-width: 575px) {
@@ -69,4 +77,3 @@
     }
     
 }
-

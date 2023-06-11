@@ -1,7 +1,7 @@
 
 const {db} = require('../db');
 
-async function getUser(data){
+async function login(data){
   const { email, password } = data;
   
   try {
@@ -47,4 +47,4 @@ async function createUser(data){
   }
 }
 
-module.exports = { getUser, createUser};
+module.exports = { login, createUser};
