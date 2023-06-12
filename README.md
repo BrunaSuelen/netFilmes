@@ -17,13 +17,13 @@
 # Como começar o projeto
 
 - Baixar o projeto ou clonar projeto
-- cd src/backend/
-- npm i
-- npm start 
-- abrir um novo terminal e acessar a pasta do projeto
-- cd src/frontend/
-- npm i 
-- npm start
+- Para acessar a pasta do backend  `cd src/backend` 
+- Instalar as bibliotecas necessarias `npm i`
+- Iniciar o backend `npm start` 
+- Abrir um novo terminal e acessar a pasta do projeto para iniciar o frontend
+- Para acessar a pasta do frontend `cd src/frontend`
+- Instalar as bibliotecas necessarias `npm i` 
+- Iniciar o frontend `npm start`
 
 Caso ocorra um erro ao criar o banco de dados, existe o banco de backup _database.db. Basta renomear para database.db
 ## Acessar
