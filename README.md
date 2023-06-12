@@ -15,6 +15,7 @@
 
 # Como começar o projeto
 
+- É necessário possuir o node instalado na m
 - Baixar o projeto ou clonar projeto
 - Para acessar a pasta do backend  `cd src/backend` 
 - Instalar as bibliotecas necessarias `npm i`
