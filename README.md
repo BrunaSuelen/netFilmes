@@ -17,16 +17,32 @@
 # Como começar o projeto
 
 - Baixar o projeto ou clonar projeto
-- Clicar em "Abrir como" no navegador de sua preferência o arquivo index.html
-- Caso possua a extensão live server no vscode  clicar com o botão direito no index.html e clicar em "open with liver server"
-
-# Iniciar projeto 
-- cd src/frontend/ 
+- cd src/backend/
 - npm i
-- npm run start
+- npm start 
+- abrir um novo terminal e acessar a pasta do projeto
+- cd src/frontend/
+- npm i 
+- npm start
 
-## Acessar as páginas 
-Atualmente é preciso acessar as páginas manualmente, olhar as rotas no arquivo app.js
-ex:
-- http://localhost:3000/home
-- http://localhost:3000/serie/editar/1
+Caso ocorra um erro ao criar o banco de dados, existe o banco de backup _database.db. Basta renomear para database.db
+## Acessar
+Frontend: http://localhost:3000
+Backend: http://localhost:5000
+
+
+## Contas de Clientes já criadas onde é possível acessar o painel.
+Preferencialmente utilizar o usuario1@gmail.com, pois apresenta uma quantidade maior de séries cadastradas
+
+```
+email: usuario1@gmail.com senha: 123456
+email: usuario2@gmail.com senha: 123456
+email: usuario3@gmail.com senha: 123456
+email: usuario4@gmail.com senha: 123456
+email: usuario5@gmail.com senha: 123456 
+email: usuario6@gmail.com senha: 123456
+email: usuario7@gmail.com senha: 123456
+email: usuario8@gmail.com senha: 123456
+email: usuario9@gmail.com senha: 123456
+email: usuario10@gmail.com senha: 123456
+```
