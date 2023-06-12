@@ -1,0 +1,40 @@
+@media screen and (max-width: 500px) {
+
+    .card-content-page {
+        padding: 1rem 1rem 4rem;
+    }
+    
+    .hr-menu {
+        margin-left: -20px;
+    }
+ }
+
+@media screen and (max-width: 350px) {
+     
+    .list-cards {
+        display: block;
+    }
+
+    .list-cards .card-item {
+        min-width: 140px;
+    }
+
+    .img-fluid {
+        width: 100%;
+    }
+ }
+ @media screen and (max-width: 250px) {
+    .card-content-page {
+        padding: 1rem 0 4rem;
+    }
+ }
+ .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-.5 * var(--bs-gutter-x));
+    margin-left: calc(-.5 * var(--bs-gutter-x));
+}
+.text-center {
+    text-align: center!important;
+}

@@ -1,0 +1,135 @@
+::root .dropdown-menu {
+  position: absolute;
+  inset: 0px 0px auto auto;
+  margin: 0px;
+  transform: translate(0px, 34px);
+}
+
+.hr-menu {    
+  border: 5px solid #b62735;
+  color: #b62735;
+  height: 5px;
+  width: 100vw;
+  margin-left: -40px;
+  opacity: 1;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  background: white;
+  color: #3c3c3c;
+  padding: 2px 5px;
+  border: transparent;
+  border-radius: 4px;
+}
+
+.dropdown.user .dropdown-toggle .user-image::after {
+  display: inline-block;
+  margin-left: 0.2rem;
+  margin-right: 0.8rem;
+  vertical-align: 100%;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+.navbar-toggler {
+  border: 0;
+  color: black;
+  opacity: 1;
+  background-color: transparent;
+  filter: drop-shadow(0px 0px 0px black);
+}
+
+button.navbar-toggler:focus:not(:focus-visible),
+button.navbar-toggler:hover,
+button.navbar-toggler:active {
+  outline: white;
+  box-shadow: none;
+  background-color: white !important;
+}
+
+.nav-link {
+  color: black;
+  font-weight: 600;
+}
+
+.nav-item .nav-link:hover,
+.nav-item .nav-link:focus {
+  color: #b62735;
+}
+  
+.dropdown.user {
+  position: absolute;
+  right: 0;
+}
+
+.dropdown.user .user-nome {
+  font-weight: 600;
+  text-align: end;
+}
+
+.dropdown.user,
+.dropdown.user:hover,
+.dropdown.user:focus,
+.dropdown.user:active,
+.dropdown.user button.dropdown-toggle,
+.dropdown.user button.dropdown-toggle:hover,
+.dropdown.user button.dropdown-toggle:focus,
+.dropdown.user button.dropdown-toggle:active  {
+  background-color: white !important;
+}
+
+/* Responsividade */
+@media screen and (max-width: 767px) {
+  .dropdown.user {
+    margin-left: auto;
+    right: 40px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .hr-menu {
+    margin-left: -20px;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .dropdown-toggle {
+    display: block !important;
+  }
+
+  .dropdown-toggle p {
+    font-size: 10px;
+  }
+
+  .dropdown.user .dropdown-toggle .user-image::after {
+    margin-right: 0;
+  }
+
+  .dropdown.user .dropdown-toggle .user-image img {
+    width: 20px;
+    height: 20px;    
+    margin-left: 4px;
+  }
+  
+  .dropdown.user .user-nome {
+    text-align: center;
+  }
+
+  .navbar .nav-link img {
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .hr-menu {
+    margin-left: -10px;
+  }
+}

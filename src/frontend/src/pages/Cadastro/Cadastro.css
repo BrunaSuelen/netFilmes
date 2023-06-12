@@ -1,0 +1,241 @@
+/*INICIO Fomulario*/
+
+
+
+/*INICIO INPUT*/
+input {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+/*FIM INPUT*/
+
+/*Fim Fomulario*/
+
+
+.page-cadastro {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #b62735;
+}
+
+#formulario{
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    padding-bottom: 40px;
+    height: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+main{
+    border-radius: 5px;
+}
+
+#imagem {
+    width: 100%;
+    margin: auto;
+    display: block;
+}
+
+
+
+/* Inicio Botões*/
+
+.btn-return i {
+    font-size: 14px;
+}
+
+.btn-return:hover a,
+.btn-return:hover i {
+    color: #b62735;
+}
+
+.btn-return a {
+    margin: 0;
+    line-height: 12px;
+    font-weight: 500;
+    padding-left: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    color: black;
+}
+
+
+.btn-outline-dark {
+    padding: 8px;
+    min-width: 100px;
+    font-weight: 500;
+  font-size: small;
+}
+
+.btn-primary, .btn-primary:disabled {
+    padding: 8px;
+    min-width: 100px;
+    background: black;
+    border: transparent 1px solid;
+    font-weight: 500;
+    font-size: small;
+}
+
+.btn-primary:hover,
+.btn-outline-dark:hover {
+    background: #b62735;
+    border: transparent 1px solid;
+}
+
+.btn-close {
+    position: absolute;
+    filter: invert(1);
+    top: -25px;
+    opacity: 1;
+    right: 0;
+}
+
+.btns-action {
+    margin-top: -12px;
+}
+
+/* Fim Botões*/
+
+.form-label {
+    margin-bottom: 0.2rem;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+textarea.form-control {
+    min-height: 80px;
+}
+
+
+.error {
+    font-size: 10px;
+    color: red;
+    text-align-last: left;
+    display: block;
+    margin-top: 5px;
+}
+
+#alert {
+    position: fixed;
+    width: calc(100% - 10px);
+    border-radius: 2px;
+    box-shadow: -2px 1px 6px #23232385;
+    padding: 12px;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    top: 10px;
+    margin: 0;
+    left: 5px;
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+}
+
+#alert.success {
+    background-color: #ffffffb0;
+    color: #212529;
+}
+
+#alert.error {
+    background-color: #ffffffb0;
+    color: #b62735;
+}
+
+
+
+@media screen and (min-width: 992px) {
+    
+    :root{
+     font-size: 16px;
+    }
+ }
+
+@media screen and (min-width: 768px) {
+
+    :root{
+     font-size: 14px;
+    }  
+
+    .dropdown.user {
+        position: absolute;
+        top: 13px;
+        right: 10px;
+    }     
+}
+
+@media screen and (max-width: 767px) {
+    .dropdown.user {
+        margin-left: auto;
+        margin-right: 10px;
+    }     
+}
+
+@media screen and (max-width: 576px) {
+    :root .container, :root .container-sm {
+        border-radius: 0px;
+    }
+ }
+
+ @media screen and (max-width: 500px) {
+
+    .card-content-page {
+        padding: 1rem 1rem 4rem;
+    }
+    
+    .hr-menu {
+        margin-left: -20px;
+    }
+ }
+
+  @media screen and (max-width: 350px) {
+     
+    .list-cards {
+        display: block;
+    }
+
+    .list-cards .card-item {
+        min-width: 140px;
+    }
+
+    .img-fluid {
+        width: 100%;
+    }
+ }
+
+ @media screen and (max-width: 250px) {
+    .card-content-page {
+        padding: 1rem 0 4rem;
+    }
+
+    .btn-add {
+        max-height: 25px;
+        padding: 4px;
+    }
+
+    .btn-add::after {
+        content: none;
+    }
+
+    .h2 {
+        font-size: calc(1.325rem + .4vw);
+    }
+
+    .nav-link {
+        width: 100px;
+    }
+    
+    .hr-menu {
+        margin-left: -10px;
+    }
+
+    .container {
+        padding: 0 8px;
+    }
+ }

@@ -1,0 +1,70 @@
+.pagina-nao-encontrada {
+  display: grid;
+  color: white;
+  justify-content: center;
+}
+
+.pagina-nao-encontrada div {
+  display: flex;
+  align-items: end;
+  height: 36vh;
+}
+
+.pagina-nao-encontrada div h1 {
+  font-size: 10rem;
+}
+
+.pagina-nao-encontrada div p {
+  font-size: 2.5rem;
+  max-width: 250px;
+  font-weight: 200;
+  margin-left: 12px;
+}
+
+.pagina-nao-encontrada a {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  box-shadow: 4px 4px 1px black;
+  text-align: center;
+  margin: 46px 4% 0;
+}
+
+@media screen and (max-width: 576px) {
+  .pagina-nao-encontrada div {
+    max-width: 50vh;
+  }
+  .pagina-nao-encontrada div h1 {
+    font-size: 6rem;
+  }
+
+  .pagina-nao-encontrada div p {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .pagina-nao-encontrada div {
+    max-width: 40vh;
+  }
+
+  .pagina-nao-encontrada div h1 {
+    font-size: 3.5rem;
+    margin-left: 8px;
+  }
+
+  .pagina-nao-encontrada div p {
+    font-size: 1rem;
+    margin-left: 8px;
+  }
+
+  .pagina-nao-encontrada a {
+    width: 80%;
+    margin: 2rem auto;
+    padding: 15px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,400&display=swap');
+
+:root {
+  font-size: 12px;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  background-color: #b62735;
+  height: 100vh;
+}
+
+.container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 20px;
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
+}
+
+.card-content-page {
+  padding: 1rem 6rem 4rem;
+}
+
+
+/* Responsividade */
+@media screen and (max-width: 576px) {
+  :root .container, :root .container-sm {
+    border-radius: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-content-page {
+    padding: 1rem 1rem 4rem;
+  }
+}
+
+
+@media screen and (max-width: 250px) {
+  .card-content-page {
+    padding: 1rem 0 4rem;
+  }
+
+  .container {
+    padding: 0 8px;
+  }
+}
