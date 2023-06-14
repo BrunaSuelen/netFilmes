@@ -21,7 +21,9 @@ const AddSerie = () => {
         event.preventDefault();
         const user = JSON.parse(localStorage.getItem('user'));
 
+        //Deixar o nome maiúsculo para ser único
         const body = {...formData, 'userId': user.id} ;
+        body.name = formData.name.toUpperCase();
 
         api.post("/serie", body)
         .then((response) => {
