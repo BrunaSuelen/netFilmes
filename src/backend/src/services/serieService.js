@@ -34,6 +34,15 @@ async function createSerie(data){
     const {nome, image, categoria, comment, streamingId, usuarioId} = data;
     try{
         return await new Promise((resolve,reject)=> {
+            db.get(`SELECT COUNT(*) as count FROM Serie as s where s.nome=? and s.usuario_id=? `,
+            [nome, usuarioId],
+            function(error, row){
+                if(error || row.count != 0){
+                    reject(false);
+                }
+            } );
+            
+            
             db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
             (?, ?, ?, ?, ?, ?);`,
             [nome, image, categoria, comment, streamingId, usuarioId],

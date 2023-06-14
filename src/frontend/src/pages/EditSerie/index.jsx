@@ -47,8 +47,8 @@ const EditSerie = () => {
 
     return (
         <>
-            {alert.show && <Notification props={{alert, setAlert}}/> }  
-            <div className="mb-4 d-flex justify-content-between ">
+            <div className="mb-4 d-flex justify-content-between position-relative">
+                {alert.show && <Notification props={{alert, setAlert}}/> }  
                 <h1 className="h2" id="title-page">Editar Série</h1>
             </div>
             <SerieForm props={{ serie, handleSubmit }} />

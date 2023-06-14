@@ -1,5 +1,5 @@
 
-const {db} = require('../db');
+const {db, populateStreamingById} = require('../db');
 
 async function login(data){
   const { email, password } = data;
@@ -35,13 +35,13 @@ async function createUser(data){
           if (error) {
             console.error(error.message);
             reject(false); 
-          } else {
-            resolve(true); 
           }
+          const {lastID} = this;
+          populateStreamingById(lastID);
+          resolve(true);
         }
       );
-    });
-
+  });
   } catch (error) {
     return false; 
   }

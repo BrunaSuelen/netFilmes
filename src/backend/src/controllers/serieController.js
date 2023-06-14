@@ -37,7 +37,9 @@ const create = async (req, res) => {
         const isCreated = await serieService.createSerie(body);
 
         if(!isCreated){
-            throw new Error("Não conseguiu criar no banco de dados");
+            response['message'] = "Série já cadastrada";
+            response['created']= false;
+            return res.status(400).json(response);
         }
 
         response['created'] = isCreated;

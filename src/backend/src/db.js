@@ -214,5 +214,19 @@ function populateDabase() {
 }
 
 
-module.exports = {db, initDb, populateDabase};
+function populateStreamingById(id){
+    db.run(`INSERT INTO Streaming (nome, image, usuario_id) VALUES
+    ('Netflix', 'http://localhost:5000/uploads/netflix.png', ${id}),
+    ('Amazon Prime', 'http://localhost:5000/uploads/amazon-prime.png', ${id}),
+    ('HBO Max', 'http://localhost:5000/uploads/hbo.png', ${id}),
+    ('GloboPlay', 'http://localhost:5000/uploads/globo-play.png', ${id}),
+    ('Disney', 'http://localhost:5000/uploads/disney.png', ${id}),
+    ('Paramount', 'http://localhost:5000/uploads/paramount.png', ${id}),
+    ('Discovery', 'http://localhost:5000/uploads/discovery.png', ${id}),
+    ('Apple TV', 'http://localhost:5000/uploads/apple-tv.png', ${id}),
+    ('Telecine', 'http://localhost:5000/uploads/telecine.png', ${id}),
+    ('PlayPlus', 'http://localhost:5000/uploads/playplus.png', ${id});`);
+}
+
+module.exports = {db, initDb, populateDabase, populateStreamingById};
 
