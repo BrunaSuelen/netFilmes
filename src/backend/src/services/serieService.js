@@ -39,20 +39,19 @@ async function createSerie(data){
             function(error, row){
                 if(error || row.count != 0){
                     reject(false);
+                }else{
+                    db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
+                    (?, ?, ?, ?, ?, ?);`,
+                    [nome, image, categoria, comment, streamingId, usuarioId],
+                    function (error){
+                        if(error){
+                            reject(false)
+                        }else{
+                            resolve(true)
+                        }
+                    });
                 }
             } );
-            
-            
-            db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
-            (?, ?, ?, ?, ?, ?);`,
-            [nome, image, categoria, comment, streamingId, usuarioId],
-            function (error){
-                if(error){
-                    reject(false)
-                }else{
-                    resolve(true)
-                }
-            });
         })
     }catch(error){
         return false;

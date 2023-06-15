@@ -35,10 +35,11 @@ async function createUser(data){
           if (error) {
             console.error(error.message);
             reject(false); 
+          }else{
+            const {lastID} = this;
+            populateStreamingById(lastID);
+            resolve(true);
           }
-          const {lastID} = this;
-          populateStreamingById(lastID);
-          resolve(true);
         }
       );
   });
@@ -48,3 +49,4 @@ async function createUser(data){
 }
 
 module.exports = { login, createUser};
+
