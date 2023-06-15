@@ -21,7 +21,9 @@ const AddSerie = () => {
         event.preventDefault();
         const user = JSON.parse(localStorage.getItem('user'));
 
+        //Deixar o nome maiúsculo para ser único
         const body = {...formData, 'userId': user.id} ;
+        body.name = formData.name.toUpperCase();
 
         api.post("/serie", body)
         .then((response) => {
@@ -38,9 +40,8 @@ const AddSerie = () => {
 
     return (
         <>
-            {alert.show && <Notification props={{alert, setAlert}}/> }
-
-            <div className="mb-4 d-flex justify-content-between ">
+            <div className="mb-4 d-flex justify-content-between position-relative">
+                {alert.show && <Notification props={{alert, setAlert}}/> }
                 <h1 className="h2" id="title-page">Cadastrar Série</h1>
             </div>
             <SerieForm props={{ handleSubmit }} />
