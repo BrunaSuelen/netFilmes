@@ -101,7 +101,7 @@ const SerieForm = ({ props}) => {
 
             <div className="mb-3">
                 <label htmlFor="nameSerie" className="form-label">Série</label>
-                <input type="text" className="form-control" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.name} required />
+                <input type="text" className="form-control form-name" id="nameSerie" name="name" onChange={handleOnChangeInput} onFocus={handleOnFocusInput} value={formData?.name} required />
                 <span className="error" id="error-nameSerie">{errorMessages?.name}</span>
             </div>
 

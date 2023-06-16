@@ -85,3 +85,7 @@ button:active {
   font-size: 10px;
   margin-bottom: 10px;
 }
+
+.form-control.form-name {
+  text-transform: uppercase;
+}

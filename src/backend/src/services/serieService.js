@@ -35,24 +35,19 @@ async function createSerie(data){
     try{
         return await new Promise((resolve,reject)=> {
             db.get(`SELECT COUNT(*) as count FROM Serie as s where s.nome=? and s.usuario_id=? `,
-            [nome, usuarioId],
-            function(error, row){
-                if(error || row.count != 0){
-                    reject(false);
-                }
-            } );
+                [nome, usuarioId],
+                function(error, row) {
+                    if (error || row.count != 0) {
+                        reject(false);
+                    } else {
+                        db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES (?, ?, ?, ?, ?, ?);`,
+                            [nome, image, categoria, comment, streamingId, usuarioId],
+                            function (error) {
+                                error ? reject(false) : resolve(true)
+                            });
+                    }
+                } );
             
-            
-            db.run(`INSERT INTO Serie (nome, image, categoria, comment, streaming_id, usuario_id) VALUES
-            (?, ?, ?, ?, ?, ?);`,
-            [nome, image, categoria, comment, streamingId, usuarioId],
-            function (error){
-                if(error){
-                    reject(false)
-                }else{
-                    resolve(true)
-                }
-            });
         })
     }catch(error){
         return false;

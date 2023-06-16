@@ -46,7 +46,7 @@ const create = async (req, res) => {
         response['message'] = "Criado com sucesso !";
         return res.status(200).json(response);
     }catch(error){
-        response['message'] = 'Erro ao criar streaming';
+        response['message'] = 'Erro ao criar série';
         response['created']= false;
         return res.status(400).json(response);
     }
